@@ -1,0 +1,209 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<title>Turn one photo into a video of you in 10 poses — @theabhaychopra</title>
+<meta name="description" content="Made in Google Flow on the free daily credits — the two prompts, the settings, and the one line that keeps your face the same.">
+<meta property="og:title" content="Turn one photo into a video of you in 10 poses"><meta property="og:description" content="Made in Google Flow on the free daily credits — the two prompts, the settings, and the one line that keeps your face the same.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/flow/">
+<meta property="og:image" content="https://theabhaychopra.github.io/flow/img/cover_mascot.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-21T16:00:10Z">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Public+Sans:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+@page { size: 6in 10.6667in; margin: 0; }
+:root { --paper:#F0EBDF; --card:#FCF9F5; --sand:#D1C2AD; --ink:#15100C; --accent:#B4421E; --dark:#4E2213; --second:#9EC8C1; --third:#D8A772; --mute:#7D7064; --x: 34px; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font: 500 15px/1.5 Inter, sans-serif; letter-spacing: -0.005em; text-wrap: pretty; }
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b { font-weight: 700; }
+p { margin: 0; }
+code { font: 500 0.9em "IBM Plex Mono", monospace; background: var(--card); padding: 1px 5px; border-radius: 4px; }
+.kicker { font: 700 10.5px/1.2 "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+h2 { font: 400 44px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+h2 em, h1 em, .bignum em { color: var(--accent); }
+h3 { font: 400 26px/1 "Instrument Serif", serif; letter-spacing: -0.02em; margin: 0; }
+.lead { font-size: 16.5px; margin-top: 10px; }
+/* every page: the same frame */
+.page { width: 6in; height: 10.6667in; position: relative; overflow: hidden; break-after: page; display: flex; flex-direction: column; padding: 26px var(--x) 34px; }
+.page:last-child { break-after: auto; }
+.mark { height: 30px; flex: none; display: flex; justify-content: space-between; align-items: center; font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+.mark span { display: flex; align-items: center; gap: 9px; }
+.mark img { width: 28px; height: 28px; border-radius: 50%; background: var(--card); border: 1.5px solid var(--sand); object-fit: contain; }
+.body { flex: 1; min-height: 0; margin-top: 22px; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
+.body > * { flex: none; }
+/* spread: the page's blocks share its height evenly (no hole at the bottom) */
+.body.spread { justify-content: space-between; }
+.body > .fill { flex: 1 1 auto; min-height: 120px; display: flex; flex-direction: column; }
+/* cover */
+.cover { background: #F0EBDF; padding: 0; }
+.cover .mark { position: absolute; left: var(--x); right: var(--x); top: 26px; }
+.cover .stack { position: absolute; left: 0; right: 0; top: 82px; bottom: 92px; display: flex; flex-direction: column; }
+.cover .kick { margin: 0 var(--x) 10px; }
+.cover h1 { margin: 0 30px 0 var(--x); font: 400 66px/0.9 "Instrument Serif", serif; letter-spacing: -0.04em; text-wrap: balance; }
+.cover .sub { margin: 16px 44px 0 var(--x); font: 500 16.5px/1.45 Inter, sans-serif; text-wrap: pretty; }
+.cover .art { flex: 1; min-height: 0; margin-top: 10px; display: flex; align-items: flex-end; justify-content: center; }
+.cover .art img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 92px; background: var(--accent); color: var(--paper); display: flex; align-items: center; padding: 0 var(--x); font: 600 11px/1.6 "Public Sans", sans-serif; letter-spacing: 0.26em; text-transform: uppercase; }
+/* blocks */
+.step .stephead { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.step > p { margin-bottom: 6px; }
+.num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--paper); display: flex; align-items: center; justify-content: center; font: 400 20px "Instrument Serif", serif; }
+.prompt { background: var(--card); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 12px 14px 13px; box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
+.step .prompt { margin-top: 6px; }
+.prompt pre { margin: 0; white-space: pre-wrap; font: 400 12.2px/1.55 "IBM Plex Mono", monospace; color: var(--ink); }
+.after { font-size: 13.5px; color: var(--mute); margin-top: 8px; }
+.callout { background: var(--dark); color: var(--paper); border-radius: 14px; padding: 16px 18px; }
+.callout .kicker { color: var(--third); }
+.callout a { color: var(--third); }
+.big { background: var(--card); border-radius: 16px; padding: 18px 20px; justify-content: center; }
+.bignum { font: 400 64px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; }
+.big p { margin-top: 10px; color: var(--mute); font-size: 14px; }
+.list h3 { margin-bottom: 8px; }
+.list ul, .start ol { margin: 0; padding-left: 20px; }
+.list li, .start li { margin: 0 0 7px; }
+.rowsbox { background: var(--card); border-radius: 14px; padding: 14px 16px; }
+.rows { margin: 2px 0 0; }
+.row { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-top: 1px solid rgba(0,0,0,0.09); }
+.row:first-child { border-top: none; }
+.row .k { flex: none; width: 122px; font: 700 9.5px/1.3 "Public Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.row .v { font-size: 14px; line-height: 1.45; }
+.note { font-size: 12.5px; color: var(--mute); margin-top: 8px; }
+.rowsbox.narrow .row .k { width: 22px; font-size: 12px; letter-spacing: 0; }
+/* a rows card that fills its page spreads its rows evenly instead of leaving a gap at the bottom */
+.rowsbox.fill .rows { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+figure.img { margin: 0; }
+figure.img img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+figure.img.fill img { flex: 1; min-height: 0; height: auto; }
+figure.img.in { margin: 0 0 10px; }
+figcaption { font-size: 12.5px; color: var(--mute); margin-top: 7px; flex: none; }
+.tool { background: var(--card); border-radius: 16px; padding: 18px 18px 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+.tool > p { margin-bottom: 10px; }
+.toolhead { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.toolhead .logo { width: 54px; height: 54px; border-radius: 12px; object-fit: contain; background: var(--paper); padding: 6px; flex: none; }
+.toolhead .kicker { margin-bottom: 4px; }
+.instead { font-size: 13.5px; color: var(--mute); margin-top: 4px; }
+.instead s { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.instead b { color: var(--accent); }
+.tool .rows { margin-bottom: 12px; }
+.start .kicker { margin-bottom: 6px; }
+.good { font-size: 13px; margin-top: 4px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+/* a tool on its own page: bigger type for phones, sections spread down the card */
+.tool.fill { justify-content: space-between; padding: 22px 20px 20px; }
+.tool.fill .toolhead .logo { width: 66px; height: 66px; }
+.tool.fill h3 { font-size: 34px; }
+.tool.fill .instead { font-size: 15px; }
+.tool.fill > p, .tool.fill .start li { font-size: 16.5px; line-height: 1.5; }
+.tool.fill .row { padding: 10px 0; }
+.tool.fill .row .k { width: 128px; font-size: 10px; }
+.tool.fill .row .v { font-size: 15.5px; }
+.tool.fill .good { font-size: 14.5px; }
+.tool.fill .links { margin-top: 0; }
+.tool.fill .pill { font-size: 14px; padding: 9px 15px; }
+.big.fill { justify-content: center; }
+.big.fill .bignum { font-size: 84px; }
+.pill { display: inline-flex; flex-direction: column; gap: 1px; text-decoration: none; background: var(--accent); color: var(--paper); border-radius: 12px; padding: 8px 13px; font: 700 13px/1.2 Inter, sans-serif; }
+.pill span { font: 500 10.5px/1.2 Inter, sans-serif; opacity: 0.8; }
+.end { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
+.end figure.img.fill { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.end figure.img.fill img { border-radius: 16px; }
+/* an illustration (his character) stands on the page paper: whole, no box, no shadow */
+.end figure.img.fill.art img { object-fit: contain; border-radius: 0; box-shadow: none; }
+.sign { font: 400 30px "Instrument Serif", serif; display: flex; align-items: baseline; justify-content: space-between; }
+.sign span { font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+/* web: one readable column on a phone (the PDF keeps the fixed 9:16 pages) */
+body { font-size: 16px; }
+.page { width: auto; height: auto; max-width: 600px; margin: 0 auto; overflow: visible; display: block; padding: 30px 20px; break-after: auto; }
+.page + .page { border-top: 1px solid rgba(0,0,0,0.08); }
+.body { margin-top: 0; overflow: visible; display: flex; flex-direction: column; gap: 18px; }
+.body.spread { justify-content: flex-start; }
+.body > .fill { display: block; min-height: 0; }
+figure.img.fill img { height: auto; }
+.end figure.img.fill.art img { width: auto; max-width: 100%; max-height: 62svh; margin: 0 auto; }
+.rowsbox.fill .rows { display: block; }
+h2 { font-size: clamp(36px, 10.5vw, 46px); }
+.tool.fill h3 { font-size: 30px; }
+.big.fill .bignum { font-size: clamp(56px, 16vw, 84px); }
+.row .k { width: 108px; }
+.cover { max-width: 600px; margin: 0 auto; min-height: min(100svh, 940px); position: relative; display: flex; flex-direction: column; padding: 0 0 92px; }
+.cover .mark { position: static; padding: 22px 20px 0; }
+.cover .stack { position: static; flex: 1; display: flex; flex-direction: column; padding-top: 26px; }
+.cover .kick { margin: 0 20px 10px; }
+.cover h1 { margin: 0 20px; font-size: clamp(46px, 13vw, 66px); }
+.cover .sub { margin: 16px 20px 0; }
+.cover .art img { max-height: 44svh; }
+.cover .band { padding: 0 20px; }
+.getpdf { max-width: 600px; margin: 0 auto; padding: 18px 20px 6px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); text-decoration: none; border-radius: 999px; padding: 11px 18px; font: 700 14px Inter, sans-serif; }
+.btn.alt { background: var(--card); color: var(--ink); border: 1.5px solid var(--sand); }
+.prompt { position: relative; }
+.prompt .kicker { padding-right: 78px; min-height: 24px; line-height: 1.45; }
+.copy { position: absolute; top: 9px; right: 9px; border: 0; background: var(--accent); color: var(--paper); border-radius: 999px; padding: 6px 13px; font: 700 12px Inter, sans-serif; cursor: pointer; }
+.foot { max-width: 600px; margin: 0 auto; padding: 8px 20px 48px; color: var(--mute); font-size: 13px; }
+</style></head><body>
+<div class="page cover">
+  <div class="mark"><span><img src="img/illustrated_face-1792343890582.png"/>@theabhaychopra</span><span>Free guide</span></div>
+  <div class="stack">
+  <div class="kicker kick">Both prompts + my exact settings</div>
+  <h1>Turn one photo into a video of you in <em>10 poses</em></h1>
+  <div class="sub">Made in Google Flow on the free daily credits — the two prompts, the settings, and the one line that keeps your face the same.</div>
+  <div class="art"><img src="img/cover_mascot.jpg"/></div>
+  </div>
+  <div class="band">Google Flow · checked 21 Oct 2026</div>
+</div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Before you start</div><h2>What you <em>need</em></h2></section>
+<div class="list"><ul><li><b>A Google account</b> — Flow is for ages 18+ and works in India.</li><li><b>Google Flow</b> — a website, nothing to install: <a href="https://labs.google/flow">labs.google/flow</a>. Phone browser or laptop.</li><li><b>One clear photo of you</b> — the next section says which kind.</li><li><b>Free credits</b> — Flow gives everyone 50 credits a day. One 10-second video is 15.</li></ul></div>
+<div class="callout"><div class="kicker">How it works</div><p>Flow doesn't have a "10 poses" button. You do it in two moves: first Flow makes <b>one image</b> of you in 10 poses, then it <b>animates that image</b> so every pose moves on its own.</p></div>
+<div class="rowsbox fill narrow"><div class="kicker">The steps</div><div class="rows"><div class="row"><span class="k">0</span><span class="v"><b>Pick the right photo</b> — the face starts here</span></div><div class="row"><span class="k">1</span><span class="v"><b>Upload it</b> to a new Flow project</span></div><div class="row"><span class="k">2</span><span class="v"><b>Make one image of you in 10 poses</b> — prompt 1</span></div><div class="row"><span class="k">3</span><span class="v"><b>Animate it</b> — prompt 2</span></div><div class="row"><span class="k">+</span><span class="v"><b>One pose, full screen</b> — bonus prompt</span></div></div></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Step 0</div><h2>Pick the <em>right photo</em></h2><p class="lead">The #1 complaint on this trend is "my face changed". Most of the time, the photo is why.</p></section>
+<div class="rowsbox fill"><div class="kicker">Use a photo that is</div><div class="rows"><div class="row"><span class="k">Front-facing</span><span class="v">both eyes visible, looking at the camera</span></div><div class="row"><span class="k">Sharp, well lit</span><span class="v">daylight from a window is perfect</span></div><div class="row"><span class="k">Unfiltered</span><span class="v">no beauty mode, no smoothing, no stickers</span></div><div class="row"><span class="k">Just you</span><span class="v">never other people's photos, and no children</span></div><div class="row"><span class="k">Waist-up</span><span class="v">or full body, on a plain wall — the poses need your body too</span></div><div class="row"><span class="k">Face clear</span><span class="v">no sunglasses, no cap covering your face</span></div></div></div>
+<div class="callout"><div class="kicker">Why faces drift</div><p>A filtered selfie gives Flow a face that isn't quite yours, a side angle hides half of it, and a tiny low-res photo leaves it guessing. Start sharp and straight-on, and the face-lock lines do the rest.</p></div></div></div>
+<div class="page"><div class="body"><div class="step"><div class="stephead"><span class="num">1</span><h3>Upload your photo</h3></div><p>Open <a href="https://labs.google/flow">labs.google/flow</a> → <b>New project</b> → upload your photo into it.</p></div>
+<div class="step"><div class="stephead"><span class="num">2</span><h3>Make one image of you in 10 poses</h3></div><div class="prompt"><div class="kicker">Prompt 1 — image (Nano Banana, 9:16), your photo attached</div><pre>Use my uploaded photo as the only reference for this person.
+Make ONE vertical 9:16 image: a clean grid of 2 columns × 5 rows — 10 panels of the SAME man, full body, in 10 different poses (the list is below).
+Keep his exact face, hairstyle, beard, skin tone and body shape from my photo in every panel. Do not beautify, slim or change him.
+Same outfit in all 10 panels: black t-shirt, dark jeans, white sneakers.
+Plain white studio background, soft even light, thin white gaps between panels. No text, no numbers, no borders.</pre></div><p class="after">Make 2 and keep the one where <b>every</b> face looks like you. If one panel looks like someone else, generate again — don't animate it.</p></div>
+<div class="prompt"><div class="kicker">Add to prompt 1</div><pre>Poses, left to right, top to bottom:
+1. standing straight, hands in pockets
+2. arms crossed, confident smile
+3. walking towards the camera
+4. looking back over his shoulder
+5. sitting on a stool, leaning forward
+6. adjusting his watch
+7. hand on his chin, thinking
+8. laughing, head tilted back
+9. leaning on a wall, one foot up
+10. side profile, looking into the distance</pre></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Prompt 1, your way</div><h2>Make it <em>yours</em></h2><p class="lead">Change the words, keep the face-lock lines.</p></section>
+<div class="rowsbox fill"><div class="kicker">Swap in your version</div><div class="rows"><div class="row"><span class="k">Women's version</span><span class="v">write <b>woman</b> instead of man, and <i>her</i> instead of his</span></div><div class="row"><span class="k">Traditional outfit</span><span class="v">describe it in the outfit line — <i>a dark green silk saree with gold border and jhumkas</i> — and add <b>keep the saree and jewellery identical</b></span></div><div class="row"><span class="k">Fewer poses</span><span class="v">a 2 × 3 grid of 6 poses gives each face more pixels — easier to keep it yours</span></div><div class="row"><span class="k">Your business</span><span class="v">a product in your hand, your shop as the background, a uniform as the outfit</span></div></div></div>
+<div class="callout"><div class="kicker">Make 2, keep the best</div><p>Generate the image twice and keep the one where <b>every</b> face looks like you. A wrong face in the image stays wrong in the video.</p></div></div></div>
+<div class="page"><div class="body"><div class="step"><div class="stephead"><span class="num">3</span><h3>Animate it</h3></div><p>Pick <b>Frames to Video</b> and set your 10-pose image as the first frame.</p><div class="prompt"><div class="kicker">Prompt 2 — video</div><pre>Animate this image. It is a grid of 10 panels of the same man. Animate every panel on its own, with small natural movements that fit its pose — a step, a turn of the head, a smile, a breath, a hand moving.
+Keep his exact face and outfit from the image in every frame. No face changes, no morphing, no new people.
+The grid, the white gaps and the background stay perfectly still: static camera, no zoom, no pan, no transitions, no text.
+Realistic, smooth motion for the full 10 seconds.</pre></div></div>
+<div class="rowsbox fill"><div class="kicker">My settings</div><div class="rows"><div class="row"><span class="k">Mode</span><span class="v">Frames to Video — the 10-pose image as the first frame</span></div><div class="row"><span class="k">Model</span><span class="v">Omni — the one with a <b>10 s</b> option</span></div><div class="row"><span class="k">Ratio</span><span class="v">9:16 (vertical, made for Reels)</span></div><div class="row"><span class="k">Length</span><span class="v">10 s</span></div><div class="row"><span class="k">Quality</span><span class="v">720p = 15 credits · 360p = half that, good for a test run</span></div><div class="row"><span class="k">Outputs</span><span class="v">1 — each extra output costs the same again</span></div></div></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">The fix nobody shows</div><h2>The <em>face-lock</em> lines</h2><p class="lead">These lines are already in both prompts. If your face still drifts, check they're there, word for word.</p></section>
+<div class="prompt"><div class="kicker">Keep these in every prompt</div><pre>Keep his exact face, hairstyle, beard, skin tone and body shape from my photo.
+Do not beautify, slim or change him.
+No face changes, no morphing, no new people.
+Static camera, no zoom.</pre></div>
+<div class="rowsbox fill narrow"><div class="kicker">Still changing? Try, in this order</div><div class="rows"><div class="row"><span class="k">1</span><span class="v">A sharper, front-facing photo with <b>no filter</b></span></div><div class="row"><span class="k">2</span><span class="v"><b>Fewer poses</b> — 6 instead of 10, so each face is bigger</span></div><div class="row"><span class="k">3</span><span class="v"><b>Smaller movements</b> — "a breath, a small smile", not "dancing"</span></div><div class="row"><span class="k">4</span><span class="v"><b>360p first</b> to test cheaply, then 720p once the faces hold</span></div><div class="row"><span class="k">5</span><span class="v">Regenerate the <b>image</b> before you animate it</span></div></div></div></div></div>
+<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Bonus</div><h2>One pose, <em>full screen</em></h2><p class="lead">The grid is the hook. One pose on its own, full screen, is the clip you'll actually post.</p></section>
+<div class="prompt"><div class="kicker">Prompt 3a — image, your 10-pose image attached</div><pre>From this grid, take pose 3 and make it a single full-frame vertical 9:16 photo of him in that pose. Same face, same outfit, same white studio, full body, sharp. Keep his exact face from my photo.</pre></div>
+<div class="prompt"><div class="kicker">Prompt 3b — Frames to Video, 9:16, 8 s</div><pre>Animate this photo: he walks two steps towards the camera and smiles. Keep his exact face and outfit. Static camera, no zoom. Realistic, smooth motion.</pre></div>
+<div class="callout"><div class="kicker">Cost</div><p>An 8-second Omni video at 720p is <b>12 credits</b>. The grid (15) + one full-screen pose (12) = 27 — inside one day's free 50.</p></div></div></div>
+<div class="page"><div class="body spread"><div class="big"><div class="kicker">What it costs</div><div class="bignum">3 videos a day → <em>$0</em></div><p>Everyone gets 50 credits a day, with or without a subscription.</p></div>
+<div class="rowsbox fill"><div class="kicker">Flow credits — from Google's help pages</div><div class="rows"><div class="row"><span class="k">Free, daily</span><span class="v"><b>50 credits a day</b>, with or without a subscription</span></div><div class="row"><span class="k">10 s video</span><span class="v">15 credits at 720p (Omni) — half at 360p</span></div><div class="row"><span class="k">8 s video</span><span class="v">12 credits at 720p (Omni)</span></div><div class="row"><span class="k">AI Plus</span><span class="v">+200 credits a month (₹399/month in India)</span></div><div class="row"><span class="k">AI Pro</span><span class="v">+1,000 credits a month (₹1,950/month · $19.99 in the US) — you don't need it for this</span></div></div><p class="note">Checked on 21 Oct 2026 on <a href="https://support.google.com/flow/answer/16526234">Flow's credits page</a> and <a href="https://gemini.google/in/subscriptions/">Google's India plans</a>. Google changes these — check before you buy anything.</p></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Good to know</div><h2>Before you <em>post</em></h2></section>
+<div class="rowsbox fill"><div class="rows"><div class="row"><span class="k">Evening rush</span><span class="v">without a subscription you may not be able to make videos from about <b>7:30 to 10:30 PM IST</b> (2–5 PM UTC). Make them in the morning.</span></div><div class="row"><span class="k">Watermark</span><span class="v">videos made in India get a small visible Google watermark, plus an invisible SynthID one. Only the top Ultra plan removes the visible one.</span></div><div class="row"><span class="k">Couldn't generate</span><span class="v">Flow filters uploaded photos of people. Try a clearer photo of yourself — never someone else's, never a child's.</span></div><div class="row"><span class="k">Phone trouble</span><span class="v">use Chrome, or a laptop. The Flow Agent (asking for variations in chat) is web-only.</span></div><div class="row"><span class="k">Client work</span><span class="v">Google says it won't claim ownership of what you make — read <a href="https://support.google.com/flow/answer/16353333">Flow's terms</a> first.</span></div><div class="row"><span class="k">AI label</span><span class="v">these are AI videos made from your photo — turn on Instagram's AI label when you post.</span></div></div></div></div></div>
+<div class="page"><div class="body"><div class="end"><figure class="img fill art"><img src="img/wave_end.jpg" style="object-position:50% 100%"/></figure><h2>Now make <em>yours</em></h2><p class="lead">One clear photo is all it takes.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></div>
+<div class="getpdf"><a class="btn" href="flow-10-poses-guide.pdf" download>Download the PDF ↓</a><a class="btn alt" href="https://www.instagram.com/theabhaychopra/">@theabhaychopra on Instagram</a></div>
+<p class="foot">Free guide by @theabhaychopra. Updated 2026-10-21.</p>
+<script>
+document.querySelectorAll(".prompt").forEach((p) => {
+  const b = document.createElement("button"); b.className = "copy"; b.textContent = "Copy";
+  b.onclick = async () => { try { await navigator.clipboard.writeText(p.querySelector("pre").innerText); b.textContent = "Copied ✓"; } catch { b.textContent = "Select + copy"; } setTimeout(() => (b.textContent = "Copy"), 1800); };
+  p.appendChild(b);
+});
+</script></body></html>
