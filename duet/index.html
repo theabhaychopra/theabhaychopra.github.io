@@ -1,0 +1,203 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<title>Your own morning brief in normal Claude — @theabhaychopra</title>
+<meta name="description" content="Claude Duet's morning brief is a US-only waitlist for now. These two prompts give you that brief in normal Claude, from your Gmail and Google Calendar, today.">
+<meta property="og:title" content="Your own morning brief in normal Claude"><meta property="og:description" content="Claude Duet's morning brief is a US-only waitlist for now. These two prompts give you that brief in normal Claude, from your Gmail and Google Calendar, today.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/duet/">
+<meta property="og:image" content="https://theabhaychopra.github.io/duet/img/cover_mascot-1792675625484.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-22T18:21:53Z">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Public+Sans:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+@page { size: 6in 10.6667in; margin: 0; }
+:root { --paper:#F0EBDF; --card:#FCF9F5; --sand:#D1C2AD; --ink:#15100C; --accent:#B4421E; --dark:#4E2213; --second:#9EC8C1; --third:#D8A772; --mute:#7D7064; --x: 34px; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font: 500 15px/1.5 Inter, sans-serif; letter-spacing: -0.005em; text-wrap: pretty; }
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b { font-weight: 700; }
+p { margin: 0; }
+code { font: 500 0.9em "IBM Plex Mono", monospace; background: var(--card); padding: 1px 5px; border-radius: 4px; }
+.kicker { font: 700 10.5px/1.2 "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+h2 { font: 400 44px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+h2 em, h1 em, .bignum em { color: var(--accent); }
+h3 { font: 400 26px/1 "Instrument Serif", serif; letter-spacing: -0.02em; margin: 0; }
+.lead { font-size: 16.5px; margin-top: 10px; }
+/* every page: the same frame */
+.page { width: 6in; height: 10.6667in; position: relative; overflow: hidden; break-after: page; display: flex; flex-direction: column; padding: 26px var(--x) 34px; }
+.page:last-child { break-after: auto; }
+.mark { height: 30px; flex: none; display: flex; justify-content: space-between; align-items: center; font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+.mark span { display: flex; align-items: center; gap: 9px; }
+.mark img { width: 28px; height: 28px; border-radius: 50%; background: var(--card); border: 1.5px solid var(--sand); object-fit: contain; }
+.body { flex: 1; min-height: 0; margin-top: 22px; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
+.body > * { flex: none; }
+/* spread: the page's blocks share its height evenly (no hole at the bottom) */
+.body.spread { justify-content: space-between; }
+.body > .fill { flex: 1 1 auto; min-height: 120px; display: flex; flex-direction: column; }
+/* cover */
+.cover { background: #F0EBDF; padding: 0; }
+.cover .mark { position: absolute; left: var(--x); right: var(--x); top: 26px; }
+.cover .stack { position: absolute; left: 0; right: 0; top: 82px; bottom: 92px; display: flex; flex-direction: column; }
+.cover .kick { margin: 0 var(--x) 10px; }
+.cover h1 { margin: 0 30px 0 var(--x); font: 400 66px/0.9 "Instrument Serif", serif; letter-spacing: -0.04em; text-wrap: balance; }
+.cover .sub { margin: 16px 44px 0 var(--x); font: 500 16.5px/1.45 Inter, sans-serif; text-wrap: pretty; }
+.cover .art { flex: 1; min-height: 0; margin-top: 10px; display: flex; align-items: flex-end; justify-content: center; }
+.cover .art img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 92px; background: var(--accent); color: var(--paper); display: flex; align-items: center; padding: 0 var(--x); font: 600 11px/1.6 "Public Sans", sans-serif; letter-spacing: 0.26em; text-transform: uppercase; }
+/* blocks */
+.step .stephead { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.step > p { margin-bottom: 6px; }
+.num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--paper); display: flex; align-items: center; justify-content: center; font: 400 20px "Instrument Serif", serif; }
+.prompt { background: var(--card); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 12px 14px 13px; box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
+.step .prompt { margin-top: 6px; }
+.prompt pre { margin: 0; white-space: pre-wrap; font: 400 12.2px/1.55 "IBM Plex Mono", monospace; color: var(--ink); }
+.after { font-size: 13.5px; color: var(--mute); margin-top: 8px; }
+.callout { background: var(--dark); color: var(--paper); border-radius: 14px; padding: 16px 18px; }
+.callout .kicker { color: var(--third); }
+.callout a { color: var(--third); }
+.big { background: var(--card); border-radius: 16px; padding: 18px 20px; justify-content: center; }
+.bignum { font: 400 64px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; }
+.big p { margin-top: 10px; color: var(--mute); font-size: 14px; }
+.list h3 { margin-bottom: 8px; }
+.list ul, .start ol { margin: 0; padding-left: 20px; }
+.list li, .start li { margin: 0 0 7px; }
+.rowsbox { background: var(--card); border-radius: 14px; padding: 14px 16px; }
+.rows { margin: 2px 0 0; }
+.row { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-top: 1px solid rgba(0,0,0,0.09); }
+.row:first-child { border-top: none; }
+.row .k { flex: none; width: 122px; font: 700 9.5px/1.3 "Public Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.row .v { font-size: 14px; line-height: 1.45; }
+.note { font-size: 12.5px; color: var(--mute); margin-top: 8px; }
+.rowsbox.narrow .row .k { width: 22px; font-size: 12px; letter-spacing: 0; }
+/* a rows card that fills its page spreads its rows evenly instead of leaving a gap at the bottom */
+.rowsbox.fill .rows { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+figure.img { margin: 0; }
+figure.img img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+figure.img.fill img { flex: 1; min-height: 0; height: auto; }
+figure.img.in { margin: 0 0 10px; }
+figcaption { font-size: 12.5px; color: var(--mute); margin-top: 7px; flex: none; }
+.tool { background: var(--card); border-radius: 16px; padding: 18px 18px 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+.tool > p { margin-bottom: 10px; }
+.toolhead { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.toolhead .logo { width: 54px; height: 54px; border-radius: 12px; object-fit: contain; background: var(--paper); padding: 6px; flex: none; }
+.toolhead .kicker { margin-bottom: 4px; }
+.instead { font-size: 13.5px; color: var(--mute); margin-top: 4px; }
+.instead s { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.instead b { color: var(--accent); }
+.tool .rows { margin-bottom: 12px; }
+.start .kicker { margin-bottom: 6px; }
+.good { font-size: 13px; margin-top: 4px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+/* a tool on its own page: bigger type for phones, sections spread down the card */
+.tool.fill { justify-content: space-between; padding: 22px 20px 20px; }
+.tool.fill .toolhead .logo { width: 66px; height: 66px; }
+.tool.fill h3 { font-size: 34px; }
+.tool.fill .instead { font-size: 15px; }
+.tool.fill > p, .tool.fill .start li { font-size: 16.5px; line-height: 1.5; }
+.tool.fill .row { padding: 10px 0; }
+.tool.fill .row .k { width: 128px; font-size: 10px; }
+.tool.fill .row .v { font-size: 15.5px; }
+.tool.fill .good { font-size: 14.5px; }
+.tool.fill .links { margin-top: 0; }
+.tool.fill .pill { font-size: 14px; padding: 9px 15px; }
+.big.fill { justify-content: center; }
+.big.fill .bignum { font-size: 84px; }
+.pill { display: inline-flex; flex-direction: column; gap: 1px; text-decoration: none; background: var(--accent); color: var(--paper); border-radius: 12px; padding: 8px 13px; font: 700 13px/1.2 Inter, sans-serif; }
+.pill span { font: 500 10.5px/1.2 Inter, sans-serif; opacity: 0.8; }
+.end { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
+.end figure.img.fill { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.end figure.img.fill img { border-radius: 16px; }
+/* an illustration (his character) stands on the page paper: whole, no box, no shadow */
+.end figure.img.fill.art img { object-fit: contain; border-radius: 0; box-shadow: none; }
+.sign { font: 400 30px "Instrument Serif", serif; display: flex; align-items: baseline; justify-content: space-between; }
+.sign span { font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+/* web: one readable column on a phone (the PDF keeps the fixed 9:16 pages) */
+body { font-size: 16px; }
+.page { width: auto; height: auto; max-width: 600px; margin: 0 auto; overflow: visible; display: block; padding: 30px 20px; break-after: auto; }
+.page + .page { border-top: 1px solid rgba(0,0,0,0.08); }
+.body { margin-top: 0; overflow: visible; display: flex; flex-direction: column; gap: 18px; }
+.body.spread { justify-content: flex-start; }
+.body > .fill { display: block; min-height: 0; }
+figure.img.fill img { height: auto; }
+.end figure.img.fill.art img { width: auto; max-width: 100%; max-height: 62svh; margin: 0 auto; }
+.rowsbox.fill .rows { display: block; }
+h2 { font-size: clamp(36px, 10.5vw, 46px); }
+.tool.fill h3 { font-size: 30px; }
+.big.fill .bignum { font-size: clamp(56px, 16vw, 84px); }
+.row .k { width: 108px; }
+.cover { max-width: 600px; margin: 0 auto; min-height: min(100svh, 940px); position: relative; display: flex; flex-direction: column; padding: 0 0 92px; }
+.cover .mark { position: static; padding: 22px 20px 0; }
+.cover .stack { position: static; flex: 1; display: flex; flex-direction: column; padding-top: 26px; }
+.cover .kick { margin: 0 20px 10px; }
+.cover h1 { margin: 0 20px; font-size: clamp(46px, 13vw, 66px); }
+.cover .sub { margin: 16px 20px 0; }
+.cover .art img { max-height: 44svh; }
+.cover .band { padding: 0 20px; }
+.getpdf { max-width: 600px; margin: 0 auto; padding: 18px 20px 6px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); text-decoration: none; border-radius: 999px; padding: 11px 18px; font: 700 14px Inter, sans-serif; }
+.btn.alt { background: var(--card); color: var(--ink); border: 1.5px solid var(--sand); }
+.prompt { position: relative; }
+.prompt .kicker { padding-right: 78px; min-height: 24px; line-height: 1.45; }
+.copy { position: absolute; top: 9px; right: 9px; border: 0; background: var(--accent); color: var(--paper); border-radius: 999px; padding: 6px 13px; font: 700 12px Inter, sans-serif; cursor: pointer; }
+.foot { max-width: 600px; margin: 0 auto; padding: 8px 20px 48px; color: var(--mute); font-size: 13px; }
+</style></head><body>
+<div class="page cover">
+  <div class="mark"><span><img src="img/illustrated_face-1792343890582.png"/>@theabhaychopra</span><span>Free guide</span></div>
+  <div class="stack">
+  <div class="kicker kick">Both prompts: the morning brief + the follow-up list</div>
+  <h1>Your own <em>morning brief</em> in normal Claude</h1>
+  <div class="sub">Claude Duet's morning brief is a US-only waitlist for now. These two prompts give you that brief in normal Claude, from your Gmail and Google Calendar, today.</div>
+  <div class="art"><img src="img/cover_mascot-1792675625484.png"/></div>
+  </div>
+  <div class="band">Tested on my own inbox · 22 Oct 2026</div>
+</div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Before you start</div><h2>What you <em>need</em></h2></section>
+<div class="list"><ul><li><b>Claude</b>: the website <a href="https://claude.ai">claude.ai</a> or the Claude app, in any <a href="https://www.anthropic.com/legal/supported-regions">supported country</a>. No waitlist.</li><li><b>The Gmail and Google Calendar connectors</b>: turned on in Claude, connected to the <b>same</b> Google account.</li><li><b>Claude Pro</b> only if you want it to run on its own every morning (scheduled tasks are on paid plans). Running it yourself works without scheduling.</li></ul></div>
+<div class="callout"><div class="kicker">How it works</div><p>Prompt 1 reads your <b>last 24 hours of email and today's calendar</b> and writes a one-minute brief. Prompt 2 goes back <b>14 days</b> and lists everything still waiting on a reply. Claude only reads, and writes drafts in the chat. Nothing is sent unless you say so.</p></div>
+<div class="rowsbox fill narrow"><div class="kicker">The steps</div><div class="rows"><div class="row"><span class="k">1</span><span class="v"><b>Connect Gmail + Google Calendar</b></span></div><div class="row"><span class="k">2</span><span class="v"><b>Paste Prompt 1</b>: the morning brief</span></div><div class="row"><span class="k">3</span><span class="v"><b>Paste Prompt 2</b>: the follow-up list</span></div><div class="row"><span class="k">4</span><span class="v"><b>Make it automatic</b>: every weekday morning (Pro)</span></div></div></div></div></div>
+<div class="page"><div class="body spread"><div class="step"><div class="stephead"><span class="num">1</span><h3>Connect Gmail and Google Calendar</h3></div><p>In Claude, open <b>Customize → Connectors</b> (<a href="https://claude.ai/customize/connectors">claude.ai/customize/connectors</a>) → <b>Gmail</b> → Connect → sign in with Google. Do the same for <b>Google Calendar</b>, with the <b>same Google account</b>. If you link two accounts, your brief mixes them up.</p></div>
+<div class="step"><div class="stephead"><span class="num">2</span><h3>Check they're on in your chat</h3></div><p>Start a new chat → tap <b>+</b> → <b>Connectors</b> → make sure Gmail and Google Calendar are switched on. If they're off, Claude can't see your email or calendar.</p></div>
+<div class="callout"><div class="kicker">What Claude can and can't do here</div><p>It can read your email and calendar, and it can write drafts. Claude's Gmail connector <i>can</i> send email, but it <b>asks for your approval before every send</b> by default, and both prompts tell it not to send anything. To cut access, disconnect it in Customize → Connectors. (<a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Google Workspace connectors help</a>)</p></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Prompt 1</div><h2>The <em>morning</em> brief</h2><p class="lead">Paste it into a new chat each morning, or schedule it (last step).</p></section>
+<div class="prompt"><div class="kicker">Prompt 1 · copy all of it</div><pre>Be my morning brief. Use my Gmail and Google Calendar. Read first, then write; don't ask me anything yet.
+
+1. Calendar: everything today, plus tomorrow before 11 am.
+2. Email: the last 24 hours. Skip anything automated (newsletters, promotions, job alerts, receipts, no-reply senders, app notifications), even if Gmail marked it important.
+
+Then write my brief, short enough to read on my phone in one minute:
+
+☀️ THE ONE THING: the single most important thing today, and why, in one line.
+📅 TODAY: each event as time · what · who. Add prep only if the invite or an email asks for it. Flag clashes.
+✉️ NEEDS A REPLY: up to 5 emails, most important first: who · what they want · by when. Under each, a reply I can copy in my voice: short, friendly, first person, under 60 words. If it needs a decision from me (money, dates, yes or no), ask me that one question instead of deciding.
+⏰ DEADLINES: every date or deadline in my email for the next 7 days.
+🗂️ CAN WAIT: one line counting the rest, e.g. "6 newsletters, 3 receipts".
+
+Rules: use only what's in my email and calendar; never guess. Keep bank, health, legal and family details out; just write "1 personal email to check". Don't send, delete, accept or decline anything.</pre></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">What I got</div><h2>My brief, from my <em>real inbox</em></h2><p class="lead">The run in my reel (22 Oct 2026), with the screen-sharing line on, so it used roles instead of names.</p></section>
+<div class="rowsbox fill"><div class="rows"><div class="row"><span class="k">☀️ One thing</span><span class="v">a brand campaign script due Oct 24, the one deal I've signed</span></div><div class="row"><span class="k">📅 Today</span><span class="v">my calendar blocks plus an evening event, no clashes</span></div><div class="row"><span class="k">✉️ 1 reply</span><span class="v">an agency asking my rate: it asked me the money question and left [rate] in the draft</span></div><div class="row"><span class="k">⏰ Deadline</span><span class="v">the Oct 24 script, pulled out of a long email thread</span></div><div class="row"><span class="k">🗂️ Can wait</span><span class="v">10 app notifications, 7 promotions, 6 newsletters, 5 invites, 4 job alerts: one line</span></div></div><p class="note">Plus 4 brand threads where I'd replied and the agency owed me an answer. It reads in under a minute.</p></div>
+<div class="callout"><div class="kicker">Why the rules are in the prompt</div><p>My first version let LinkedIn job alerts crowd the list (Gmail marks them important), and it <b>agreed to payment terms for me</b> in a draft. The "skip anything automated" and "ask me that one question" lines fixed both.</p></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Prompt 2</div><h2>The <em>follow-up</em> list</h2><p class="lead">Paste it in the same chat, right after your brief.</p></section>
+<div class="prompt"><div class="kicker">Prompt 2 · copy all of it</div><pre>Now make my follow-up list from the last 14 days of my Gmail.
+
+Find:
+1. Emails I sent that never got a reply, where I was expecting one.
+2. Things I promised ("I'll send", "I'll get back to you", "let me check") and haven't done yet.
+3. Emails people sent me that are still unanswered and still matter.
+
+For each one: who · what it's about · days waiting · a short nudge I can copy, in my voice. Sort by what costs me most if I forget it. Max 10. Skip automated emails and anything personal. Don't send anything.</pre></div>
+<div class="rowsbox fill"><div class="kicker">What it found for me</div><div class="rows"><div class="row"><span class="k">14</span><span class="v">brand threads still waiting on a reply, 2 to 8 days old</span></div><div class="row"><span class="k">2</span><span class="v">promises I'd made and not finished</span></div><div class="row"><span class="k">0</span><span class="v">personal emails in the list: it left those out, as asked</span></div></div></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Step 4</div><h2>Make it <em>automatic</em></h2></section>
+<div class="step"><div class="stephead"><span class="num">4</span><h3>Schedule it for every weekday morning</h3></div><p>On a paid plan (Pro or Max), Claude can run a prompt on a schedule: in a chat, set up a <b>scheduled task</b>, paste Prompt 1, pick <b>Weekdays</b> and a time like <b>8:00</b>. It runs in the cloud even when your laptop is asleep, and you find the brief under <b>Scheduled</b> in the sidebar. (<a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork">Scheduled tasks help</a>)</p></div>
+<div class="rowsbox fill"><div class="kicker">Make it yours</div><div class="rows"><div class="row"><span class="k">Freelancer?</span><span class="v">add: <i>"Also list invoices I'm owed and revision requests from clients."</i></span></div><div class="row"><span class="k">Hindi / Hinglish</span><span class="v">add: <i>"Write the drafts in Hinglish, the way I text."</i></span></div><div class="row"><span class="k">Save the drafts</span><span class="v">after the brief, say: <i>"Save replies 1 and 3 as Gmail drafts."</i> They wait in your Drafts; nothing is sent.</span></div><div class="row"><span class="k">Sharing your screen?</span><span class="v">add: <i>"For this run, use roles instead of names (a brand agency, a client), and leave out every amount and email address."</i></span></div></div></div></div></div>
+<div class="page"><div class="body"><section class="sec"><div class="kicker">Be honest about it</div><h2>This <em>isn't Duet</em></h2><p class="lead">Claude Duet is Anthropic's own app, and it does more. Here's the difference, from <a href="https://claude.com/resources/articles/claude-duet">Anthropic's Duet page</a> and <a href="https://support.claude.com/en/articles/17631495-get-started-with-claude-duet">its help centre</a>, checked 22 Oct 2026.</p></section>
+<div class="rowsbox fill"><div class="rows"><div class="row"><span class="k">Claude Duet</span><span class="v">messages you first, checks your apps every few hours, works on its own cloud computer, asks before it sends, pays, signs or deletes</span></div><div class="row"><span class="k">Who gets Duet</span><span class="v">US only, Pro and Max, by waitlist (a research preview). No date for other countries yet</span></div><div class="row"><span class="k">My brief</span><span class="v">runs when you paste it, or once a morning on a schedule (Pro). It doesn't watch your inbox all day</span></div><div class="row"><span class="k">Who gets mine</span><span class="v">anyone with Claude and Gmail, in any supported country. Your usage limits apply, same as Duet</span></div></div></div></div></div>
+<div class="page"><div class="body"><div class="end"><figure class="img fill art"><img src="img/wave_end.jpg" style="object-position:50% 100%"/></figure><h2>Enjoy your <em>first brief</em></h2><p class="lead">One minute of reading instead of a morning in your inbox.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></div>
+<div class="getpdf"><a class="btn" href="claude-duet-india-guide.pdf" download>Download the PDF ↓</a><a class="btn alt" href="https://www.instagram.com/theabhaychopra/">@theabhaychopra on Instagram</a></div>
+<p class="foot">Free guide by @theabhaychopra. Updated 2026-10-22.</p>
+<script>
+document.querySelectorAll(".prompt").forEach((p) => {
+  const b = document.createElement("button"); b.className = "copy"; b.textContent = "Copy";
+  b.onclick = async () => { try { await navigator.clipboard.writeText(p.querySelector("pre").innerText); b.textContent = "Copied ✓"; } catch { b.textContent = "Select + copy"; } setTimeout(() => (b.textContent = "Copy"), 1800); };
+  p.appendChild(b);
+});
+</script></body></html>
