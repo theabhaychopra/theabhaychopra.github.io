@@ -1,200 +1,237 @@
-<!doctype html><html><head><meta charset="utf-8">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
 <title>Your 10-look AI photoshoot from one photo — @theabhaychopra</title>
 <meta name="description" content="Made in Google Flow — the exact prompt I used for every look, and the one line that keeps your face the same.">
 <meta property="og:title" content="Your 10-look AI photoshoot from one photo"><meta property="og:description" content="Made in Google Flow — the exact prompt I used for every look, and the one line that keeps your face the same.">
 <meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/flow/">
-<meta property="og:image" content="https://theabhaychopra.github.io/flow/img/cover_mascot.jpg"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-21T16:37:15Z">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Public+Sans:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=block" rel="stylesheet">
+<meta property="og:image" content="https://theabhaychopra.github.io/flow/img/cover_mascot-1792597582901-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-22T19:42:05Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-@page { size: 6in 10.6667in; margin: 0; }
-:root { --paper:#F0EBDF; --card:#FCF9F5; --sand:#D1C2AD; --ink:#15100C; --accent:#B4421E; --dark:#4E2213; --second:#9EC8C1; --third:#D8A772; --mute:#7D7064; --x: 34px; }
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
 * { box-sizing: border-box; }
-html, body { margin: 0; background: var(--paper); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font: 500 15px/1.5 Inter, sans-serif; letter-spacing: -0.005em; text-wrap: pretty; }
-a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
-b { font-weight: 700; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
 p { margin: 0; }
-code { font: 500 0.9em "IBM Plex Mono", monospace; background: var(--card); padding: 1px 5px; border-radius: 4px; }
-.kicker { font: 700 10.5px/1.2 "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-h2 { font: 400 44px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
-h2 em, h1 em, .bignum em { color: var(--accent); }
-h3 { font: 400 26px/1 "Instrument Serif", serif; letter-spacing: -0.02em; margin: 0; }
-.lead { font-size: 16.5px; margin-top: 10px; }
-/* every page: the same frame */
-.page { width: 6in; height: 10.6667in; position: relative; overflow: hidden; break-after: page; display: flex; flex-direction: column; padding: 26px var(--x) 34px; }
-.page:last-child { break-after: auto; }
-.mark { height: 30px; flex: none; display: flex; justify-content: space-between; align-items: center; font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
-.mark span { display: flex; align-items: center; gap: 9px; }
-.mark img { width: 28px; height: 28px; border-radius: 50%; background: var(--card); border: 1.5px solid var(--sand); object-fit: contain; }
-.body { flex: 1; min-height: 0; margin-top: 22px; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
-.body > * { flex: none; }
-/* spread: the page's blocks share its height evenly (no hole at the bottom) */
-.body.spread { justify-content: space-between; }
-.body > .fill { flex: 1 1 auto; min-height: 120px; display: flex; flex-direction: column; }
-/* cover */
-.cover { background: #F0EBDF; padding: 0; }
-.cover .mark { position: absolute; left: var(--x); right: var(--x); top: 26px; }
-.cover .stack { position: absolute; left: 0; right: 0; top: 82px; bottom: 92px; display: flex; flex-direction: column; }
-.cover .kick { margin: 0 var(--x) 10px; }
-.cover h1 { margin: 0 30px 0 var(--x); font: 400 66px/0.9 "Instrument Serif", serif; letter-spacing: -0.04em; text-wrap: balance; }
-.cover .sub { margin: 16px 44px 0 var(--x); font: 500 16.5px/1.45 Inter, sans-serif; text-wrap: pretty; }
-.cover .art { flex: 1; min-height: 0; margin-top: 10px; display: flex; align-items: flex-end; justify-content: center; }
-.cover .art img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 92px; background: var(--accent); color: var(--paper); display: flex; align-items: center; padding: 0 var(--x); font: 600 11px/1.6 "Public Sans", sans-serif; letter-spacing: 0.26em; text-transform: uppercase; }
-/* blocks */
-.step .stephead { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.step > p { margin-bottom: 6px; }
-.num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--paper); display: flex; align-items: center; justify-content: center; font: 400 20px "Instrument Serif", serif; }
-.prompt { background: var(--card); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 12px 14px 13px; box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
-.step .prompt { margin-top: 6px; }
-.prompt pre { margin: 0; white-space: pre-wrap; font: 400 12.2px/1.55 "IBM Plex Mono", monospace; color: var(--ink); }
-.after { font-size: 13.5px; color: var(--mute); margin-top: 8px; }
-.callout { background: var(--dark); color: var(--paper); border-radius: 14px; padding: 16px 18px; }
-.callout .kicker { color: var(--third); }
-.callout a { color: var(--third); }
-.big { background: var(--card); border-radius: 16px; padding: 18px 20px; justify-content: center; }
-.bignum { font: 400 64px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; }
-.big p { margin-top: 10px; color: var(--mute); font-size: 14px; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
 .list h3 { margin-bottom: 8px; }
-.list ul, .start ol { margin: 0; padding-left: 20px; }
-.list li, .start li { margin: 0 0 7px; }
-.rowsbox { background: var(--card); border-radius: 14px; padding: 14px 16px; }
-.rows { margin: 2px 0 0; }
-.row { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-top: 1px solid rgba(0,0,0,0.09); }
-.row:first-child { border-top: none; }
-.row .k { flex: none; width: 122px; font: 700 9.5px/1.3 "Public Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-.row .v { font-size: 14px; line-height: 1.45; }
-.note { font-size: 12.5px; color: var(--mute); margin-top: 8px; }
-.rowsbox.narrow .row .k { width: 22px; font-size: 12px; letter-spacing: 0; }
-/* a rows card that fills its page spreads its rows evenly instead of leaving a gap at the bottom */
-.rowsbox.fill .rows { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
-figure.img { margin: 0; }
-figure.img img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-figure.img.fill img { flex: 1; min-height: 0; height: auto; }
-figure.img.in { margin: 0 0 10px; }
-figcaption { font-size: 12.5px; color: var(--mute); margin-top: 7px; flex: none; }
-.tool { background: var(--card); border-radius: 16px; padding: 18px 18px 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-.tool > p { margin-bottom: 10px; }
-.toolhead { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
-.toolhead .logo { width: 54px; height: 54px; border-radius: 12px; object-fit: contain; background: var(--paper); padding: 6px; flex: none; }
-.toolhead .kicker { margin-bottom: 4px; }
-.instead { font-size: 13.5px; color: var(--mute); margin-top: 4px; }
-.instead s { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
-.instead b { color: var(--accent); }
-.tool .rows { margin-bottom: 12px; }
-.start .kicker { margin-bottom: 6px; }
-.good { font-size: 13px; margin-top: 4px; }
-.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-/* a tool on its own page: bigger type for phones, sections spread down the card */
-.tool.fill { justify-content: space-between; padding: 22px 20px 20px; }
-.tool.fill .toolhead .logo { width: 66px; height: 66px; }
-.tool.fill h3 { font-size: 34px; }
-.tool.fill .instead { font-size: 15px; }
-.tool.fill > p, .tool.fill .start li { font-size: 16.5px; line-height: 1.5; }
-.tool.fill .row { padding: 10px 0; }
-.tool.fill .row .k { width: 128px; font-size: 10px; }
-.tool.fill .row .v { font-size: 15.5px; }
-.tool.fill .good { font-size: 14.5px; }
-.tool.fill .links { margin-top: 0; }
-.tool.fill .pill { font-size: 14px; padding: 9px 15px; }
-.big.fill { justify-content: center; }
-.big.fill .bignum { font-size: 84px; }
-.pill { display: inline-flex; flex-direction: column; gap: 1px; text-decoration: none; background: var(--accent); color: var(--paper); border-radius: 12px; padding: 8px 13px; font: 700 13px/1.2 Inter, sans-serif; }
-.pill span { font: 500 10.5px/1.2 Inter, sans-serif; opacity: 0.8; }
-.end { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
-.end figure.img.fill { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-.end figure.img.fill img { border-radius: 16px; }
-/* an illustration (his character) stands on the page paper: whole, no box, no shadow */
-.end figure.img.fill.art img { object-fit: contain; border-radius: 0; box-shadow: none; }
-.sign { font: 400 30px "Instrument Serif", serif; display: flex; align-items: baseline; justify-content: space-between; }
-.sign span { font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
-/* web: one readable column on a phone (the PDF keeps the fixed 9:16 pages) */
-body { font-size: 16px; }
-.page { width: auto; height: auto; max-width: 600px; margin: 0 auto; overflow: visible; display: block; padding: 30px 20px; break-after: auto; }
-.page + .page { border-top: 1px solid rgba(0,0,0,0.08); }
-.body { margin-top: 0; overflow: visible; display: flex; flex-direction: column; gap: 18px; }
-.body.spread { justify-content: flex-start; }
-.body > .fill { display: block; min-height: 0; }
-figure.img.fill img { height: auto; }
-.end figure.img.fill.art img { width: auto; max-width: 100%; max-height: 62svh; margin: 0 auto; }
-.rowsbox.fill .rows { display: block; }
-h2 { font-size: clamp(36px, 10.5vw, 46px); }
-.tool.fill h3 { font-size: 30px; }
-.big.fill .bignum { font-size: clamp(56px, 16vw, 84px); }
-.row .k { width: 108px; }
-.cover { max-width: 600px; margin: 0 auto; min-height: min(100svh, 940px); position: relative; display: flex; flex-direction: column; padding: 0 0 92px; }
-.cover .mark { position: static; padding: 22px 20px 0; }
-.cover .stack { position: static; flex: 1; display: flex; flex-direction: column; padding-top: 26px; }
-.cover .kick { margin: 0 20px 10px; }
-.cover h1 { margin: 0 20px; font-size: clamp(46px, 13vw, 66px); }
-.cover .sub { margin: 16px 20px 0; }
-.cover .art img { max-height: 44svh; }
-.cover .band { padding: 0 20px; }
-.getpdf { max-width: 600px; margin: 0 auto; padding: 18px 20px 6px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); text-decoration: none; border-radius: 999px; padding: 11px 18px; font: 700 14px Inter, sans-serif; }
-.btn.alt { background: var(--card); color: var(--ink); border: 1.5px solid var(--sand); }
-.prompt { position: relative; }
-.prompt .kicker { padding-right: 78px; min-height: 24px; line-height: 1.45; }
-.copy { position: absolute; top: 9px; right: 9px; border: 0; background: var(--accent); color: var(--paper); border-radius: 999px; padding: 6px 13px; font: 700 12px Inter, sans-serif; cursor: pointer; }
-.foot { max-width: 600px; margin: 0 auto; padding: 8px 20px 48px; color: var(--mute); font-size: 13px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
 </style></head><body>
-<div class="page cover">
-  <div class="mark"><span><img src="img/illustrated_face-1792343890582.png"/>@theabhaychopra</span><span>Free guide</span></div>
-  <div class="stack">
-  <div class="kicker kick">All 10 prompts + the face-lock line</div>
-  <h1>Your <em>10-look</em> AI photoshoot from one photo</h1>
-  <div class="sub">Made in Google Flow — the exact prompt I used for every look, and the one line that keeps your face the same.</div>
-  <div class="art"><img src="img/cover_mascot.jpg"/></div>
-  </div>
-  <div class="band">Google Flow · checked 21 Oct 2026</div>
-</div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">Before you start</div><h2>What you <em>need</em></h2></section>
-<div class="list"><ul><li><b>A Google account</b> — Flow is for ages 18+ and works in India.</li><li><b>Google Flow</b> — a website, nothing to install: <a href="https://labs.google/flow">labs.google/flow</a>. A laptop is easiest.</li><li><b>One clear photo of you</b> — the rules are just below.</li><li><b>Credits</b> — my 10 photos used none of mine. Everyone also gets 50 free Flow credits a day.</li></ul></div>
-<div class="callout"><div class="kicker">How it works</div><p>You upload one photo, then ask Flow's Agent for <b>one look at a time</b> — a place, an outfit and a pose — with your photo attached every time. Ten prompts, ten looks.</p></div>
-<div class="rowsbox fill narrow"><div class="kicker">The steps</div><div class="rows"><div class="row"><span class="k">0</span><span class="v"><b>Pick the right photo</b> — the face starts here</span></div><div class="row"><span class="k">1</span><span class="v"><b>Upload it</b> to a new Flow project</span></div><div class="row"><span class="k">2</span><span class="v"><b>Set images to 9:16</b> — vertical, made for Reels</span></div><div class="row"><span class="k">3</span><span class="v"><b>Ask for one look at a time</b> — the 10 prompts below</span></div><div class="row"><span class="k">4</span><span class="v"><b>Download each look in 2K</b> — sharp enough for full screen</span></div></div></div></div></div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">Step 0</div><h2>Pick the <em>right photo</em></h2><p class="lead">The #1 complaint on this trend is "my face changed". Most of the time, the photo is why.</p></section>
-<div class="rowsbox fill"><div class="kicker">Use a photo that is</div><div class="rows"><div class="row"><span class="k">Front-facing</span><span class="v">both eyes visible, looking at the camera</span></div><div class="row"><span class="k">Sharp, well lit</span><span class="v">daylight from a window is perfect</span></div><div class="row"><span class="k">Unfiltered</span><span class="v">no beauty mode, no smoothing, no stickers</span></div><div class="row"><span class="k">Just you</span><span class="v">never other people's photos, and no children</span></div><div class="row"><span class="k">Waist-up</span><span class="v">or full body, on a plain wall — the looks need your body too</span></div><div class="row"><span class="k">Face clear</span><span class="v">no sunglasses, no cap covering your face</span></div></div></div>
-<div class="callout"><div class="kicker">Why faces drift</div><p>A filtered selfie gives Flow a face that isn't quite yours, a side angle hides half of it, and a tiny low-res photo leaves it guessing. Start sharp and straight-on, and the face-lock line does the rest.</p></div></div></div>
-<div class="page"><div class="body spread"><div class="step"><div class="stephead"><span class="num">1</span><h3>Upload your photo</h3></div><p>Open <a href="https://labs.google/flow">labs.google/flow</a> → <b>New project</b> → drop your photo into the project.</p></div>
-<div class="step"><div class="stephead"><span class="num">2</span><h3>Set images to 9:16</h3></div><p>In the Agent chat, open the <b>settings</b> (the sliders icon) → <b>Image generation default</b> → <b>9:16</b> → Save. Every look now comes out vertical.</p></div>
-<div class="step"><div class="stephead"><span class="num">3</span><h3>Attach your photo to every prompt</h3></div><p>Before each prompt: <b>+</b> → pick your photo → <b>Add to prompt</b>. One look per message — when I asked for all 10 at once, Flow failed half of them and the faces drifted.</p></div></div></div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">The fix nobody shows</div><h2>The <em>face-lock</em> line</h2><p class="lead">Every prompt ends with this line. It's why all 10 looks still look like me.</p></section>
-<div class="prompt"><div class="kicker">Add this to the end of every prompt</div><pre>Use my uploaded photo as the only reference for this man: keep his exact face, hairstyle, beard, round glasses, skin tone and body shape. Do not beautify, slim or change him. Photorealistic vertical 9:16 photo, natural skin texture, 35mm lens. No text.</pre></div>
-<div class="rowsbox fill"><div class="kicker">Make it yours</div><div class="rows"><div class="row"><span class="k">Not a man?</span><span class="v">write <b>woman</b> or <b>person</b> instead of man, and <i>her</i> or <i>their</i> instead of his</span></div><div class="row"><span class="k">No glasses or beard?</span><span class="v">delete them from the line — describe what's really on your face</span></div><div class="row"><span class="k">Traditional outfit</span><span class="v">describe it in the look prompt — <i>a dark green silk saree with a gold border and jhumkas</i></span></div><div class="row"><span class="k">Your business</span><span class="v">put your product in your hand, your shop behind you, your uniform as the outfit</span></div></div></div></div></div>
-<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Looks 1 &amp; 2</div><h2>Mumbai rooftop · <em>Bangalore café</em></h2></section>
-<figure class="img"><img src="img/looks_01_02.jpg" style="height:auto;aspect-ratio:1564/1376;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 1 and look 2.</figcaption></figure>
-<div class="prompt"><div class="kicker">Look 1 · Mumbai rooftop — then add the face-lock line</div><pre>Look 1 of 10, one image only. Golden hour on a Mumbai rooftop with the city skyline behind him. He wears a beige linen shirt with rolled sleeves and white trousers. Pose: standing straight and relaxed, hands in pockets, soft smile at the camera, three-quarter length.</pre></div>
-<div class="prompt"><div class="kicker">Look 2 · Bangalore café — then add the face-lock line</div><pre>Look 2 of 10, one image only. Inside a cosy Bangalore cafe with warm lights, plants and a wooden table. He wears an olive overshirt over a white t-shirt and tan chinos. Pose: sitting at the table with a coffee cup, laughing, head tilted back a little.</pre></div></div></div>
-<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Looks 3 &amp; 4</div><h2>Studio portrait · <em>Neon street</em></h2></section>
-<figure class="img"><img src="img/looks_03_04.jpg" style="height:auto;aspect-ratio:1564/1376;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 3 and look 4.</figcaption></figure>
-<div class="prompt"><div class="kicker">Look 3 · Studio portrait — then add the face-lock line</div><pre>Look 3 of 10, one image only. A clean photo studio with a deep blue backdrop and a soft key light. He wears a tailored navy suit with a crisp white shirt, no tie. Pose: arms crossed, confident smile, looking straight at the camera, waist-up.</pre></div>
-<div class="prompt"><div class="kicker">Look 4 · Neon street — then add the face-lock line</div><pre>Look 4 of 10, one image only. A busy city street at night with neon shop signs and soft bokeh lights. He wears a black leather jacket over a grey t-shirt and black jeans. Pose: walking towards the camera mid-stride, full body.</pre></div></div></div>
-<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Looks 5 &amp; 6</div><h2>Goa beach · <em>Coworking space</em></h2></section>
-<figure class="img"><img src="img/looks_05_06.jpg" style="height:auto;aspect-ratio:1564/1376;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 5 and look 6.</figcaption></figure>
-<div class="prompt"><div class="kicker">Look 5 · Goa beach — then add the face-lock line</div><pre>Look 5 of 10, one image only. A Goa beach at sunset with a warm orange sky and gentle waves. He wears a white cotton kurta with rolled sleeves and light beige trousers, barefoot on the sand. Pose: looking back over his shoulder at the camera with a half smile, full body.</pre></div>
-<div class="prompt"><div class="kicker">Look 6 · Coworking space — then add the face-lock line</div><pre>Look 6 of 10, one image only. A bright modern coworking space with big windows and a laptop on the desk. He wears a light blue oxford shirt with the sleeves rolled up and grey trousers. Pose: sitting at the desk, hand on his chin, thinking, looking slightly off camera, waist-up.</pre></div></div></div>
-<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Looks 7 &amp; 8</div><h2>Diwali night · <em>Himalayan trail</em></h2></section>
-<figure class="img"><img src="img/looks_07_08-1792600569970.jpg" style="height:auto;aspect-ratio:1564/1376;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 7 and look 8.</figcaption></figure>
-<div class="prompt"><div class="kicker">Look 7 · Diwali night — then add the face-lock line</div><pre>Look 7 of 10, one image only. A festive Diwali evening with warm fairy lights and marigold garlands behind him. He wears a maroon silk kurta with a gold-embroidered Nehru jacket. Pose: adjusting his watch and smiling, three-quarter length.</pre></div>
-<div class="prompt"><div class="kicker">Look 8 · Himalayan trail — then add the face-lock line</div><pre>Look 8 of 10, one image only. A Himalayan mountain trail at sunrise with pine trees and misty peaks. He wears a dark green puffer jacket, cargo trousers and hiking boots, a backpack on one shoulder. Pose: side profile, looking into the distance, full body.</pre></div></div></div>
-<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Looks 9 &amp; 10</div><h2>Old bookshop · <em>Basketball court</em></h2></section>
-<figure class="img"><img src="img/looks_09_10-1792600570083.jpg" style="height:auto;aspect-ratio:1564/1376;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 9 and look 10.</figcaption></figure>
-<div class="prompt"><div class="kicker">Look 9 · Old bookshop — then add the face-lock line</div><pre>Look 9 of 10, one image only. An old bookshop with tall wooden shelves full of books and warm lamp light. He wears a cream cable-knit sweater and dark brown trousers. Pose: leaning against a bookshelf with one foot up, holding an open book, smiling, full body.</pre></div>
-<div class="prompt"><div class="kicker">Look 10 · Basketball court — then add the face-lock line</div><pre>Look 10 of 10, one image only. An outdoor basketball court in the evening with city lights behind the fence. He wears a black athletic t-shirt, grey joggers and white sneakers. Pose: sitting on a bench, leaning forward with elbows on his knees, smiling at the camera, full body.</pre></div></div></div>
-<div class="page"><div class="body spread"><div class="big"><div class="kicker">What it cost me</div><div class="bignum">10 photos → <em>0 credits</em></div><p>My Flow credit counter stayed at 1,050 the whole time.</p></div>
-<div class="rowsbox fill"><div class="kicker">Credits and downloads — checked 21 Oct 2026</div><div class="rows"><div class="row"><span class="k">My account</span><span class="v">Google AI Pro (1,000 credits a month). The 10 photos didn't use any of them</span></div><div class="row"><span class="k">Everyone</span><span class="v"><b>50 free Flow credits a day</b>, with or without a subscription (Google's Flow help)</span></div><div class="row"><span class="k">Download</span><span class="v">⋮ on each look → <b>Download</b> → <b>2K Upscaled</b> (1536 × 2752) — free</span></div><div class="row"><span class="k">4K</span><span class="v">needs a higher plan — 2K is plenty for Reels</span></div></div><p class="note">From <a href="https://support.google.com/flow/answer/16526234">Flow's credits page</a> and my own account. Google changes these — check your own counter.</p></div></div></div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">Good to know</div><h2>Before you <em>post</em></h2></section>
-<div class="rowsbox fill"><div class="rows"><div class="row"><span class="k">"Failed"</span><span class="v">Flow sometimes fails a look — you're not charged. Just send the same prompt again.</span></div><div class="row"><span class="k">Filters</span><span class="v">Flow filters uploaded photos of people. Use a clearer photo of yourself — never someone else's, never a child's.</span></div><div class="row"><span class="k">Watermark</span><span class="v">everything Flow makes carries an invisible SynthID mark; Google also adds a visible one for some users in India.</span></div><div class="row"><span class="k">Client work</span><span class="v">Google says it won't claim ownership of what you make — read <a href="https://support.google.com/flow/answer/16353333">Flow's terms</a> first.</span></div><div class="row"><span class="k">AI label</span><span class="v">these are AI photos of you — turn on Instagram's AI label when you post them.</span></div></div></div></div></div>
-<div class="page"><div class="body"><div class="end"><figure class="img fill art"><img src="img/wave_end.jpg" style="object-position:50% 100%"/></figure><h2>Now shoot <em>yours</em></h2><p class="lead">One clear photo is all it takes.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></div>
-<div class="getpdf"><a class="btn" href="flow-10-poses-guide.pdf" download>Download the PDF ↓</a><a class="btn alt" href="https://www.instagram.com/theabhaychopra/">@theabhaychopra on Instagram</a></div>
-<p class="foot">Free guide by @theabhaychopra. Updated 2026-10-21.</p>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>All 10 prompts + the face-lock line</span></div>
+<h1>Your <em>10-look</em> AI photoshoot from one photo</h1>
+<p class="sub">Made in Google Flow — the exact prompt I used for every look, and the one line that keeps your face the same.</p>
+<div class="facts"><span>Google Flow</span><span>checked 21 Oct 2026</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="flow-10-poses-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/cover_mascot-1792597582901-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#pick-the-right-photo"><span class="n">02</span><span>Pick the right photo<span class="k">Step 0</span></span><span class="arr">↓</span></a></li><li><a href="#the-face-lock-line"><span class="n">03</span><span>The face-lock line<span class="k">The fix nobody shows</span></span><span class="arr">↓</span></a></li><li><a href="#mumbai-rooftop-bangalore-caf"><span class="n">04</span><span>Mumbai rooftop · Bangalore café<span class="k">Looks 1 &amp; 2</span></span><span class="arr">↓</span></a></li><li><a href="#studio-portrait-neon-street"><span class="n">05</span><span>Studio portrait · Neon street<span class="k">Looks 3 &amp; 4</span></span><span class="arr">↓</span></a></li><li><a href="#goa-beach-coworking-space"><span class="n">06</span><span>Goa beach · Coworking space<span class="k">Looks 5 &amp; 6</span></span><span class="arr">↓</span></a></li><li><a href="#diwali-night-himalayan-trail"><span class="n">07</span><span>Diwali night · Himalayan trail<span class="k">Looks 7 &amp; 8</span></span><span class="arr">↓</span></a></li><li><a href="#old-bookshop-basketball-court"><span class="n">08</span><span>Old bookshop · Basketball court<span class="k">Looks 9 &amp; 10</span></span><span class="arr">↓</span></a></li><li><a href="#before-you-post"><span class="n">09</span><span>Before you post<span class="k">Good to know</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>A Google account</b> — Flow is for ages 18+ and works in India.</li><li><b>Google Flow</b> — a website, nothing to install: <a href="https://labs.google/flow">labs.google/flow</a>. A laptop is easiest.</li><li><b>One clear photo of you</b> — the rules are just below.</li><li><b>Credits</b> — my 10 photos used none of mine. Everyone also gets 50 free Flow credits a day.</li></ul></div>
+<div class="tip"><span class="label deep">How it works</span><p>You upload one photo, then ask Flow's Agent for <b>one look at a time</b> — a place, an outfit and a pose — with your photo attached every time. Ten prompts, ten looks.</p></div>
+<div class="card rowsbox"><span class="label">The steps</span><div class="rows narrow"><div class="row"><span class="k">0</span><span class="v"><b>Pick the right photo</b> — the face starts here</span></div><div class="row"><span class="k">1</span><span class="v"><b>Upload it</b> to a new Flow project</span></div><div class="row"><span class="k">2</span><span class="v"><b>Set images to 9:16</b> — vertical, made for Reels</span></div><div class="row"><span class="k">3</span><span class="v"><b>Ask for one look at a time</b> — the 10 prompts below</span></div><div class="row"><span class="k">4</span><span class="v"><b>Download each look in 2K</b> — sharp enough for full screen</span></div></div></div></div></section>
+<section id="pick-the-right-photo"><header class="sechead"><span class="label">Step 0</span><h2>Pick the <em>right photo</em><img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2><p class="lead">The #1 complaint on this trend is "my face changed". Most of the time, the photo is why.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Use a photo that is</span><div class="rows"><div class="row"><span class="k">Front-facing</span><span class="v">both eyes visible, looking at the camera</span></div><div class="row"><span class="k">Sharp, well lit</span><span class="v">daylight from a window is perfect</span></div><div class="row"><span class="k">Unfiltered</span><span class="v">no beauty mode, no smoothing, no stickers</span></div><div class="row"><span class="k">Just you</span><span class="v">never other people's photos, and no children</span></div><div class="row"><span class="k">Waist-up</span><span class="v">or full body, on a plain wall — the looks need your body too</span></div><div class="row"><span class="k">Face clear</span><span class="v">no sunglasses, no cap covering your face</span></div></div></div>
+<div class="tip"><span class="label deep">Why faces drift</span><p>A filtered selfie gives Flow a face that isn't quite yours, a side angle hides half of it, and a tiny low-res photo leaves it guessing. Start sharp and straight-on, and the face-lock line does the rest.</p></div>
+<div class="card step"><div class="top"><span class="num">1</span><h3>Upload your photo</h3></div><p>Open <a href="https://labs.google/flow">labs.google/flow</a> → <b>New project</b> → drop your photo into the project.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Set images to 9:16</h3></div><p>In the Agent chat, open the <b>settings</b> (the sliders icon) → <b>Image generation default</b> → <b>9:16</b> → Save. Every look now comes out vertical.</p></div>
+<div class="card step"><div class="top"><span class="num">3</span><h3>Attach your photo to every prompt</h3></div><p>Before each prompt: <b>+</b> → pick your photo → <b>Add to prompt</b>. One look per message — when I asked for all 10 at once, Flow failed half of them and the faces drifted.</p></div></div></section>
+<section id="the-face-lock-line"><header class="sechead"><span class="label">The fix nobody shows</span><h2>The <em>face-lock</em> line</h2><p class="lead">Every prompt ends with this line. It's why all 10 looks still look like me.</p></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Add this to the end of every prompt</span><button class="copy" type="button">Copy</button></div><pre>Use my uploaded photo as the only reference for this man: keep his exact face, hairstyle, beard, round glasses, skin tone and body shape. Do not beautify, slim or change him. Photorealistic vertical 9:16 photo, natural skin texture, 35mm lens. No text.</pre></div>
+<div class="card rowsbox"><span class="label">Make it yours</span><div class="rows"><div class="row"><span class="k">Not a man?</span><span class="v">write <b>woman</b> or <b>person</b> instead of man, and <i>her</i> or <i>their</i> instead of his</span></div><div class="row"><span class="k">No glasses or beard?</span><span class="v">delete them from the line — describe what's really on your face</span></div><div class="row"><span class="k">Traditional outfit</span><span class="v">describe it in the look prompt — <i>a dark green silk saree with a gold border and jhumkas</i></span></div><div class="row"><span class="k">Your business</span><span class="v">put your product in your hand, your shop behind you, your uniform as the outfit</span></div></div></div></div></section>
+<section id="mumbai-rooftop-bangalore-caf"><header class="sechead"><span class="label">Looks 1 &amp; 2</span><h2>Mumbai rooftop · <em>Bangalore café</em></h2></header><div class="blocks"><figure class="fig"><img src="img/looks_01_02-1792600569629-w1300.jpg" alt="Made in Flow from my one photo — look 1 and look 2." loading="lazy" decoding="async" style="aspect-ratio:1564/1376;object-fit:cover;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 1 and look 2.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 1 · Mumbai rooftop — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 1 of 10, one image only. Golden hour on a Mumbai rooftop with the city skyline behind him. He wears a beige linen shirt with rolled sleeves and white trousers. Pose: standing straight and relaxed, hands in pockets, soft smile at the camera, three-quarter length.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 2 · Bangalore café — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 2 of 10, one image only. Inside a cosy Bangalore cafe with warm lights, plants and a wooden table. He wears an olive overshirt over a white t-shirt and tan chinos. Pose: sitting at the table with a coffee cup, laughing, head tilted back a little.</pre></div></div></section>
+<section id="studio-portrait-neon-street"><header class="sechead"><span class="label">Looks 3 &amp; 4</span><h2>Studio portrait · <em>Neon street</em></h2></header><div class="blocks"><figure class="fig"><img src="img/looks_03_04-1792600569747-w1300.jpg" alt="Made in Flow from my one photo — look 3 and look 4." loading="lazy" decoding="async" style="aspect-ratio:1564/1376;object-fit:cover;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 3 and look 4.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 3 · Studio portrait — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 3 of 10, one image only. A clean photo studio with a deep blue backdrop and a soft key light. He wears a tailored navy suit with a crisp white shirt, no tie. Pose: arms crossed, confident smile, looking straight at the camera, waist-up.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 4 · Neon street — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 4 of 10, one image only. A busy city street at night with neon shop signs and soft bokeh lights. He wears a black leather jacket over a grey t-shirt and black jeans. Pose: walking towards the camera mid-stride, full body.</pre></div></div></section>
+<section id="goa-beach-coworking-space"><header class="sechead"><span class="label">Looks 5 &amp; 6</span><h2>Goa beach · <em>Coworking space</em></h2></header><div class="blocks"><figure class="fig"><img src="img/looks_05_06-1792600569856-w1300.jpg" alt="Made in Flow from my one photo — look 5 and look 6." loading="lazy" decoding="async" style="aspect-ratio:1564/1376;object-fit:cover;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 5 and look 6.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 5 · Goa beach — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 5 of 10, one image only. A Goa beach at sunset with a warm orange sky and gentle waves. He wears a white cotton kurta with rolled sleeves and light beige trousers, barefoot on the sand. Pose: looking back over his shoulder at the camera with a half smile, full body.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 6 · Coworking space — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 6 of 10, one image only. A bright modern coworking space with big windows and a laptop on the desk. He wears a light blue oxford shirt with the sleeves rolled up and grey trousers. Pose: sitting at the desk, hand on his chin, thinking, looking slightly off camera, waist-up.</pre></div></div></section>
+<section id="diwali-night-himalayan-trail"><header class="sechead"><span class="label">Looks 7 &amp; 8</span><h2>Diwali night · <em>Himalayan trail</em></h2></header><div class="blocks"><figure class="fig"><img src="img/looks_07_08-1792600569970-w1300.jpg" alt="Made in Flow from my one photo — look 7 and look 8." loading="lazy" decoding="async" style="aspect-ratio:1564/1376;object-fit:cover;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 7 and look 8.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 7 · Diwali night — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 7 of 10, one image only. A festive Diwali evening with warm fairy lights and marigold garlands behind him. He wears a maroon silk kurta with a gold-embroidered Nehru jacket. Pose: adjusting his watch and smiling, three-quarter length.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 8 · Himalayan trail — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 8 of 10, one image only. A Himalayan mountain trail at sunrise with pine trees and misty peaks. He wears a dark green puffer jacket, cargo trousers and hiking boots, a backpack on one shoulder. Pose: side profile, looking into the distance, full body.</pre></div></div></section>
+<section id="old-bookshop-basketball-court"><header class="sechead"><span class="label">Looks 9 &amp; 10</span><h2>Old bookshop · <em>Basketball court</em></h2></header><div class="blocks"><figure class="fig"><img src="img/looks_09_10-1792600570083-w1300.jpg" alt="Made in Flow from my one photo — look 9 and look 10." loading="lazy" decoding="async" style="aspect-ratio:1564/1376;object-fit:cover;object-position:50% 50%"/><figcaption>Made in Flow from my one photo — look 9 and look 10.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 9 · Old bookshop — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 9 of 10, one image only. An old bookshop with tall wooden shelves full of books and warm lamp light. He wears a cream cable-knit sweater and dark brown trousers. Pose: leaning against a bookshelf with one foot up, holding an open book, smiling, full body.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Look 10 · Basketball court — then add the face-lock line</span><button class="copy" type="button">Copy</button></div><pre>Look 10 of 10, one image only. An outdoor basketball court in the evening with city lights behind the fence. He wears a black athletic t-shirt, grey joggers and white sneakers. Pose: sitting on a bench, leaning forward with elbows on his knees, smiling at the camera, full body.</pre></div>
+<div class="card bigstat"><span class="label">What it cost me</span><div class="bignum">10 photos → <em>0 credits</em></div><p>My Flow credit counter stayed at 1,050 the whole time.</p></div>
+<div class="card rowsbox"><span class="label">Credits and downloads — checked 21 Oct 2026</span><div class="rows"><div class="row"><span class="k">My account</span><span class="v">Google AI Pro (1,000 credits a month). The 10 photos didn't use any of them</span></div><div class="row"><span class="k">Everyone</span><span class="v"><b>50 free Flow credits a day</b>, with or without a subscription (Google's Flow help)</span></div><div class="row"><span class="k">Download</span><span class="v">⋮ on each look → <b>Download</b> → <b>2K Upscaled</b> (1536 × 2752) — free</span></div><div class="row"><span class="k">4K</span><span class="v">needs a higher plan — 2K is plenty for Reels</span></div></div><p class="note">From <a href="https://support.google.com/flow/answer/16526234">Flow's credits page</a> and my own account. Google changes these — check your own counter.</p></div></div></section>
+<section id="before-you-post"><header class="sechead"><span class="label">Good to know</span><h2>Before you <em>post</em></h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">"Failed"</span><span class="v">Flow sometimes fails a look — you're not charged. Just send the same prompt again.</span></div><div class="row"><span class="k">Filters</span><span class="v">Flow filters uploaded photos of people. Use a clearer photo of yourself — never someone else's, never a child's.</span></div><div class="row"><span class="k">Watermark</span><span class="v">everything Flow makes carries an invisible SynthID mark; Google also adds a visible one for some users in India.</span></div><div class="row"><span class="k">Client work</span><span class="v">Google says it won't claim ownership of what you make — read <a href="https://support.google.com/flow/answer/16353333">Flow's terms</a> first.</span></div><div class="row"><span class="k">AI label</span><span class="v">these are AI photos of you — turn on Instagram's AI label when you post them.</span></div></div></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now shoot <em>yours</em></h2><p class="lead">One clear photo is all it takes.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 3.0 MB · works offline.</p><a class="btn main" href="flow-10-poses-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-10-22.</p></div>
+</footer>
 <script>
-document.querySelectorAll(".prompt").forEach((p) => {
-  const b = document.createElement("button"); b.className = "copy"; b.textContent = "Copy";
-  b.onclick = async () => { try { await navigator.clipboard.writeText(p.querySelector("pre").innerText); b.textContent = "Copied ✓"; } catch { b.textContent = "Select + copy"; } setTimeout(() => (b.textContent = "Copy"), 1800); };
-  p.appendChild(b);
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
 });
-</script></body></html>
+</script>
+</body></html>
