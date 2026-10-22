@@ -1,0 +1,218 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>The AI agent fight card — @theabhaychopra</title>
+<meta name="description" content="Four AI assistants that message you first, compared round by round on their makers' own pages: what each does, what it costs, who can get it, and the catch.">
+<meta property="og:title" content="The AI agent fight card"><meta property="og:description" content="Four AI assistants that message you first, compared round by round on their makers' own pages: what each does, what it costs, who can get it, and the catch.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/fight/">
+<meta property="og:image" content="https://theabhaychopra.github.io/fight/img/cover_ring-1792698674005-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-22T20:03:39Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>Claude Duet · Muse · dots · Grok Bot</span></div>
+<h1>The AI agent <em>fight card</em></h1>
+<p class="sub">Four AI assistants that message you first, compared round by round on their makers' own pages: what each does, what it costs, who can get it, and the catch.</p>
+<div class="facts"><span>Every fact checked on the official pages</span><span>22 Oct 2026</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="agent-fight-card.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/cover_ring-1792698674005-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#four-agents-in-10-weeks"><span class="n">01</span><span>Four agents in 10 weeks<span class="k">The fighters</span></span><span class="arr">↓</span></a></li><li><a href="#who-messages-you-first"><span class="n">02</span><span>Who messages you first?<span class="k">Round 1</span></span><span class="arr">↓</span></a></li><li><a href="#what-it-costs"><span class="n">03</span><span>What it costs<span class="k">Round 2</span></span><span class="arr">↓</span></a></li><li><a href="#who-can-get-it"><span class="n">04</span><span>Who can get it<span class="k">Round 3</span></span><span class="arr">↓</span></a></li><li><a href="#the-catch-and-what-to-do-about-it"><span class="n">05</span><span>The catch, and what to do about it<span class="k">Round 4</span></span><span class="arr">↓</span></a></li><li><a href="#no-knockout"><span class="n">06</span><span>No knockout<span class="k">The verdict</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="four-agents-in-10-weeks"><header class="sechead"><span class="label">The fighters</span><h2>Four agents in <em>10 weeks</em></h2><p class="lead">Each one has its own computer in the cloud and can reach out to you without being asked. Here's who they are, in launch order.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Grok Bot</span><span class="v"><b>xAI (now SpaceXSI)</b> · beta since <b>11 Aug 2026</b>. A team of always-on Bots with their own cloud computer, in Grok's desktop and mobile apps, Slack, and @bot on X.</span></div><div class="row"><span class="k">Muse</span><span class="v"><b>Meta</b> · <b>8 Sep 2026</b>. A personal AI agent in the Muse app, on muse.ai and in WhatsApp, running on its own secure computer (Muse Spark model).</span></div><div class="row"><span class="k">dots</span><span class="v"><b>OpenAI</b> · <b>29 Sep 2026</b>. "Your dot": an always-on agent <b>inside ChatGPT</b> (not a separate app), on GPT-6 Astra.</span></div><div class="row"><span class="k">Claude Duet</span><span class="v"><b>Anthropic</b> · research preview since <b>21 Oct 2026</b>. Its own app (plus claude.ai) that briefs you every morning, on Claude Opus 5.5.</span></div></div><p class="note">Not to mix up: ChatGPT Pulse (retired June 2026), Grok Automations, the Meta AI app and Claude's scheduled tasks are different products.</p></div></div></section>
+<section id="who-messages-you-first"><header class="sechead"><span class="label">Round 1</span><h2>Who messages you <em>first</em>?</h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Claude Duet</span><span class="v"><b>Yes.</b> A morning brief, then updates through the day. Checks your apps "every few hours"; no exact number is given.</span></div><div class="row"><span class="k">Muse</span><span class="v"><b>Yes.</b> "It can send you messages without you prompting it", on a schedule and when something new happens. You can dial it up or down.</span></div><div class="row"><span class="k">dots</span><span class="v"><b>Yes.</b> Messages you "with progress, questions, or decisions that need you". It decides itself when to wake up and keep working.</span></div><div class="row"><span class="k">Grok Bot</span><span class="v"><b>Mostly when it needs you.</b> Bots "only come back when something needs your approval"; since 2 Oct your main Bot can also offer to take work. It runs on schedules <b>you</b> set, at least 5 minutes apart.</span></div></div></div></div></section>
+<section id="what-it-costs"><header class="sechead"><span class="label">Round 2</span><h2>What it <em>costs</em></h2><p class="lead">US prices per month, from each maker's own pricing page. No official rupee prices are published; check yours at checkout.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Muse</span><span class="v"><b>Free</b>, with a usage limit. Power <b>$20</b>, Maximum <b>$100</b>.</span></div><div class="row"><span class="k">Claude Duet</span><span class="v"><b>Included</b> with Claude Pro (<b>$20</b>, or $17 billed yearly) or Max, at no extra cost during the preview. Its check-ins use your normal Claude limits.</span></div><div class="row"><span class="k">Grok Bot</span><span class="v">From <b>$30</b> (X Premium). Super $100, Ultra $200. Also included with paid Cursor and SuperGrok plans. X Plus doesn't include it.</span></div><div class="row"><span class="k">dots</span><span class="v">Needs <b>ChatGPT Pro</b>: from <b>$100</b> (Pro 100; also Pro 200 and Pro 500). Plus ($20) isn't eligible. Chats with your dot don't count toward your ChatGPT limits.</span></div></div></div></div></section>
+<section id="who-can-get-it"><header class="sechead"><span class="label">Round 3</span><h2>Who can <em>get it</em></h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Claude Duet</span><span class="v"><b>US only</b>, by waitlist, Pro and Max. Team and Enterprise are "not included yet". No date for other countries.</span></div><div class="row"><span class="k">Muse</span><span class="v"><b>US and Canada</b>, 18 and over. "We don't have additional timing to share now."</span></div><div class="row"><span class="k">dots</span><span class="v">ChatGPT Pro users 18+ in <b>most countries</b>: everywhere except the <b>EEA, Switzerland and the UK</b>, rolling out gradually.</span></div><div class="row"><span class="k">Grok Bot</span><span class="v"><b>No country limit listed</b> for the app. Only tagging @bot on X is blocked in Australia, the UK, the EU, Iceland, Liechtenstein and Norway.</span></div></div></div></div></section>
+<section id="the-catch-and-what-to-do-about-it"><header class="sechead"><span class="label">Round 4</span><h2>The <em>catch</em>, and what to do about it</h2><p class="lead">One honest catch each, from the maker's own help pages, plus the one thing I'd do.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Muse</span><span class="v">Uses your chats to improve Meta's AI models; the setting "is on when you first use Muse". <b>Do:</b> Settings → <b>Data controls</b> → turn it off (it also covers past chats).</span></div><div class="row"><span class="k">dots</span><span class="v">"You currently cannot view, delete, or directly modify individual dot memories." <b>Do:</b> keep sensitive projects out; deleting the dot is the only reset.</span></div><div class="row"><span class="k">Grok Bot</span><span class="v">"All of your Bots use the same cloud computer", with shared files and logins. Approvals from unattended runs expire in ~10 minutes. <b>Do:</b> don't treat separate Bots as separate locked rooms.</span></div><div class="row"><span class="k">Claude Duet</span><span class="v">"You can't watch Claude Duet work in its browser or take over the browser" (Muse and dots let you). <b>Do:</b> read its task list; it asks before it sends, pays, signs or deletes.</span></div></div></div></div></section>
+<section id="no-knockout"><header class="sechead"><span class="label">The verdict</span><h2>No <em>knockout</em></h2><p class="lead">Each one wins a different job. Pick by what you need.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Free to start</span><span class="v"><b>Muse</b>: a free tier with a usage cap (US and Canada).</span></div><div class="row"><span class="k">Spares your limits</span><span class="v"><b>dots</b>: chatting with your dot doesn't count toward your ChatGPT limits (Pro).</span></div><div class="row"><span class="k">Your own schedule</span><span class="v"><b>Grok Bot</b>: you set every routine, down to 5-minute gaps.</span></div><div class="row"><span class="k">Already on Claude Pro</span><span class="v"><b>Claude Duet</b>: no extra cost during the preview (US waitlist).</span></div></div></div>
+<div class="tip"><span class="label deep">Can't get any of them yet?</span><p>You can build the part I use most, a morning brief from your Gmail and Calendar, in normal Claude today. My prompts are here: <a href="https://theabhaychopra.github.io/duet/">theabhaychopra.github.io/duet</a>.</p></div>
+<div class="card sources"><span class="label">Sources (official pages, checked 22 Oct 2026)</span><ol><li><a href="https://claude.com/resources/articles/claude-duet">Introducing Claude Duet</a><span class="host">claude.com</span></li><li><a href="https://support.claude.com/en/articles/17631495-get-started-with-claude-duet">Get started with Claude Duet</a><span class="host">support.claude.com</span></li><li><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">Introducing Muse</a><span class="host">about.fb.com</span></li><li><a href="https://muse.ai/business">Muse availability</a><span class="host">muse.ai</span></li><li><a href="https://www.meta.com/help/superintelligence/1047255454427887/">Muse privacy, safety and security</a><span class="host">meta.com</span></li><li><a href="https://www.meta.com/help/subscriptions/1021145227643680/">Muse subscriptions</a><span class="host">meta.com</span></li><li><a href="https://openai.com/index/introducing-dots/">Introducing dots</a><span class="host">openai.com</span></li><li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers">ChatGPT Pro tiers</a><span class="host">help.openai.com</span></li><li><a href="https://x.ai/news/introducing-grok-bot">Introducing Grok Bot</a><span class="host">x.ai</span></li><li><a href="https://docs.x.ai/grok-bot/faq">Grok Bot docs</a><span class="host">docs.x.ai</span></li></ol></div>
+<p class="text">The fighters in my reel are the makers' own mascots in an AI-made scene; logos and mascots belong to Anthropic, Meta, OpenAI and SpaceXSI (xAI). Nobody sponsored this.</p></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Pick your <em>fighter</em></h2><p class="lead">No knockout: the right one is the one that fits your job.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 0.8 MB · works offline.</p><a class="btn main" href="agent-fight-card.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-10-22.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
