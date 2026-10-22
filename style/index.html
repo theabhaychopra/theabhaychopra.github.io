@@ -1,188 +1,230 @@
-<!doctype html><html><head><meta charset="utf-8">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
 <title>How I make Claude copy any creator's editing style — @theabhaychopra</title>
 <meta name="description" content="The 5 prompts I use — from one reel you love to your own video, edited in that style.">
 <meta property="og:title" content="How I make Claude copy any creator's editing style"><meta property="og:description" content="The 5 prompts I use — from one reel you love to your own video, edited in that style.">
 <meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/style/">
-<meta property="og:image" content="https://theabhaychopra.github.io/style/img/cover_mascot.jpg"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-21T16:01:22Z">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Public+Sans:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=block" rel="stylesheet">
+<meta property="og:image" content="https://theabhaychopra.github.io/style/img/cover_mascot-1792383250943-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-10-22T19:43:01Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-@page { size: 6in 10.6667in; margin: 0; }
-:root { --paper:#F0EBDF; --card:#FCF9F5; --sand:#D1C2AD; --ink:#15100C; --accent:#B4421E; --dark:#4E2213; --second:#9EC8C1; --third:#D8A772; --mute:#7D7064; --x: 34px; }
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
 * { box-sizing: border-box; }
-html, body { margin: 0; background: var(--paper); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font: 500 15px/1.5 Inter, sans-serif; letter-spacing: -0.005em; text-wrap: pretty; }
-a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
-b { font-weight: 700; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
 p { margin: 0; }
-code { font: 500 0.9em "IBM Plex Mono", monospace; background: var(--card); padding: 1px 5px; border-radius: 4px; }
-.kicker { font: 700 10.5px/1.2 "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-h2 { font: 400 44px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
-h2 em, h1 em, .bignum em { color: var(--accent); }
-h3 { font: 400 26px/1 "Instrument Serif", serif; letter-spacing: -0.02em; margin: 0; }
-.lead { font-size: 16.5px; margin-top: 10px; }
-/* every page: the same frame */
-.page { width: 6in; height: 10.6667in; position: relative; overflow: hidden; break-after: page; display: flex; flex-direction: column; padding: 26px var(--x) 34px; }
-.page:last-child { break-after: auto; }
-.mark { height: 30px; flex: none; display: flex; justify-content: space-between; align-items: center; font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
-.mark span { display: flex; align-items: center; gap: 9px; }
-.mark img { width: 28px; height: 28px; border-radius: 50%; background: var(--card); border: 1.5px solid var(--sand); object-fit: contain; }
-.body { flex: 1; min-height: 0; margin-top: 22px; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
-.body > * { flex: none; }
-/* spread: the page's blocks share its height evenly (no hole at the bottom) */
-.body.spread { justify-content: space-between; }
-.body > .fill { flex: 1 1 auto; min-height: 120px; display: flex; flex-direction: column; }
-/* cover */
-.cover { background: #F0EBDF; padding: 0; }
-.cover .mark { position: absolute; left: var(--x); right: var(--x); top: 26px; }
-.cover .stack { position: absolute; left: 0; right: 0; top: 82px; bottom: 92px; display: flex; flex-direction: column; }
-.cover .kick { margin: 0 var(--x) 10px; }
-.cover h1 { margin: 0 30px 0 var(--x); font: 400 66px/0.9 "Instrument Serif", serif; letter-spacing: -0.04em; text-wrap: balance; }
-.cover .sub { margin: 16px 44px 0 var(--x); font: 500 16.5px/1.45 Inter, sans-serif; text-wrap: pretty; }
-.cover .art { flex: 1; min-height: 0; margin-top: 10px; display: flex; align-items: flex-end; justify-content: center; }
-.cover .art img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 92px; background: var(--accent); color: var(--paper); display: flex; align-items: center; padding: 0 var(--x); font: 600 11px/1.6 "Public Sans", sans-serif; letter-spacing: 0.26em; text-transform: uppercase; }
-/* blocks */
-.step .stephead { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.step > p { margin-bottom: 6px; }
-.num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--paper); display: flex; align-items: center; justify-content: center; font: 400 20px "Instrument Serif", serif; }
-.prompt { background: var(--card); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 12px 14px 13px; box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
-.step .prompt { margin-top: 6px; }
-.prompt pre { margin: 0; white-space: pre-wrap; font: 400 12.2px/1.55 "IBM Plex Mono", monospace; color: var(--ink); }
-.after { font-size: 13.5px; color: var(--mute); margin-top: 8px; }
-.callout { background: var(--dark); color: var(--paper); border-radius: 14px; padding: 16px 18px; }
-.callout .kicker { color: var(--third); }
-.callout a { color: var(--third); }
-.big { background: var(--card); border-radius: 16px; padding: 18px 20px; justify-content: center; }
-.bignum { font: 400 64px/0.95 "Instrument Serif", serif; letter-spacing: -0.03em; }
-.big p { margin-top: 10px; color: var(--mute); font-size: 14px; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
 .list h3 { margin-bottom: 8px; }
-.list ul, .start ol { margin: 0; padding-left: 20px; }
-.list li, .start li { margin: 0 0 7px; }
-.rowsbox { background: var(--card); border-radius: 14px; padding: 14px 16px; }
-.rows { margin: 2px 0 0; }
-.row { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-top: 1px solid rgba(0,0,0,0.09); }
-.row:first-child { border-top: none; }
-.row .k { flex: none; width: 122px; font: 700 9.5px/1.3 "Public Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-.row .v { font-size: 14px; line-height: 1.45; }
-.note { font-size: 12.5px; color: var(--mute); margin-top: 8px; }
-.rowsbox.narrow .row .k { width: 22px; font-size: 12px; letter-spacing: 0; }
-/* a rows card that fills its page spreads its rows evenly instead of leaving a gap at the bottom */
-.rowsbox.fill .rows { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
-figure.img { margin: 0; }
-figure.img img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-figure.img.fill img { flex: 1; min-height: 0; height: auto; }
-figure.img.in { margin: 0 0 10px; }
-figcaption { font-size: 12.5px; color: var(--mute); margin-top: 7px; flex: none; }
-.tool { background: var(--card); border-radius: 16px; padding: 18px 18px 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-.tool > p { margin-bottom: 10px; }
-.toolhead { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
-.toolhead .logo { width: 54px; height: 54px; border-radius: 12px; object-fit: contain; background: var(--paper); padding: 6px; flex: none; }
-.toolhead .kicker { margin-bottom: 4px; }
-.instead { font-size: 13.5px; color: var(--mute); margin-top: 4px; }
-.instead s { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
-.instead b { color: var(--accent); }
-.tool .rows { margin-bottom: 12px; }
-.start .kicker { margin-bottom: 6px; }
-.good { font-size: 13px; margin-top: 4px; }
-.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-/* a tool on its own page: bigger type for phones, sections spread down the card */
-.tool.fill { justify-content: space-between; padding: 22px 20px 20px; }
-.tool.fill .toolhead .logo { width: 66px; height: 66px; }
-.tool.fill h3 { font-size: 34px; }
-.tool.fill .instead { font-size: 15px; }
-.tool.fill > p, .tool.fill .start li { font-size: 16.5px; line-height: 1.5; }
-.tool.fill .row { padding: 10px 0; }
-.tool.fill .row .k { width: 128px; font-size: 10px; }
-.tool.fill .row .v { font-size: 15.5px; }
-.tool.fill .good { font-size: 14.5px; }
-.tool.fill .links { margin-top: 0; }
-.tool.fill .pill { font-size: 14px; padding: 9px 15px; }
-.big.fill { justify-content: center; }
-.big.fill .bignum { font-size: 84px; }
-.pill { display: inline-flex; flex-direction: column; gap: 1px; text-decoration: none; background: var(--accent); color: var(--paper); border-radius: 12px; padding: 8px 13px; font: 700 13px/1.2 Inter, sans-serif; }
-.pill span { font: 500 10.5px/1.2 Inter, sans-serif; opacity: 0.8; }
-.end { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
-.end figure.img.fill { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-.end figure.img.fill img { border-radius: 16px; }
-/* an illustration (his character) stands on the page paper: whole, no box, no shadow */
-.end figure.img.fill.art img { object-fit: contain; border-radius: 0; box-shadow: none; }
-.sign { font: 400 30px "Instrument Serif", serif; display: flex; align-items: baseline; justify-content: space-between; }
-.sign span { font: 600 10.5px "Public Sans", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
-/* web: one readable column on a phone (the PDF keeps the fixed 9:16 pages) */
-body { font-size: 16px; }
-.page { width: auto; height: auto; max-width: 600px; margin: 0 auto; overflow: visible; display: block; padding: 30px 20px; break-after: auto; }
-.page + .page { border-top: 1px solid rgba(0,0,0,0.08); }
-.body { margin-top: 0; overflow: visible; display: flex; flex-direction: column; gap: 18px; }
-.body.spread { justify-content: flex-start; }
-.body > .fill { display: block; min-height: 0; }
-figure.img.fill img { height: auto; }
-.end figure.img.fill.art img { width: auto; max-width: 100%; max-height: 62svh; margin: 0 auto; }
-.rowsbox.fill .rows { display: block; }
-h2 { font-size: clamp(36px, 10.5vw, 46px); }
-.tool.fill h3 { font-size: 30px; }
-.big.fill .bignum { font-size: clamp(56px, 16vw, 84px); }
-.row .k { width: 108px; }
-.cover { max-width: 600px; margin: 0 auto; min-height: min(100svh, 940px); position: relative; display: flex; flex-direction: column; padding: 0 0 92px; }
-.cover .mark { position: static; padding: 22px 20px 0; }
-.cover .stack { position: static; flex: 1; display: flex; flex-direction: column; padding-top: 26px; }
-.cover .kick { margin: 0 20px 10px; }
-.cover h1 { margin: 0 20px; font-size: clamp(46px, 13vw, 66px); }
-.cover .sub { margin: 16px 20px 0; }
-.cover .art img { max-height: 44svh; }
-.cover .band { padding: 0 20px; }
-.getpdf { max-width: 600px; margin: 0 auto; padding: 18px 20px 6px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); text-decoration: none; border-radius: 999px; padding: 11px 18px; font: 700 14px Inter, sans-serif; }
-.btn.alt { background: var(--card); color: var(--ink); border: 1.5px solid var(--sand); }
-.prompt { position: relative; }
-.prompt .kicker { padding-right: 78px; min-height: 24px; line-height: 1.45; }
-.copy { position: absolute; top: 9px; right: 9px; border: 0; background: var(--accent); color: var(--paper); border-radius: 999px; padding: 6px 13px; font: 700 12px Inter, sans-serif; cursor: pointer; }
-.foot { max-width: 600px; margin: 0 auto; padding: 8px 20px 48px; color: var(--mute); font-size: 13px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
 </style></head><body>
-<div class="page cover">
-  <div class="mark"><span><img src="img/illustrated_face-1792343890582.png"/>@theabhaychopra</span><span>Free guide</span></div>
-  <div class="stack">
-  <div class="kicker kick">The exact prompts, in order</div>
-  <h1>How I make Claude <em>copy any</em> creator's editing style</h1>
-  <div class="sub">The 5 prompts I use — from one reel you love to your own video, edited in that style.</div>
-  <div class="art"><img src="img/cover_mascot.jpg"/></div>
-  </div>
-  <div class="band">6 styles so far · each from one reel</div>
-</div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">Before you start</div><h2>What you <em>need</em></h2></section>
-<div class="list"><ul><li><b>Claude Code</b> — the desktop app or the terminal, pointed at a folder for your videos (<a href="https://claude.com/claude-code">claude.com/claude-code</a>)</li><li><b>ffmpeg</b> — free; Claude uses it to pull frames, cut and mix (<a href="https://ffmpeg.org">ffmpeg.org</a>)</li><li><b>Remotion</b> — renders the graphics from code; free for individuals (<a href="https://www.remotion.dev">remotion.dev</a>)</li><li><b>One reel</b> whose editing you love, saved as an .mp4</li><li><b>Your own clip</b> — a talking-head video is perfect to start</li></ul></div>
-<div class="callout"><div class="kicker">How it works</div><p>Claude doesn't "get inspired". It <b>measures</b> the reel — colours, fonts, sizes, timing — builds every graphic to those numbers, checks its copy against the original, then edits your video with it.</p></div>
-<div class="rowsbox fill narrow"><div class="kicker">The 5 prompts</div><div class="rows"><div class="row"><span class="k">1</span><span class="v"><b>Study the reel</b> — measure everything</span></div><div class="row"><span class="k">2</span><span class="v"><b>Build the pieces</b> — to those numbers, then compare</span></div><div class="row"><span class="k">3</span><span class="v"><b>Match the colour grade</b> — a LUT for your footage</span></div><div class="row"><span class="k">4</span><span class="v"><b>Edit your video</b> — in the new style</span></div><div class="row"><span class="k">5</span><span class="v"><b>Check before you post</b> — frames and loudness</span></div></div></div></div></div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">Prompt 1 of 5</div><h2><em>Study</em> the reel</h2></section>
-<div class="prompt"><div class="kicker">Copy this prompt</div><pre>Here's a reel I love: reel.mp4. Study its editing style thoroughly — measure it, don't eyeball it.
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>The exact prompts, in order</span></div>
+<h1>How I make Claude <em>copy any</em> creator's editing style</h1>
+<p class="sub">The 5 prompts I use — from one reel you love to your own video, edited in that style.</p>
+<div class="facts"><span>6 styles so far</span><span>each from one reel</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="claude-copies-any-style-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/cover_mascot-1792383250943-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#study-the-reel"><span class="n">02</span><span>Study the reel<span class="k">Prompt 1 of 5</span></span><span class="arr">↓</span></a></li><li><a href="#save-the-style"><span class="n">03</span><span>Save the style<span class="k">Make it last</span></span><span class="arr">↓</span></a></li><li><a href="#how-i-didn-t-film-this-reel"><span class="n">04</span><span>How I didn't film this reel<span class="k">Bonus</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Claude Code</b> — the desktop app or the terminal, pointed at a folder for your videos (<a href="https://claude.com/claude-code">claude.com/claude-code</a>)</li><li><b>ffmpeg</b> — free; Claude uses it to pull frames, cut and mix (<a href="https://ffmpeg.org">ffmpeg.org</a>)</li><li><b>Remotion</b> — renders the graphics from code; free for individuals (<a href="https://www.remotion.dev">remotion.dev</a>)</li><li><b>One reel</b> whose editing you love, saved as an .mp4</li><li><b>Your own clip</b> — a talking-head video is perfect to start</li></ul></div>
+<div class="tip"><span class="label deep">How it works</span><p>Claude doesn't "get inspired". It <b>measures</b> the reel — colours, fonts, sizes, timing — builds every graphic to those numbers, checks its copy against the original, then edits your video with it.</p></div>
+<div class="card rowsbox"><span class="label">The 5 prompts</span><div class="rows narrow"><div class="row"><span class="k">1</span><span class="v"><b>Study the reel</b> — measure everything</span></div><div class="row"><span class="k">2</span><span class="v"><b>Build the pieces</b> — to those numbers, then compare</span></div><div class="row"><span class="k">3</span><span class="v"><b>Match the colour grade</b> — a LUT for your footage</span></div><div class="row"><span class="k">4</span><span class="v"><b>Edit your video</b> — in the new style</span></div><div class="row"><span class="k">5</span><span class="v"><b>Check before you post</b> — frames and loudness</span></div></div></div></div></section>
+<section id="study-the-reel"><header class="sechead"><span class="label">Prompt 1 of 5</span><h2><em>Study</em> the reel<img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Here's a reel I love: reel.mp4. Study its editing style thoroughly — measure it, don't eyeball it.
 1. Pull 3 frames a second and make contact sheets so you can see every beat.
 2. Sample the exact colours (hex) of the text, boxes and backgrounds.
 3. Measure every text element from the pixels: size, position, alignment, letter spacing.
 4. Identify the fonts: crop a word, render 5–10 candidate fonts at the same size and score how well each overlaps the crop. Pick by the score, not by eye.
 5. Time every animation and transition frame by frame: how long, which easing, what moves.
 Write it all up as STYLE.md with tables of real numbers.</pre></div>
-<div class="rowsbox fill"><div class="kicker">What you get back — measured on one reel</div><div class="rows"><div class="row"><span class="k">Fonts</span><span class="v">Instrument Serif for titles and captions (0.76 overlap score), a mono for labels</span></div><div class="row"><span class="k">Colours</span><span class="v">cream <code>#F5EEE1</code> on dark, green <code>#1C351F</code> on light, caption box <code>#233E2C</code></span></div><div class="row"><span class="k">Captions</span><span class="v">67 px, box at y 1318–1400; each word lights up as it's said</span></div><div class="row"><span class="k">Titles</span><span class="v">every line sized to one width; letters rise in 3–4 frames</span></div><div class="row"><span class="k">Transitions</span><span class="v">camera-blur whips: 0.1 s in, 0.13 s hold, 0.12 s out</span></div><div class="row"><span class="k">Grade</span><span class="v">olive shadows, warm mids, cream highlights — no blue anywhere</span></div></div><p class="note">From @justyn.ai's reel "three different editing styles" — the style is his.</p></div></div></div>
-<div class="page"><div class="body spread"><div class="step"><div class="stephead"><span class="num">2</span><h3>Build the pieces to those numbers</h3></div><div class="prompt"><div class="kicker">Copy this prompt</div><pre>Build each graphic in STYLE.md as a reusable Remotion component — titles, captions, cards, transitions — using the measured fonts, colours, sizes and timings. Then rebuild 3–4 frames of the original reel and put them next to the real frames. Measure the difference and fix anything more than a few pixels off. Keep going until they match.</pre></div><p class="after">The step most people skip — and why the copy looks like the original.</p></div>
-<div class="step"><div class="stephead"><span class="num">3</span><h3>Match the colour grade</h3></div><div class="prompt"><div class="kicker">Copy this prompt</div><pre>Measure the reel's colour grade from the footage only, not the graphics: black and white points, the tone curve, the tint of the shadows, mids and highlights, the saturation, and which hues it uses. Make a LUT that moves my clip me.mp4 onto that look. Keep skin natural — if my face ends up darker than in the reel, lift it. Show me before / after / the original side by side.</pre></div><p class="after">If the reel's room is much brighter or darker than yours, ask for the grade at half strength.</p></div>
-<figure class="img"><img src="img/grade_before_after.jpg" style="height:auto;aspect-ratio:1636/926;object-position:50% 35%"/><figcaption>Before → after → the original reel (@justyn.ai).</figcaption></figure></div></div>
-<div class="page"><div class="body"><div class="step"><div class="stephead"><span class="num">4</span><h3>Edit your video in the style</h3></div><div class="prompt"><div class="kicker">Copy this prompt</div><pre>Now edit me.mp4 in this style. Transcribe it, cut every pause longer than 0.12 s, and lay out the edit: every graphic comes in on the word that names it, one graphic at a time. Grade it with the LUT, add captions in the style, a quiet music bed and small sound hits, and mix to −14 LUFS. Render a half-size draft first and show me a frame every 2 seconds.</pre></div></div>
-<figure class="img fill"><img src="img/compare.jpg" style="object-position:50% 40%"/><figcaption>Left: the original by @justyn.ai. Right: my video, edited by Claude in his style.</figcaption></figure>
-<div class="step"><div class="stephead"><span class="num">5</span><h3>Check before you post</h3></div><div class="prompt"><div class="kicker">Copy this prompt</div><pre>Before I post: make a contact sheet with one frame every 2 seconds, list anything that pops in or vanishes in a single frame, check the loudness, and fix what's off. Then render the final in 4K.</pre></div></div></div></div>
-<div class="page"><div class="body"><section class="sec"><div class="kicker">Make it last</div><h2><em>Save</em> the style</h2></section>
-<div class="list"><ul><li><b>One reel is enough</b> — if the study is in numbers, not vibes.</li><li><b>Save each style</b> in your folder (the components + STYLE.md). Your next video only needs prompt 4.</li><li><b>Credit the original creator</b> on screen and in your caption whenever you show their reel.</li><li><b>Your room changes the look.</b> If your footage won't fully match the grade, go halfway and let the graphics do the work.</li></ul></div>
-<figure class="img fill"><img src="img/styles_wall.jpg" style="object-position:50% 60%"/><figcaption>Six styles so far — each one learned from a single reel.</figcaption></figure></div></div>
-<div class="page"><div class="body spread"><section class="sec"><div class="kicker">Bonus</div><h2>How I <em>didn't film</em> this reel</h2></section>
-<div class="rowsbox"><div class="rows"><div class="row"><span class="k">Script</span><span class="v">Claude wrote it from a short brief and checked it against what works on my own Instagram</span></div><div class="row"><span class="k">Voice</span><span class="v">my ElevenLabs voice clone read the script</span></div><div class="row"><span class="k">Video</span><span class="v">my HeyGen AI twin (Avatar III — it keeps my real recorded footage, so it stays sharp)</span></div><div class="row"><span class="k">Edit</span><span class="v">Claude, in the style from prompt 1 — graded, captioned, mixed and exported in 4K</span></div></div><p class="note">Everything AI-made is shown as AI-made. Clone only your own voice and face.</p></div>
-<figure class="img"><img src="img/pipeline.jpg" style="height:auto;aspect-ratio:760/560;object-position:50% 45%"/><figcaption>Script by Claude, voice by ElevenLabs, video by my HeyGen twin.</figcaption></figure></div></div>
-<div class="page"><div class="body"><div class="end"><figure class="img fill art"><img src="img/wave_end.jpg" style="object-position:50% 100%"/></figure><h2>Now copy <em>your favourite</em></h2><p class="lead">One reel you love is all it takes.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></div>
-<div class="getpdf"><a class="btn" href="claude-copies-any-style-guide.pdf" download>Download the PDF ↓</a><a class="btn alt" href="https://www.instagram.com/theabhaychopra/">@theabhaychopra on Instagram</a></div>
-<p class="foot">Free guide by @theabhaychopra. Updated 2026-10-21.</p>
+<div class="card rowsbox"><span class="label">What you get back — measured on one reel</span><div class="rows"><div class="row"><span class="k">Fonts</span><span class="v">Instrument Serif for titles and captions (0.76 overlap score), a mono for labels</span></div><div class="row"><span class="k">Colours</span><span class="v">cream <code>#F5EEE1</code> on dark, green <code>#1C351F</code> on light, caption box <code>#233E2C</code></span></div><div class="row"><span class="k">Captions</span><span class="v">67 px, box at y 1318–1400; each word lights up as it's said</span></div><div class="row"><span class="k">Titles</span><span class="v">every line sized to one width; letters rise in 3–4 frames</span></div><div class="row"><span class="k">Transitions</span><span class="v">camera-blur whips: 0.1 s in, 0.13 s hold, 0.12 s out</span></div><div class="row"><span class="k">Grade</span><span class="v">olive shadows, warm mids, cream highlights — no blue anywhere</span></div></div><p class="note">From @justyn.ai's reel "three different editing styles" — the style is his.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Build the pieces to those numbers</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Build each graphic in STYLE.md as a reusable Remotion component — titles, captions, cards, transitions — using the measured fonts, colours, sizes and timings. Then rebuild 3–4 frames of the original reel and put them next to the real frames. Measure the difference and fix anything more than a few pixels off. Keep going until they match.</pre></div><p class="after">The step most people skip — and why the copy looks like the original.</p></div>
+<div class="card step"><div class="top"><span class="num">3</span><h3>Match the colour grade</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Measure the reel's colour grade from the footage only, not the graphics: black and white points, the tone curve, the tint of the shadows, mids and highlights, the saturation, and which hues it uses. Make a LUT that moves my clip me.mp4 onto that look. Keep skin natural — if my face ends up darker than in the reel, lift it. Show me before / after / the original side by side.</pre></div><p class="after">If the reel's room is much brighter or darker than yours, ask for the grade at half strength.</p></div>
+<figure class="fig"><img src="img/grade_before_after-1792383806763-w1300.jpg" alt="Before → after → the original reel (@justyn.ai)." loading="lazy" decoding="async" style="aspect-ratio:1636/926;object-fit:cover;object-position:50% 35%"/><figcaption>Before → after → the original reel (@justyn.ai).</figcaption></figure>
+<div class="card step"><div class="top"><span class="num">4</span><h3>Edit your video in the style</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Now edit me.mp4 in this style. Transcribe it, cut every pause longer than 0.12 s, and lay out the edit: every graphic comes in on the word that names it, one graphic at a time. Grade it with the LUT, add captions in the style, a quiet music bed and small sound hits, and mix to −14 LUFS. Render a half-size draft first and show me a frame every 2 seconds.</pre></div></div>
+<figure class="fig"><img src="img/compare.jpg" alt="Left: the original by @justyn.ai. Right: my video, edited by Claude in his style." loading="lazy" decoding="async"/><figcaption>Left: the original by @justyn.ai. Right: my video, edited by Claude in his style.</figcaption></figure>
+<div class="card step"><div class="top"><span class="num">5</span><h3>Check before you post</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Before I post: make a contact sheet with one frame every 2 seconds, list anything that pops in or vanishes in a single frame, check the loudness, and fix what's off. Then render the final in 4K.</pre></div></div></div></section>
+<section id="save-the-style"><header class="sechead"><span class="label">Make it last</span><h2><em>Save</em> the style</h2></header><div class="blocks"><div class="card list"><ul><li><b>One reel is enough</b> — if the study is in numbers, not vibes.</li><li><b>Save each style</b> in your folder (the components + STYLE.md). Your next video only needs prompt 4.</li><li><b>Credit the original creator</b> on screen and in your caption whenever you show their reel.</li><li><b>Your room changes the look.</b> If your footage won't fully match the grade, go halfway and let the graphics do the work.</li></ul></div>
+<figure class="fig"><img src="img/styles_wall.jpg" alt="Six styles so far — each one learned from a single reel." loading="lazy" decoding="async"/><figcaption>Six styles so far — each one learned from a single reel.</figcaption></figure></div></section>
+<section id="how-i-didn-t-film-this-reel"><header class="sechead"><span class="label">Bonus</span><h2>How I <em>didn't film</em> this reel</h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Script</span><span class="v">Claude wrote it from a short brief and checked it against what works on my own Instagram</span></div><div class="row"><span class="k">Voice</span><span class="v">my ElevenLabs voice clone read the script</span></div><div class="row"><span class="k">Video</span><span class="v">my HeyGen AI twin (Avatar III — it keeps my real recorded footage, so it stays sharp)</span></div><div class="row"><span class="k">Edit</span><span class="v">Claude, in the style from prompt 1 — graded, captioned, mixed and exported in 4K</span></div></div><p class="note">Everything AI-made is shown as AI-made. Clone only your own voice and face.</p></div>
+<figure class="fig"><img src="img/pipeline.jpg" alt="Script by Claude, voice by ElevenLabs, video by my HeyGen twin." loading="lazy" decoding="async" style="aspect-ratio:760/560;object-fit:cover;object-position:50% 45%"/><figcaption>Script by Claude, voice by ElevenLabs, video by my HeyGen twin.</figcaption></figure></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now copy <em>your favourite</em></h2><p class="lead">One reel you love is all it takes.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 1.7 MB · works offline.</p><a class="btn main" href="claude-copies-any-style-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-10-22.</p></div>
+</footer>
 <script>
-document.querySelectorAll(".prompt").forEach((p) => {
-  const b = document.createElement("button"); b.className = "copy"; b.textContent = "Copy";
-  b.onclick = async () => { try { await navigator.clipboard.writeText(p.querySelector("pre").innerText); b.textContent = "Copied ✓"; } catch { b.textContent = "Select + copy"; } setTimeout(() => (b.textContent = "Copy"), 1800); };
-  p.appendChild(b);
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
 });
-</script></body></html>
+</script>
+</body></html>
