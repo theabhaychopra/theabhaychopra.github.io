@@ -1,0 +1,220 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>The AI agent privacy checklist — @theabhaychopra</title>
+<meta name="description" content="They keep a file on you, so I opened one on each of them: what each agent reads, trains on and remembers, and the exact setting to change, from each maker's own help pages.">
+<meta property="og:title" content="The AI agent privacy checklist"><meta property="og:description" content="They keep a file on you, so I opened one on each of them: what each agent reads, trains on and remembers, and the exact setting to change, from each maker's own help pages.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/lock/">
+<meta property="og:image" content="https://theabhaychopra.github.io/lock/img/hf_cover_v1-1792723696069-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E6D5AE"><meta name="guide-build" content="2026-10-23T03:12:26Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #E6D5AE; --card: #F2E8D2; --card2: #ecdfc0; --line: #d6c39a; --ink: #1C1A16; --ink2: #3e3931; --mute: #8C8170; --dot: rgba(140,129,112,0.18); --accent: #B3362B; --accent-hi: #be5249; --accent-deep: #832d24; --on-dark-accent: #d38a84; --tint: #f3dfdd; --tint2: #f9efee; --tint-line: #e5bbb7; --tint-line2: #eed3d0; --halo: rgba(179,54,43,0.18); --glow1: rgba(190,82,73,0.3); --glow2: rgba(243,223,221,0.95); --glow-dark: rgba(190,82,73,0.45); --dark: #1C1A16; --dark-text: #decea8; --deep: #120F0C; --deep-text: #f0e6ce; --btn-shadow: rgba(131,45,36,0.55); --shadow: 0 24px 60px -42px rgba(28,26,22,0.55); --shadow-soft: 0 14px 34px -30px rgba(28,26,22,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>4 case files · Muse · dots · Grok Bot · Claude Duet</span></div>
+<h1>The AI agent <em>privacy checklist</em></h1>
+<p class="sub">They keep a file on you, so I opened one on each of them: what each agent reads, trains on and remembers, and the exact setting to change, from each maker's own help pages.</p>
+<div class="facts"><span>Checked on the official pages</span><span>22 Oct 2026</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="agent-privacy-checklist.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#E6D5AE"><img src="img/hf_cover_v1-1792723696069-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#six-questions-four-agents"><span class="n">01</span><span>Six questions, four agents<span class="k">Before you connect anything</span></span><span class="arr">↓</span></a></li><li><a href="#muse-trains-on-you-by-default"><span class="n">02</span><span>Muse trains on you by default<span class="k">Muse · Meta</span></span><span class="arr">↓</span></a></li><li><a href="#dots-keeps-its-own-notes"><span class="n">03</span><span>dots keeps its own notes<span class="k">dots · OpenAI, inside ChatGPT</span></span><span class="arr">↓</span></a></li><li><a href="#all-your-bots-share-one-computer"><span class="n">04</span><span>All your Bots share one computer<span class="k">Grok Bot · xAI (now SpaceXSI)</span></span><span class="arr">↓</span></a></li><li><a href="#you-can-t-watch-duet-work"><span class="n">05</span><span>You can't watch Duet work<span class="k">Claude Duet · Anthropic</span></span><span class="arr">↓</span></a></li><li><a href="#delete-doesn-t-mean-forgotten"><span class="n">06</span><span>Delete doesn't mean forgotten<span class="k">All four</span></span><span class="arr">↓</span></a></li><li><a href="#your-clients-are-in-there-too"><span class="n">07</span><span>Your clients are in there too<span class="k">Freelancers</span></span><span class="arr">↓</span></a></li><li><a href="#ask-it-what-it-remembers"><span class="n">08</span><span>Ask it what it remembers<span class="k">Bonus</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="six-questions-four-agents"><header class="sechead"><span class="label">Before you connect anything</span><h2>Six questions, <em>four agents</em></h2><p class="lead">To message you first, an agent has to read your apps first. I asked the same six questions of each one, and answered them only from the maker's own help pages.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Reads</span><span class="v">What can it open: your inbox, calendar, files, your own computer? What's on by default?</span></div><div class="row"><span class="k">Trains</span><span class="v">Do your chats and its work train the company's AI? Where is the switch?</span></div><div class="row"><span class="k">Remembers</span><span class="v">What does it keep, can you see it, and what stays after you delete?</span></div><div class="row"><span class="k">Asks first</span><span class="v">Which actions wait for your OK, and can you make it stricter?</span></div><div class="row"><span class="k">Off switch</span><span class="v">How do you disconnect an app, stop it, or wipe it?</span></div><div class="row"><span class="k">Watch it</span><span class="v">Can you see what it's doing, or take over?</span></div></div><p class="note">Menus move. Every path here was checked on 22 Oct 2026; if your screen differs, the official page linked at the end has the latest.</p></div></div></section>
+<section id="muse-trains-on-you-by-default"><header class="sechead"><span class="label">Muse · Meta</span><h2>Muse trains on you <em>by default</em></h2><p class="lead">US and Canada only, 18+. Free with a usage limit.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Reads</span><span class="v">Facebook, Instagram and Threads connect <b>automatically</b> if they share an Accounts Center with Muse. Gmail, calendar and other apps only if you add them. On a Mac you choose per app: <b>Off</b>, <b>Read only</b> or <b>Read and interact</b>.</span></div><div class="row"><span class="k">Trains</span><span class="v"><b>On from your first chat.</b> Settings → Data controls → <b>Help improve our AI models</b> → off → Turn off. Meta says the change "also applies to previous interactions".</span></div><div class="row"><span class="k">Remembers</span><span class="v">Your chats, files and a <b>Memory.md</b> you can read and edit: Assistant icon → Identity → Memory. Meta warns it "may still remember" what you delete.</span></div><div class="row"><span class="k">Asks first</span><span class="v">Settings → Permissions → <b>Always ask</b> (it asks before any action). Avoid "Always allow" on email.</span></div><div class="row"><span class="k">Off switch</span><span class="v">Settings → Connectors to disconnect. <b>Reset Muse</b> (Settings → Data controls) deletes everything and can't be undone.</span></div><div class="row"><span class="k">Watch it</span><span class="v">Yes: <b>Open browser</b>, <b>Take control</b>, <b>Stop the task</b>, and an Activity log of what it did.</span></div></div></div></div></section>
+<section id="dots-keeps-its-own-notes"><header class="sechead"><span class="label">dots · OpenAI, inside ChatGPT</span><h2>dots keeps <em>its own notes</em></h2><p class="lead">ChatGPT Pro (from $100 a month), most countries except the EEA, Switzerland and the UK.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Reads</span><span class="v">The apps you connect in ChatGPT, with the same permissions (you can allow <b>read email without send</b>). Access to your own computer <b>starts turned off</b>.</span></div><div class="row"><span class="k">Trains</span><span class="v">Settings → Data controls → <b>Improve the model for everyone</b> → off (on phone: profile icon → Settings → Data controls). Affects new chats. OpenAI doesn't train directly on its background research. Human review can still happen with this off.</span></div><div class="row"><span class="k">Remembers</span><span class="v">Its own notes, plus your ChatGPT memory. Turning off ChatGPT memory <b>doesn't wipe</b> what it already has, and you <b>can't view or edit</b> its notes one by one.</span></div><div class="row"><span class="k">Asks first</span><span class="v">Settings → Personalization → <b>Custom rules</b>: take action, ask first, or hand off to you. Password changes and money transfers always come back to you.</span></div><div class="row"><span class="k">Off switch</span><span class="v">Its profile → ••• → <b>Pause</b>. Its profile → ••• → <b>Reset</b> deletes its chats, memories and schedules. Disconnecting an app doesn't delete what it learned.</span></div><div class="row"><span class="k">Watch it</span><span class="v">Yes: open its computer, <b>Take over</b>, and <b>Activity</b> in the desktop app.</span></div></div></div></div></section>
+<section id="all-your-bots-share-one-computer"><header class="sechead"><span class="label">Grok Bot · xAI (now SpaceXSI)</span><h2>All your Bots share <em>one computer</em></h2><p class="lead">From $30 a month, or included with paid Cursor plans. Its data settings live in your <b>Cursor</b> account.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Reads</span><span class="v">Every app you connect works for <b>every</b> Bot. All Bots share one cloud computer: files, browser sessions, logins. Your own computer: Settings → General → Bot → Execution on Local Computer, default <b>Ask every time</b>.</span></div><div class="row"><span class="k">Trains</span><span class="v">Follows your <b>Cursor</b> privacy settings (Cursor dashboard → Settings → Privacy). Grok Bot doesn't support Legacy Privacy Mode.</span></div><div class="row"><span class="k">Remembers</span><span class="v">Preferences, facts and work summaries. No memory viewer is documented; correct it in chat.</span></div><div class="row"><span class="k">Asks first</span><span class="v">Settings → General → Auto-review → add <b>Ask first</b> rules (they win over Allow rules). <b>Keep drafts on</b>: "Disable drafts" lets a Bot send email and Slack directly. Approvals from unattended runs expire in about 10 minutes.</span></div><div class="row"><span class="k">Off switch</span><span class="v">Per Bot: Notifications. Send "Stop now". Deleting a Bot can leave files and logins: sign out of sites, uninstall connectors, clear /workspace. A full wipe = delete your Cursor account (gone within 30 days).</span></div><div class="row"><span class="k">Watch it</span><span class="v">Yes: a live preview of the shared computer, <b>Take control</b>, and the chat shows every tool it used.</span></div></div></div></div></section>
+<section id="you-can-t-watch-duet-work"><header class="sechead"><span class="label">Claude Duet · Anthropic</span><h2>You can't <em>watch</em> Duet work</h2><p class="lead">A US-only research preview, by waitlist, on Claude Pro and Max.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Reads</span><span class="v">The connectors you've set up in Claude (Gmail, Calendar, Drive, Slack and more) and your past Claude chats. <b>Not</b> the files on your computer.</span></div><div class="row"><span class="k">Trains</span><span class="v">No Duet-only switch: it "uses your Claude account settings". Yours: Settings → Privacy → <b>Help Improve our AI models</b>. Claude doesn't train on raw connector content.</span></div><div class="row"><span class="k">Remembers</span><span class="v">It uses and adds to your Claude memory. Settings → <b>Memory</b> shows every memory: read, edit or delete each one. Deleting a chat <b>doesn't</b> delete memories made from it.</span></div><div class="row"><span class="k">Asks first</span><span class="v">It shows you the exact action before it sends, pays, signs or deletes anything. Trading and moving money are off limits even if you approve.</span></div><div class="row"><span class="k">Off switch</span><span class="v">Settings → Memory → <b>Search and reference chats</b> off stops it reading old chats. Customize → Connectors to disconnect (what it already learned stays in memory).</span></div><div class="row"><span class="k">Watch it</span><span class="v">No live view or take-over of its browser. The <b>Tasks</b> tab shows what it's working on and what needs you.</span></div></div></div></div></section>
+<section id="delete-doesn-t-mean-forgotten"><header class="sechead"><span class="label">All four</span><h2>Delete doesn't mean <em>forgotten</em></h2><p class="lead">Disconnecting an app stops new reading. What the agent already learned usually stays. Here's what each wipe really removes.</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Muse</span><span class="v">Deleting a message or file: it "may still remember" what it learned. <b>Reset Muse</b> deletes everything. Turning training off also covers past chats.</span></div><div class="row"><span class="k">dots</span><span class="v">Disconnecting an app keeps what it learned. <b>Reset</b> deletes its chats, memories and schedules, but not the files, Codex threads or ChatGPT chats it created.</span></div><div class="row"><span class="k">Grok Bot</span><span class="v">Deleting a Bot removes its chat and routines; files and logins on the shared computer can stay. Clean them up, or delete the Cursor account.</span></div><div class="row"><span class="k">Claude Duet</span><span class="v">Deleting a chat removes it from search, not the memories made from it. Delete those one by one in Settings → Memory, or Reset memory.</span></div></div><p class="note">Switches change what's used from now on. Anthropic says data already used in training stays in those models; Muse is the one whose switch also covers your past chats.</p></div></div></section>
+<section id="your-clients-are-in-there-too"><header class="sechead"><span class="label">Freelancers</span><h2>Your <em>clients</em> are in there too</h2><p class="lead">Connect an inbox and every person in it comes along. Meta's own words: "information about you may be provided to Muse, even if you don't use Muse directly."</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">My rule</span><span class="v">Ask a client before you connect an inbox or drive that holds their work.</span></div><div class="row"><span class="k">Read-only</span><span class="v">Where it's offered: Muse connectors can be read-only; ChatGPT app permissions can allow reading email without sending.</span></div><div class="row"><span class="k">Bystanders</span><span class="v">Meta has a page for people who don't use Muse. OpenAI takes privacy requests at its Privacy Portal or dsar@openai.com, even without an account.</span></div><div class="row"><span class="k">Never paste</span><span class="v">Passwords or ID numbers into a chat. Each agent has a secure sign-in that keeps your password away from the AI.</span></div></div></div></div></section>
+<section id="ask-it-what-it-remembers"><header class="sechead"><span class="label">Bonus</span><h2>Ask it what it <em>remembers</em><img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2><p class="lead">Paste this into any assistant with memory. Answers differ, and a dot can't show you its own notes, so treat the reply as a starting point.</p></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>List everything you remember about me: facts, preferences, people I've mentioned, and anything you learned from my connected apps. Group it by topic and say where each item came from (a chat, an app, or a file). Don't add guesses. Then tell me exactly where in your settings I can view, edit or delete each kind of memory.</pre></div>
+<div class="tip"><span class="label deep">Then</span><p>Delete what you don't want it to keep, using the paths in this guide. For Claude, Settings → Memory lists every memory directly.</p></div>
+<div class="card sources"><span class="label">Sources (the makers' own pages, checked 22 Oct 2026)</span><ol><li><a href="https://www.meta.com/help/superintelligence/1047255454427887/">How Muse handles your privacy, safety and security</a><span class="host">meta.com</span></li><li><a href="https://www.meta.com/help/superintelligence/2225571704857152/">How to manage your Muse data</a><span class="host">meta.com</span></li><li><a href="https://www.meta.com/help/superintelligence/1385290430137537/">Muse permissions</a><span class="host">meta.com</span></li><li><a href="https://www.meta.com/help/superintelligence/4532990443643263/">Muse for people who don't use Muse</a><span class="host">meta.com</span></li><li><a href="https://help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs">Dots privacy, security, and safety FAQs</a><span class="host">help.openai.com</span></li><li><a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot">Getting started with your dot</a><span class="host">help.openai.com</span></li><li><a href="https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt">Data controls in ChatGPT</a><span class="host">help.openai.com</span></li><li><a href="https://learn.chatgpt.com/docs/dots/controls">dots: controls (Custom rules)</a><span class="host">learn.chatgpt.com</span></li><li><a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy">Grok Bot: approvals, security and privacy</a><span class="host">docs.x.ai</span></li><li><a href="https://docs.x.ai/grok-bot/faq">Grok Bot FAQ</a><span class="host">docs.x.ai</span></li><li><a href="https://x.ai/changelog/bot">Grok Bot changelog (Disable drafts)</a><span class="host">x.ai</span></li><li><a href="https://support.claude.com/en/articles/17631495-get-started-with-claude-duet">Get started with Claude Duet</a><span class="host">support.claude.com</span></li><li><a href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context">Claude chat search and memory</a><span class="host">support.claude.com</span></li><li><a href="https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings">Claude model-improvement setting</a><span class="host">privacy.claude.com</span></li></ol></div>
+<p class="text">Muse, dots, Grok Bot and Claude Duet belong to Meta, OpenAI, SpaceXSI (xAI) and Anthropic. The case-file scenes are AI-made (Higgsfield) from the makers' own mascots. Nobody sponsored this.</p></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Lock it <em>first</em></h2><p class="lead">Two minutes in settings before you hand over your inbox.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 2.7 MB · works offline.</p><a class="btn main" href="agent-privacy-checklist.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-10-23.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
