@@ -1,0 +1,250 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>The Claude setup kit — @theabhaychopra</title>
+<meta name="description" content="A fill-in file about you, a starter skill, and every step with where to click. Checked on Anthropic's own help pages, 24 Oct 2026.">
+<meta property="og:title" content="The Claude setup kit"><meta property="og:description" content="A fill-in file about you, a starter skill, and every step with where to click. Checked on Anthropic's own help pages, 24 Oct 2026.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/levels/">
+<meta property="og:image" content="https://theabhaychopra.github.io/levels/img/pencil_point_cutout-1792696428359-w1000.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBF7F2"><meta name="guide-build" content="2026-10-25T14:12:20Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #FBF7F2; --card: #FFFFFF; --card2: #fdfbf9; --line: #e9e1da; --ink: #221B1D; --ink2: #403332; --mute: #856B64; --dot: rgba(133,107,100,0.18); --accent: #E8611A; --accent-hi: #eb773a; --accent-deep: #a94b1b; --on-dark-accent: #f2a37a; --tint: #fbe6da; --tint2: #fdf2ed; --tint-line: #f7c9b1; --tint-line2: #fadccd; --halo: rgba(232,97,26,0.18); --glow1: rgba(235,119,58,0.3); --glow2: rgba(251,230,218,0.95); --glow-dark: rgba(235,119,58,0.45); --dark: #221B1D; --dark-text: #f2eee9; --deep: #1A1108; --deep-text: #fdfaf7; --btn-shadow: rgba(169,75,27,0.55); --shadow: 0 24px 60px -42px rgba(34,27,29,0.55); --shadow-soft: 0 14px 34px -30px rgba(34,27,29,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>5 levels · 36 steps · Free vs Pro marked</span></div>
+<h1>The Claude <em>setup kit</em></h1>
+<p class="sub">A fill-in file about you, a starter skill, and every step with where to click. Checked on Anthropic's own help pages, 24 Oct 2026.</p>
+<div class="facts"><span>Free</span><span>Pro</span><span>what's US only</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="claude-setup-kit.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#FBF7F2"><img src="img/pencil_point_cutout-1792696428359-w1000.png" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#s-5-levels-36-steps"><span class="n">01</span><span>5 levels, 36 steps<span class="k">Start here</span></span><span class="arr">↓</span></a></li><li><a href="#the-about-me-file"><span class="n">02</span><span>The about-me file<span class="k">Part 1</span></span><span class="arr">↓</span></a></li><li><a href="#the-my-voice-skill"><span class="n">03</span><span>The my-voice skill<span class="k">Part 2</span></span><span class="arr">↓</span></a></li><li><a href="#give-claude-context"><span class="n">04</span><span>Give Claude context<span class="k">Level 1</span></span><span class="arr">↓</span></a></li><li><a href="#teach-claude-skills"><span class="n">05</span><span>Teach Claude skills<span class="k">Level 2</span></span><span class="arr">↓</span></a></li><li><a href="#let-claude-work-alone"><span class="n">06</span><span>Let Claude work alone<span class="k">Level 3</span></span><span class="arr">↓</span></a></li><li><a href="#connect-your-apps"><span class="n">07</span><span>Connect your apps<span class="k">Level 4</span></span><span class="arr">↓</span></a></li><li><a href="#make-it-sound-like-you"><span class="n">08</span><span>Make it sound like you<span class="k">Level 5</span></span><span class="arr">↓</span></a></li><li><a href="#instead-of-duet"><span class="n">09</span><span>Instead of Duet<span class="k">From India</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="s-5-levels-36-steps"><header class="sechead"><span class="label">Start here</span><h2>5 levels, <em>36 steps</em></h2><p class="lead">Most people open Claude, type one message and stop. These are the steps that make it actually useful, in order. Start at Level 1: it's all free.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">The tags</span><div class="rows"><div class="row"><span class="k">Free</span><span class="v">works on the Free plan</span></div><div class="row"><span class="k">Pro</span><span class="v">needs Pro or higher</span></div><div class="row"><span class="k">US only</span><span class="v">Claude Duet's waitlist, for now</span></div></div></div>
+<div class="card list"><h3>In this kit</h3><ul><li><b>The about-me file</b>: fill it in once, Claude stops guessing.</li><li><b>The my-voice skill</b>: it writes like you, every time.</li><li><b>All 36 steps</b>, level by level, with where to click.</li><li><b>Instead of Duet</b>: a morning brief you can set up from India.</li></ul></div>
+<div class="tip"><span class="label deep">Where the tips come from</span><p><a href="https://www.instagram.com/p/De4AwvFlFga/">@artem.novitckii</a>'s "The art of Claude maxxing" carousel (24 Oct 2026). I rewrote them in plain words and checked every one. Menus move, so if one doesn't match your screen, search the setting's name in Settings.</p></div></div></section>
+<section id="the-about-me-file"><header class="sechead"><span class="label">Part 1</span><h2>The <em>about-me</em> file<img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2><p class="lead">Fill in the brackets once. Claude reads it before every answer.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Where it goes</span><div class="rows"><div class="row"><span class="k">Free</span><span class="v">the Claude app: <b>Settings › Your Claude › Instructions</b>. Paste it there.</span></div><div class="row"><span class="k">Pro</span><span class="v">Claude Code or Cowork: save it as <b>CLAUDE.md</b> in <code>~/.claude/</code> (every project) or in one project folder. <code>/init</code> writes a starter, <code>/memory</code> edits it.</span></div></div></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this: the about-me file</span><button class="copy" type="button">Copy</button></div><pre># About me
+Name: [your name]
+What I do: [e.g. I make Instagram reels about AI tools for Indian creators]
+Who it's for: [your audience in one line]
+
+# How I write
+- Short sentences. Plain words. Talk like a friend, not a brand.
+- [one more rule you always follow]
+- Never use: [words you hate, e.g. "unlock", "game-changer"]
+
+# How to work with me
+- If the task is unclear, ask me one question first.
+- When I ask for ideas, show me 3 options.
+- Before a big change, tell me the plan.
+
+# Examples of my best work
+- [paste 2 real posts you're proud of]</pre></div></div></section>
+<section id="the-my-voice-skill"><header class="sechead"><span class="label">Part 2</span><h2>The <em>my-voice</em> skill</h2><p class="lead">A skill is a saved how-to that Claude follows every time. This one writes in your voice.</p></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>Turn on file creation</h3></div><p><b>Settings › Capabilities › Code execution and file creation</b> (in the new layout: <b>Create and edit files</b>).</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Make the folder</h3></div><p>A folder called <code>my-voice</code> with the file below saved as <code>SKILL.md</code>, plus 3 of your own posts saved as <code>examples.md</code>.</p></div>
+<div class="card step"><div class="top"><span class="num">3</span><h3>Upload it</h3></div><p>ZIP the folder (one skill per ZIP). <b>Customize › Skills › + › Create skill › Upload a skill</b>. In Claude Code (Pro): put it in <code>~/.claude/skills/my-voice/</code> and type <code>/my-voice</code>.</p></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this: SKILL.md</span><button class="copy" type="button">Copy</button></div><pre>---
+name: my-voice
+description: Writes or rewrites posts, captions and scripts in my own voice. Use whenever I ask for content I'll publish.
+---
+# Write in my voice
+1. Read examples.md first: 3 posts I wrote myself.
+2. Match their sentence length, tone and the way they open.
+3. Plain words. Nothing from my "never use" list.
+4. Give me 3 different versions, then say which one you'd pick and why.
+5. Before you answer, check your draft against steps 2-4 and fix it.</pre></div></div></section>
+<section id="give-claude-context"><header class="sechead"><span class="label">Level 1</span><h2>Give Claude <em>context</em></h2><p class="lead">Tell it about you once, so it stops guessing.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Step · where to click · plan</span><div class="rows"><div class="row"><span class="k">Save a note about who you are</span><span class="v">The about-me file: Instructions (Free) or CLAUDE.md (Pro) · <b>Free</b></span></div><div class="row"><span class="k">Speak your brief</span><span class="v">The mic icon in the message box. Hindi works too · <b>Free</b></span></div><div class="row"><span class="k">Keep memory on</span><span class="v"><b>Settings › Your Claude › Memory from chats</b> (on by default). Search and reference chats is Pro · <b>Free</b></span></div><div class="row"><span class="k">Show examples</span><span class="v">Paste one real example of what you want · <b>Free</b></span></div><div class="row"><span class="k">Send a screenshot</span><span class="v"><b>+</b> in the chat box › Add files or photos, or paste it · <b>Free</b></span></div><div class="row"><span class="k">A "how I write" doc</span><span class="v">Upload it to a Project, or paste it into Instructions · <b>Free</b></span></div><div class="row"><span class="k">Use a Project</span><span class="v"><a href="https://claude.ai/projects">claude.ai/projects</a> › <b>+ New Project</b>, add files on the right. Free: up to 5 · <b>Free</b></span></div></div></div></div></section>
+<section id="teach-claude-skills"><header class="sechead"><span class="label">Level 2</span><h2>Teach Claude <em>skills</em></h2><p class="lead">A skill is a saved how-to it follows every time.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Step · where to click · plan</span><div class="rows"><div class="row"><span class="k">Write a skill file</span><span class="v">A folder with a <code>SKILL.md</code>: name and description on top, then the steps · <b>Free</b></span></div><div class="row"><span class="k">One skill per task</span><span class="v">Weekly report, email reply, invoice: one skill each · <b>Free</b></span></div><div class="row"><span class="k">Free skills from GitHub</span><span class="v"><a href="https://github.com/anthropics/skills">github.com/anthropics/skills</a> (183k+ stars): download, ZIP, Upload a skill. Or Customize › Skills › <b>+</b> › Browse skills · <b>Free</b></span></div><div class="row"><span class="k">Add example files</span><span class="v">Templates and past work next to <code>SKILL.md</code>, named in it · <b>Free</b></span></div><div class="row"><span class="k">Install plugins</span><span class="v"><b>Customize › Plugins › Discover › Add</b> · <b>Pro</b></span></div><div class="row"><span class="k">Edit a skill</span><span class="v">Open its files beside the chat, highlight › Edit with Claude · <b>Free</b></span></div><div class="row"><span class="k">Start it with /</span><span class="v">Claude Code: <code>/</code> + the skill's name, e.g. <code>/weekly-report</code>. You make these · <b>Pro</b></span></div></div></div></div></section>
+<section id="let-claude-work-alone"><header class="sechead"><span class="label">Level 3</span><h2>Let Claude <em>work alone</em></h2><p class="lead">Give it the whole job, not one message at a time.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Step · where to click · plan</span><div class="rows"><div class="row"><span class="k">Plan mode first</span><span class="v">Claude Code: <b>Shift+Tab</b> until it says plan mode, or type <code>/plan</code> · <b>Pro</b></span></div><div class="row"><span class="k">Claude Code, not just chat</span><span class="v">Desktop app › Code tab, or <a href="https://claude.ai/code">claude.ai/code</a>. Not a coder? Hand the whole task to Cowork · <b>Pro</b></span></div><div class="row"><span class="k">Scheduled tasks</span><span class="v"><b>Scheduled</b> in the sidebar › New task, or "Every weekday at 8 AM…" in a chat › Schedule · <b>Pro</b></span></div><div class="row"><span class="k">Helpers (subagents)</span><span class="v">Claude Code starts them itself, or <code>/agents</code> to make your own · <b>Pro</b></span></div><div class="row"><span class="k">Automatic checks (hooks)</span><span class="v">Claude Code: <code>/hooks</code>. A check runs every time, e.g. after each edit · <b>Pro</b></span></div><div class="row"><span class="k">Long jobs, laptop closed</span><span class="v">A cloud session at <a href="https://claude.ai/code">claude.ai/code</a>. Runs until done or your usage limit · <b>Pro</b></span></div><div class="row"><span class="k">Claude Duet</span><span class="v"><a href="https://claude.com/product/claude-duet">claude.com/product/claude-duet</a> › Join the waitlist. Pro and Max, checks in every few hours · <b>US only</b></span></div><div class="row"><span class="k">4 tasks at once</span><span class="v">Desktop app Code tab › <b>+ New</b> (Cmd/Ctrl+N). Each uses your limits · <b>Pro</b></span></div></div></div></div></section>
+<section id="connect-your-apps"><header class="sechead"><span class="label">Level 4</span><h2>Connect your <em>apps</em></h2><p class="lead">Free connects 1 app and 1 custom connector. Pro connects as many as you need.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Step · where to click · plan</span><div class="rows"><div class="row"><span class="k">Gmail, Notion, Drive</span><span class="v"><b>Customize › Connectors › +</b> › pick one › Connect. In a chat: <b>+</b> › Connectors › on · <b>Pro</b> (Free: 1)</span></div><div class="row"><span class="k">More apps (MCP)</span><span class="v">Customize › Connectors › <b>+</b> › add a custom connector (its server URL) · <b>Pro</b> (Free: 1)</span></div><div class="row"><span class="k">Claude in Chrome</span><span class="v">Chrome Web Store › Add to Chrome, sign in, pin it · <b>Pro</b></span></div><div class="row"><span class="k">The desktop app</span><span class="v"><a href="https://claude.com/download">claude.com/download</a>: Mac, Windows, Linux (beta) · <b>Free</b></span></div><div class="row"><span class="k">Canva and Figma</span><span class="v">Customize › Connectors › Canva / Figma › Connect · <b>Pro</b> (Free: 1)</span></div><div class="row"><span class="k">Every tool you use</span><span class="v">With 10 or more on: <b>+</b> › Connectors › Tool access › On demand · <b>Pro</b></span></div><div class="row"><span class="k">Use your computer</span><span class="v">Desktop app › <b>Settings › Capabilities › Computer use</b>. Beta; asks before each app · <b>Pro</b></span></div></div></div></div></section>
+<section id="make-it-sound-like-you"><header class="sechead"><span class="label">Level 5</span><h2>Make it sound <em>like you</em></h2><p class="lead">Good writing comes from steering, not one prompt.</p></header><div class="blocks"><div class="card rowsbox"><span class="label">Step · where to click · plan</span><div class="rows"><div class="row"><span class="k">3 options</span><span class="v">"Give me 3 very different versions." · <b>Free</b></span></div><div class="row"><span class="k">Check its own draft</span><span class="v">"Check this against my rules and fix it before you show me." · <b>Free</b></span></div><div class="row"><span class="k">Exact feedback</span><span class="v">Not "make it better" but "Cut the intro. Open with the number. Max 3 lines." · <b>Free</b></span></div><div class="row"><span class="k">Your writing voice</span><span class="v">The my-voice skill, or your rules in Instructions · <b>Free</b></span></div><div class="row"><span class="k">Ban overused words</span><span class="v">A "never use" line in the about-me file, plus what to do instead: "short, plain sentences" · <b>Free</b></span></div><div class="row"><span class="k">Final edit is yours</span><span class="v">Read it out loud once before you post · <b>Free</b></span></div><div class="row"><span class="k">A folder of posts you like</span><span class="v">Upload them to a Project (Free), or give Cowork the folder on your computer (Pro) · <b>Free</b></span></div></div></div></div></section>
+<section id="instead-of-duet"><header class="sechead"><span class="label">From India</span><h2><em>Instead</em> of Duet</h2><p class="lead">Claude Duet is a US-only waitlist for now. On Pro you can get a morning brief today: connect Gmail and Google Calendar (Customize › Connectors), then paste this into a chat and click <b>Schedule</b>.</p></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this: your morning brief</span><button class="copy" type="button">Copy</button></div><pre>Every weekday at 8 AM, read my new email and today's calendar. Send me the 3 things I should do first, and draft replies for anything urgent. Don't send anything.</pre></div>
+<div class="card list"><h3>Before you install anything</h3><ul><li><b>Official:</b> <a href="https://github.com/anthropics/skills">github.com/anthropics/skills</a>, and plugins marked <i>Anthropic verified</i> in Customize › Plugins.</li><li><b>Community:</b> plugins like superpowers (by Jesse Vincent, <a href="https://github.com/obra/superpowers">github.com/obra/superpowers</a>) are made by other people. Read a skill's <code>SKILL.md</code> before you upload it: it's plain text.</li><li>Never paste passwords, API keys or bank details into a chat, a skill or the about-me file.</li></ul></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Start at Level 1. It's <em>all free</em>.</h2><p class="lead">Every step checked on Anthropic's own help pages on 24 Oct 2026. Tips after @artem.novitckii's carousel.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 1.5 MB · works offline.</p><a class="btn main" href="claude-setup-kit.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-10-25.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
