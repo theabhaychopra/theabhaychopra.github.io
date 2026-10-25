@@ -1,0 +1,235 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>How to set up Harvey, the Claude agent that finds you clients — @theabhaychopra</title>
+<meta name="description" content="The link, what you really need, the one-sentence setup, your first run and the rules before you send. Checked on Harvey's own repo, 25 Oct 2026.">
+<meta property="og:title" content="How to set up Harvey, the Claude agent that finds you clients"><meta property="og:description" content="The link, what you really need, the one-sentence setup, your first run and the rules before you send. Checked on Harvey's own repo, 25 Oct 2026.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/harvey/">
+<meta property="og:image" content="https://theabhaychopra.github.io/harvey/img/cover_mascot-1792940996103-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E9E5DB"><meta name="guide-build" content="2026-10-25T15:45:09Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #E9E5DB; --card: #F7F5EF; --card2: #f0ede5; --line: #dad5c7; --ink: #121212; --ink2: #2e2c2a; --mute: #6E6A62; --dot: rgba(110,106,98,0.18); --accent: #2449E0; --accent-hi: #4362e4; --accent-deep: #1e379e; --on-dark-accent: #8095ed; --tint: #dce2fa; --tint2: #edf0fd; --tint-line: #b5c1f4; --tint-line2: #cfd7f8; --halo: rgba(36,73,224,0.18); --glow1: rgba(67,98,228,0.3); --glow2: rgba(220,226,250,0.95); --glow-dark: rgba(67,98,228,0.45); --dark: #121212; --dark-text: #e0ddd3; --deep: #141414; --deep-text: #f2efe9; --btn-shadow: rgba(30,55,158,0.55); --shadow: 0 24px 60px -42px rgba(18,18,18,0.55); --shadow-soft: 0 14px 34px -30px rgba(18,18,18,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>The GitHub link + the setup, in order</span></div>
+<h1>How to set up Harvey, the Claude agent that <em>finds you clients</em></h1>
+<p class="sub">The link, what you really need, the one-sentence setup, your first run and the rules before you send. Checked on Harvey's own repo, 25 Oct 2026.</p>
+<div class="facts"><span>No API key</span><span>no API bill</span><span>MIT licence</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="harvey-setup-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#E9E5DB"><img src="img/cover_mascot-1792940996103-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#harvey"><span class="n">01</span><span>Harvey<span class="k">The link</span></span><span class="arr">↓</span></a></li><li><a href="#what-you-need"><span class="n">02</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#setup-in-one-sentence"><span class="n">03</span><span>Setup in one sentence<span class="k">The easy way</span></span><span class="arr">↓</span></a></li><li><a href="#six-commands"><span class="n">04</span><span>Six commands<span class="k">Or by hand</span></span><span class="arr">↓</span></a></li><li><a href="#your-first-run"><span class="n">05</span><span>Your first run<span class="k">Day one</span></span><span class="arr">↓</span></a></li><li><a href="#before-you-send-a-single-email"><span class="n">06</span><span>Before you send a single email<span class="k">Read this first</span></span><span class="arr">↓</span></a></li><li><a href="#if-something-breaks"><span class="n">07</span><span>If something breaks<span class="k">Stuck?</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section><div class="blocks"><article class="card tool" id="harvey"><div class="toolhead"><img class="logo" src="img/harvey_mark-1792941081023-w200.jpg" alt=""/><div><span class="label">The link</span><h3>Harvey</h3></div></div><div class="instead">Instead of <s>lead tools at $250–500/mo</s> → <span class="free">$0</span></div><p class="what">An open-source sales agent that runs on your <b>Claude Pro or Max</b> plan through Claude Code. It finds businesses that fit what you sell, reads their websites, writes each one a personal cold email and works the replies toward a meeting.</p><div class="rows"><div class="row"><span class="k">Free limit</span><span class="v">No API key and no per-token bill: model calls use your Claude plan. Harvey caps itself at 80 % of your daily usage, and nothing is sent until you approve it.</span></div><div class="row"><span class="k">Runs on</span><span class="v">Your own computer (Mac, Linux or Windows with Claude), in a loop every 15 minutes. You need your own mailbox to send from.</span></div><div class="row"><span class="k">Paid still wins</span><span class="v">Big companies and huge contact lists. Harvey is strongest on small local businesses, read from their own websites.</span></div><div class="row"><span class="k">Client work</span><span class="v">MIT, made by Ethan+ (ethanplusai on GitHub).</span></div></div><div class="start"><span class="label">Start in 3 steps</span><ol><li>Open the repo and read the first screen of the README.</li><li>Follow "Setup in one sentence" on the next section.</li><li>Keep approval on for your first batch.</li></ol></div><div class="links"><a class="linkbtn" href="https://github.com/ethanplusai/harvey">GitHub repo ↗<span>github.com</span></a><a class="linkbtn" href="https://github.com/ethanplusai/harvey#quick-start">Quick start ↗<span>github.com</span></a></div></article></div></section>
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card rowsbox"><span class="label">The honest cost list</span><div class="rows"><div class="row"><span class="k">Claude Pro or Max</span><span class="v">the plan you already pay for, logged in to Claude Code (<code>claude login</code>)</span></div><div class="row"><span class="k">Python 3.11+</span><span class="v">free. On a Mac: <code>brew install python@3.13</code> (macOS ships 3.9)</span></div><div class="row"><span class="k">A mailbox</span><span class="v">Gmail / Google Workspace (~$7 a month) or Microsoft 365, ideally on a separate sending domain</span></div><div class="row"><span class="k">Finding businesses</span><span class="v">$0 on the default source (OpenStreetMap). Paid sources are optional, from ~$0.37 per 1,000</span></div><div class="row"><span class="k">Reading their sites</span><span class="v">$0: three web requests each, no AI call</span></div></div></div>
+<div class="tip"><span class="label deep">So is it free?</span><p>The <b>code</b> is free and open source, and there's <b>no API bill</b>. You still need a Claude plan and a mailbox. Everything else is optional.</p></div></div></section>
+<section id="setup-in-one-sentence"><header class="sechead"><span class="label">The easy way</span><h2>Setup in <em>one sentence</em><img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>git clone https://github.com/ethanplusai/harvey.git
+cd harvey
+claude</pre></div>
+<p class="text">Claude Code opens inside the Harvey folder. Then type this one sentence:</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>set up Harvey for me</pre></div>
+<div class="tip"><span class="label deep">What happens</span><p>The repo ships a CLAUDE.md that turns Claude Code into the setup wizard. It checks what's installed, installs what's missing, asks what it needs (your website, your mailbox) and trains Harvey on your product.</p></div></div></section>
+<section id="six-commands"><header class="sechead"><span class="label">Or by hand</span><h2><em>Six</em> commands</h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>python3.13 -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; pip install -e .
+cp .env.example .env
+harvey train https://your-site.com
+harvey signals --confirm free
+harvey discover
+harvey dashboard
+harvey run</pre></div>
+<div class="card rowsbox"><span class="label">What each one does</span><div class="rows"><div class="row"><span class="k">install</span><span class="v">a Python 3.13 environment with Harvey in it</span></div><div class="row"><span class="k">.env</span><span class="v">add your mail provider; every line says where to get it</span></div><div class="row"><span class="k">train</span><span class="v">reads your site: what you sell, who you sell to</span></div><div class="row"><span class="k">signals</span><span class="v">turns on the 26 free facts that make an email personal</span></div><div class="row"><span class="k">discover</span><span class="v">finds businesses (free source, no account)</span></div><div class="row"><span class="k">dashboard</span><span class="v">prints a private link to 127.0.0.1:5555</span></div><div class="row"><span class="k">run</span><span class="v">the loop: every 15 minutes</span></div></div></div></div></section>
+<section id="your-first-run"><header class="sechead"><span class="label">Day one</span><h2>Your <em>first run</em></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>Train it on your real site</h3></div><p><code>harvey train</code> writes what you sell and who you sell to. Fix anything it got wrong before you go on.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Pick the signals</h3></div><p>The facts that make an email personal: no online booking, running Google Ads, the agency in their footer, a role they're hiring for. Start with the free ones.</p></div>
+<div class="card step"><div class="top"><span class="num">3</span><h3>Estimate before you pay</h3></div><p><code>harvey discover --estimate</code> shows what a paid source would cost before it spends anything.</p></div>
+<div class="card step"><div class="top"><span class="num">4</span><h3>Read the first batch in the Outbox</h3></div><p>Every email waits for you: <b>A</b> approve, <b>R</b> reject, <b>E</b> edit. Keep approval on until you trust what it writes.</p></div>
+<div class="tip"><span class="label deep">Stop everything</span><p>Type <b>harvey sending pause</b> in the terminal: it stops all sending at once, even mid-cycle.</p></div></div></section>
+<section id="before-you-send-a-single-email"><header class="sechead"><span class="label">Read this first</span><h2><em>Before you send</em> a single email</h2></header><div class="blocks"><div class="card list"><ul><li><b>You are the sender.</b> Every cold email ends with an opt-out line. Set your postal address (<code>compliance.postal_address</code>) before your first campaign; Harvey adds both.</li><li><b>EU / UK:</b> business cold email needs a real reason that person would care (legitimate interest). If you can't say why, don't send.</li><li><b>If someone asks "is this AI?"</b>, Harvey says yes. Leave that setting alone.</li><li><b>Warm up first.</b> A new sending domain needs SPF, DKIM and DMARC (<code>harvey warmup</code> checks them), then 2–4 weeks at 10–20 emails a day, adding about 5 a day.</li><li><b>Watch bounces.</b> Above about 3 %, stop and clean the list. Harvey trips its own kill switch past your limit.</li></ul></div>
+<div class="tip"><span class="label deep">Not legal advice</span><p>Sending at volume or into regulated industries? Ask a lawyer where you live.</p></div></div></section>
+<section id="if-something-breaks"><header class="sechead"><span class="label">Stuck?</span><h2>If something <em>breaks</em></h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k"><code>command not found: harvey</code></span><span class="v">run <code>source .venv/bin/activate</code> first</span></div><div class="row"><span class="k">odd errors after install (Mac)</span><span class="v">your venv is Python 3.9: rebuild it with <code>python3.13</code></span></div><div class="row"><span class="k">discovery finds nothing</span><span class="v">confirm signals first; <code>harvey discover --providers</code> lists other sources</span></div><div class="row"><span class="k">Claude calls fail</span><span class="v"><code>claude login</code>, then <code>claude update</code>; <code>harvey status --check</code> tests it</span></div><div class="row"><span class="k">emails land in spam</span><span class="v">almost always the domain: check SPF / DKIM / DMARC, halve your volume</span></div></div></div>
+<div class="card sources"><span class="label">Sources</span><ol><li><a href="https://github.com/ethanplusai/harvey">Harvey on GitHub</a><span class="host">github.com</span><p>README, checked 25 Oct 2026</p></li><li><a href="https://github.com/ethanplusai/harvey#legal-and-deliverability">Legal and deliverability</a><span class="host">github.com</span></li><li><a href="https://github.com/ethanplusai/harvey#troubleshooting">Troubleshooting</a><span class="host">github.com</span></li></ol></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now let it find your first client</h2><p class="lead">Harvey is by Ethan+ (github.com/ethanplusai/harvey, MIT). This guide is mine.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 2.7 MB · works offline.</p><a class="btn main" href="harvey-setup-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-10-25.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
