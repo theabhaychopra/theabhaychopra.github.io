@@ -1,0 +1,233 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>The prompt that turns a sketch into a website — @theabhaychopra</title>
+<meta name="description" content="I drew a page on my notepad, took one photo, and Fable 5.2 in Claude Code built it as a real website.">
+<meta property="og:title" content="The prompt that turns a sketch into a website"><meta property="og:description" content="I drew a page on my notepad, took one photo, and Fable 5.2 in Claude Code built it as a real website.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/fable-sketch/">
+<meta property="og:image" content="https://theabhaychopra.github.io/fable-sketch/img/sketch-1794354019780-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-11-10T23:51:47Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>The one-line prompt, plus a fuller one</span></div>
+<h1>The prompt that turns <em>a sketch</em> into a website</h1>
+<p class="sub">I drew a page on my notepad, took one photo, and Fable 5.2 in Claude Code built it as a real website.</p>
+<div class="facts"><span>17 minutes</span><span>$7.47 at API prices</span><span>one line</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="fable-sketch-to-site-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/sketch-1794354019780-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#draw-a-sketch-claude-can-read"><span class="n">02</span><span>Draw a sketch Claude can read<span class="k">Step 1</span></span><span class="arr">↓</span></a></li><li><a href="#the-prompt"><span class="n">03</span><span>The prompt<span class="k">Step 2</span></span><span class="arr">↓</span></a></li><li><a href="#without-my-design-skill"><span class="n">04</span><span>Without my design skill<span class="k">No skill needed</span></span><span class="arr">↓</span></a></li><li><a href="#every-part-of-my-drawing"><span class="n">05</span><span>Every part of my drawing<span class="k">What it built</span></span><span class="arr">↓</span></a></li><li><a href="#box-by-box"><span class="n">06</span><span>Box by box<span class="k">What it built</span></span><span class="arr">↓</span></a></li><li><a href="#it-gave-it-a-name"><span class="n">07</span><span>It gave it a name<span class="k">What it added</span></span><span class="arr">↓</span></a></li><li><a href="#what-it-costs"><span class="n">08</span><span>What it costs<span class="k">Before you run it</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Claude Code</b>, version 2.1.321 or later. Run <code>claude update</code>, then check with <code>claude --version</code> (<a href="https://claude.com/claude-code">claude.com/claude-code</a>)</li><li><b>Fable 5.2</b>: type <code>/model fable</code> inside Claude Code. <code>/model opus</code> switches back to Opus 5.5, which stays the default</li><li><b>A paid Claude plan</b>: Fable is on Pro, Max, Ultra, Team and Enterprise, not Free (the costs are in "What it costs")</li><li><b>A pen, paper and your phone's camera</b></li><li><b>An empty folder</b> on your computer for the new site</li></ul></div>
+<div class="tip"><span class="label deep">What I did</span><p>I drew a website on my notepad, took one photo and gave it to Fable 5.2 with one line of text. I started it with <b>/awwwards</b>, my own design skill. No follow-ups.</p></div>
+<div class="card rowsbox"><span class="label">The run, in numbers</span><div class="rows"><div class="row"><span class="k">Model</span><span class="v">Fable 5.2 in Claude Code, with my /awwwards skill</span></div><div class="row"><span class="k">Time</span><span class="v">17.2 minutes</span></div><div class="row"><span class="k">Cost</span><span class="v">$7.47 at API list prices: Claude Code's own estimate, not my plan's bill</span></div><div class="row"><span class="k">Input</span><span class="v">one photo of my sketch + one line</span></div><div class="row"><span class="k">Result</span><span class="v">"Lacet": a home page, three climb pages and a 404, with its own name and copy</span></div></div></div></div></section>
+<section id="draw-a-sketch-claude-can-read"><header class="sechead"><span class="label">Step 1</span><h2>Draw a sketch <em>Claude can read</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>One page = one screen.</b> Draw a frame for the edge of the page first.</li><li><b>A box for each part</b>: the logo, a picture, a row of cards. Three boxes means three things.</li><li><b>Label what isn't obvious</b> with one word, like I wrote "Logo". Short notes work too: "button here", "make this blue".</li><li><b>Draw the things that matter.</b> My sun, mountains and bike all became part of the design.</li><li><b>Take the photo from above</b>, in good light, with the whole page in the frame.</li></ul></div>
+<figure class="fig"><img src="img/sketch-1794354019780-w1300.jpg" alt="My sketch: a logo box, a sun, mountains, a bike on a road, a picture and three boxes. That's all." loading="lazy" decoding="async"/><figcaption>My sketch: a logo box, a sun, mountains, a bike on a road, a picture and three boxes. That's all.</figcaption></figure></div></section>
+<section id="the-prompt"><header class="sechead"><span class="label">Step 2</span><h2>The <em>prompt</em><img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>Open Claude Code in an empty folder</h3></div><div class="cmd"><div class="cmdhead"><span class="label">In your terminal</span><button class="copy" type="button">Copy</button></div><pre>cd my-sketch-site
+claude</pre></div><p class="after">Then type <code>/model fable</code> and press Enter.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Send the photo with one line</h3></div><p>This is exactly what I typed. Drag your photo into Claude Code where it says [your photo]: it pastes the file's path for you.</p><div class="cmd"><div class="cmdhead"><span class="label">The prompt I used</span><button class="copy" type="button">Copy</button></div><pre>/awwwards build this: [your photo] (plain HTML, CSS and JS in this folder, no build step)</pre></div><p class="after">"Plain HTML, CSS and JS, no build step" means you can open the result in your browser straight away.</p></div>
+<div class="tip"><span class="label deep">About /awwwards</span><p><b>/awwwards</b> is my own design skill for Claude Code, so you won't have it. Without it, use the fuller prompt in the next section, "Without my design skill".</p></div></div></section>
+<section id="without-my-design-skill"><header class="sechead"><span class="label">No skill needed</span><h2><em>Without</em> my design skill</h2><p class="lead">My suggestion for a plain prompt. I haven't tested this one: it spells out what my skill did for me.</p></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">A fuller prompt (not tested)</span><button class="copy" type="button">Copy</button></div><pre>[drag the photo of your sketch in here]
+
+Build this as a website. Every box on my sketch is a section, in the same order. Follow my handwritten notes in the margins too.
+
+Make it look finished: real copy instead of placeholder text, a clear layout, and it must work on a phone. Use plain HTML, CSS and JavaScript in this folder, with no build step. Open it in my browser when it's done.</pre></div>
+<div class="card list"><h3>Make it yours</h3><ul><li><b>Say what it's for.</b> Mine had no name and no text, so it invented a business. If you want your own name and words, add them: "It's for my bakery, [name], in [city]."</li><li><b>Ask for one change at a time</b> after the first build: "make the bike bigger", "add a contact form".</li><li><b>Open it on your phone</b> before you call it done.</li></ul></div></div></section>
+<section id="every-part-of-my-drawing"><header class="sechead"><span class="label">What it built</span><h2>Every part of <em>my drawing</em></h2></header><div class="blocks"><figure class="fig"><img src="img/sketch_vs_site-1794354339683-w1300.jpg" alt="Top: my sketch. Bottom: the home page Fable 5.2 built from it, from one line." loading="lazy" decoding="async" style="aspect-ratio:1600/2271;object-fit:cover;object-position:50% 50%"/><figcaption>Top: my sketch. Bottom: the home page Fable 5.2 built from it, from one line.</figcaption></figure></div></section>
+<section id="box-by-box"><header class="sechead"><span class="label">What it built</span><h2><em>Box</em> by box</h2></header><div class="blocks"><div class="card rowsbox"><span class="label">Sketch → website</span><div class="rows"><div class="row"><span class="k">Logo box</span><span class="v">a boxed logo, top left</span></div><div class="row"><span class="k">Sun</span><span class="v">a sun, top right</span></div><div class="row"><span class="k">Mountains</span><span class="v">four line-drawn peaks</span></div><div class="row"><span class="k">Bike + road</span><span class="v">the bike rides up the road as you scroll</span></div><div class="row"><span class="k">Picture + 3 boxes</span><span class="v">a drawn map + three climb cards, one for each box</span></div></div></div>
+<figure class="fig"><img src="img/lacet_climbs-1794354228379-w1300.jpg" alt="The picture and three boxes from my sketch: a map and three climbs." loading="lazy" decoding="async" style="aspect-ratio:1600/883;object-fit:cover;object-position:50% 50%"/><figcaption>The picture and three boxes from my sketch: a map and three climbs.</figcaption></figure></div></section>
+<section id="it-gave-it-a-name"><header class="sechead"><span class="label">What it added</span><h2>It gave it <em>a name</em></h2></header><div class="blocks"><p class="text">My sketch had no name and no text. It called the site <b>Lacet</b> ("Guided cycling climbs in the French Alps") and wrote all the copy. It added a day timetable, a footer, a 404 page, and <b>three climb pages</b> where the bike rides the climb with live km, altitude and gradient. There are no photos: the maps are drawn in code.</p>
+<figure class="fig"><img src="img/lacet_climb_page-1794354019721-w1300.jpg" alt="One of the three climb pages. The bike moves along the climb." loading="lazy" decoding="async" style="aspect-ratio:1600/1000;object-fit:cover;object-position:50% 50%"/><figcaption>One of the three climb pages. The bike moves along the climb.</figcaption></figure>
+<div class="tip"><span class="label deep">Check it yourself</span><p>In my run, its own browser checks were blocked, so the finished site was checked afterwards in a real browser. Open yours and scroll every page before you share it, on your phone too.</p></div></div></section>
+<section id="what-it-costs"><header class="sechead"><span class="label">Before you run it</span><h2>What it <em>costs</em></h2></header><div class="blocks"><div class="card statcard"><div class="stats"><div><b>$7.47</b><span>my run, at API list prices</span></div><div><b>17 min</b><span>start to finish</span></div><div><b>2×</b><span>Opus 5.5's price per token</span></div><div><b>1</b><span>line of text, plus the photo</span></div></div></div>
+<div class="card rowsbox"><div class="rows"><div class="row"><span class="k">API price</span><span class="v">Fable 5.2: $8 in / $40 out per million tokens. Opus 5.5: $4 / $20</span></div><div class="row"><span class="k">Pro</span><span class="v">included this launch week, up to 50% of your weekly limit, until <b>16 Nov 2026, 11:59 pm PT</b>. After that, Fable runs on usage credits, which you pay for</span></div><div class="row"><span class="k">Max, Ultra</span><span class="v">included, up to 50% of your weekly limits</span></div><div class="row"><span class="k">See your cost</span><span class="v"><code>/usage</code> shows a session's tokens and its cost at API prices</span></div></div><p class="note">Fable costs 2× Opus, so try the same prompt on Opus first (<code>/model opus</code>). Prices checked 10 Nov 2026.</p></div>
+<div class="card sources"><span class="label">Sources</span><ol><li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-2">Fable 5.2 launch post</a><span class="host">anthropic.com</span></li><li><a href="https://platform.claude.com/docs/en/about-claude/pricing">API prices</a><span class="host">platform.claude.com</span></li><li><a href="https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan">Fable on your plan</a><span class="host">support.claude.com</span></li><li><a href="https://support.claude.com/en/articles/17506494">Launch-week usage</a><span class="host">support.claude.com</span></li><li><a href="https://code.claude.com/docs/en/model-config">Models in Claude Code</a><span class="host">code.claude.com</span></li></ol></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now <em>draw yours</em></h2><p class="lead">A pen, one page and one photo.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 1.6 MB · works offline.</p><a class="btn main" href="fable-sketch-to-site-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-11-10.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
