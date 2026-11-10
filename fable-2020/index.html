@@ -1,0 +1,234 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>The prompt that redesigned my website from 2020 — @theabhaychopra</title>
+<meta name="description" content="One prompt, my whole old site folder, Fable 5.2 in Claude Code. It kept every word and built a new design around my logo.">
+<meta property="og:title" content="The prompt that redesigned my website from 2020"><meta property="og:description" content="One prompt, my whole old site folder, Fable 5.2 in Claude Code. It kept every word and built a new design around my logo.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/fable-2020/">
+<meta property="og:image" content="https://theabhaychopra.github.io/fable-2020/img/before_after-1794354019474-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-11-10T23:51:03Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>The exact prompt, word for word</span></div>
+<h1>The prompt that <em>redesigned</em> my website from 2020</h1>
+<p class="sub">One prompt, my whole old site folder, Fable 5.2 in Claude Code. It kept every word and built a new design around my logo.</p>
+<div class="facts"><span>72 minutes</span><span>$18.12 at API prices</span><span>one prompt</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="fable-redesign-2020-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/before_after-1794354019474-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#prepare-your-folder"><span class="n">02</span><span>Prepare your folder<span class="k">Step 1</span></span><span class="arr">↓</span></a></li><li><a href="#the-prompt"><span class="n">03</span><span>The prompt<span class="k">Step 2</span></span><span class="arr">↓</span></a></li><li><a href="#every-word-a-new-design"><span class="n">04</span><span>Every word, a new design<span class="k">What it made</span></span><span class="arr">↓</span></a></li><li><a href="#what-to-check-after"><span class="n">05</span><span>What to check after<span class="k">Step 3</span></span><span class="arr">↓</span></a></li><li><a href="#what-it-costs"><span class="n">06</span><span>What it costs<span class="k">Before you run it</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Claude Code</b>, version 2.1.321 or later. Run <code>claude update</code>, then check with <code>claude --version</code> (<a href="https://claude.com/claude-code">claude.com/claude-code</a>)</li><li><b>Fable 5.2</b>: type <code>/model fable</code> inside Claude Code. <code>/model opus</code> switches back to Opus 5.5, which stays the default</li><li><b>A paid Claude plan</b>: Fable is on Pro, Max, Ultra, Team and Enterprise, not Free (the costs are in "What it costs")</li><li><b>Your old website's folder</b>: the HTML, CSS, images and other files, on your computer</li></ul></div>
+<div class="tip"><span class="label deep">What I did</span><p>I gave Fable 5.2 the folder of the site I made in 2020 and one prompt. I started it with <b>/awwwards</b>, my own design skill. <b>No follow-ups</b>: everything you see came from that one message.</p></div>
+<div class="card rowsbox"><span class="label">The run, in numbers</span><div class="rows"><div class="row"><span class="k">Model</span><span class="v">Fable 5.2 in Claude Code, with my /awwwards skill</span></div><div class="row"><span class="k">Time</span><span class="v">72.4 minutes from start to finish (its first result came at 28.9 minutes, then it ran its own browser checks and a critic pass)</span></div><div class="row"><span class="k">Cost</span><span class="v">$18.12 at API list prices: Claude Code's own estimate, not my plan's bill</span></div><div class="row"><span class="k">Words</span><span class="v">every word kept. A word-count check found nothing missing</span></div><div class="row"><span class="k">Prompts</span><span class="v">one</span></div></div></div></div></section>
+<section id="prepare-your-folder"><header class="sechead"><span class="label">Step 1</span><h2><em>Prepare</em> your folder<img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>Make a copy of your site's folder</h3></div><p>Duplicate the whole folder and work only in the copy. Your original stays untouched, whatever happens. I used a copy without the <code>.git</code> folder, so nothing could be pushed to my live site by accident.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Open Claude Code inside the copy</h3></div><div class="cmd"><div class="cmdhead"><span class="label">In your terminal</span><button class="copy" type="button">Copy</button></div><pre>cd my-site-copy
+claude</pre></div><p class="after">Then type <code>/model fable</code> and press Enter.</p></div>
+<div class="card step"><div class="top"><span class="num">3</span><h3>Paste the prompt</h3></div><p>It's in the next section, "The prompt". The prompt itself asks for a new folder called <code>redesign/</code>, so your old files stay exactly as they are, even inside the copy.</p></div>
+<div class="tip"><span class="label deep">Tip</span><p>If your site has many pages, ask for the home page first, then say "do the same for the other pages".</p></div></div></section>
+<section id="the-prompt"><header class="sechead"><span class="label">Step 2</span><h2>The <em>prompt</em></h2><p class="lead">Word for word, the prompt I used in the reel.</p></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>/awwwards This folder is my website from a few years ago. Redesign it so it looks like a website made in 2026.
+
+Keep every word of my content, my name, my links and my photos. Don't invent anything new about me. Change only the design: layout, fonts, colours, spacing and animations. It must work well on a phone.
+
+Keep it plain HTML, CSS and JavaScript, with no build step. Put the redesigned pages in a new folder called redesign/ so my old files stay exactly as they are. When it's done, open redesign/index.html in my browser.</pre></div>
+<div class="tip"><span class="label deep">About /awwwards</span><p><b>/awwwards</b> is my own design skill for Claude Code, so you won't have it. Delete that first word and send the rest. I ran this same prompt without it too: 8.8 minutes, $5.12, a simpler dark design that kept the same words, photo and sections.</p></div>
+<div class="card list"><h3>Why each line is there</h3><ul><li><b>"Keep every word… don't invent anything"</b> stops it from writing new claims about you</li><li><b>"Change only the design"</b> tells it what it may touch</li><li><b>"Plain HTML, CSS and JavaScript, no build step"</b> means you can open the result straight away</li><li><b>"A new folder called redesign/"</b> keeps your old pages safe next to the new ones</li></ul></div></div></section>
+<section id="every-word-a-new-design"><header class="sechead"><span class="label">What it made</span><h2>Every word, a <em>new design</em></h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">The idea</span><span class="v">my signature logo inside a code tag, "&lt; Abhay Chopra /&gt;". Its brackets frame the menu, buttons and headings</span></div><div class="row"><span class="k">Pages</span><span class="v">redesign/index.html, journey.html and a 404 page</span></div><div class="row"><span class="k">Content</span><span class="v">my words, photo and posters, all kept</span></div><div class="row"><span class="k">Phones</span><span class="v">the Journey page now works on phones (in 2020 it said "Desktop Only")</span></div></div></div>
+<figure class="fig"><img src="img/after_journey-1794354019526-w1300.jpg" alt="The redesigned Journey page, made by Fable 5.2 from one prompt." loading="lazy" decoding="async" style="aspect-ratio:1600/1000;object-fit:cover;object-position:50% 50%"/><figcaption>The redesigned Journey page, made by Fable 5.2 from one prompt.</figcaption></figure>
+<div class="tip"><span class="label deep">What it told me it changed</span><p>Besides the design, three things: <b>callto:</b> links became <b>tel:</b> links (so a tap opens the phone dialler), an empty Calendly button became a real link, and the Journey page now works on phones. It flagged each one at the end of the run, so I could check them.</p></div></div></section>
+<section id="what-to-check-after"><header class="sechead"><span class="label">Step 3</span><h2>What to <em>check</em> after</h2></header><div class="blocks"><div class="card list"><ul><li><b>Every word.</b> Read the old page and the new one side by side. Nothing should be missing, and nothing new should be made up about you.</li><li><b>Every link.</b> Click each one, and check where it goes now. Look hardest at any link it says it changed (mine: <code>callto:</code> → <code>tel:</code>, and the Calendly button).</li><li><b>Your phone number and email.</b> Tap them on a real phone.</li><li><b>On a phone.</b> Open redesign/index.html on your phone, or in your browser's phone view, and scroll every page.</li><li><b>Your photos.</b> They should be yours, not new ones.</li></ul></div>
+<div class="cmd"><div class="cmdhead"><span class="label">A check prompt (my suggestion)</span><button class="copy" type="button">Copy</button></div><pre>Compare every word in my old pages with the pages in redesign/. List anything missing, changed or added. Then list every link and phone number in redesign/ and where each one goes.</pre></div>
+<div class="tip"><span class="label deep">Only then</span><p>Replace your live site only when every check passes. Keep the old folder as a backup.</p></div>
+<figure class="fig"><img src="img/after_section-1794354163028-w1300.jpg" alt="One section of my redesign: the 2020 words, word for word, in the new design." loading="lazy" decoding="async"/><figcaption>One section of my redesign: the 2020 words, word for word, in the new design.</figcaption></figure></div></section>
+<section id="what-it-costs"><header class="sechead"><span class="label">Before you run it</span><h2>What it <em>costs</em></h2></header><div class="blocks"><div class="card statcard"><div class="stats"><div><b>$18.12</b><span>my run, at API list prices</span></div><div><b>72 min</b><span>start to finish</span></div><div><b>2×</b><span>Opus 5.5's price per token</span></div><div><b>$5.12</b><span>the same prompt without /awwwards (8.8 min)</span></div></div></div>
+<div class="card rowsbox"><div class="rows"><div class="row"><span class="k">API price</span><span class="v">Fable 5.2: $8 in / $40 out per million tokens. Opus 5.5: $4 / $20</span></div><div class="row"><span class="k">Pro</span><span class="v">included this launch week, up to 50% of your weekly limit, until <b>16 Nov 2026, 11:59 pm PT</b>. After that, Fable runs on usage credits, which you pay for</span></div><div class="row"><span class="k">Max, Ultra</span><span class="v">included, up to 50% of your weekly limits</span></div><div class="row"><span class="k">See your cost</span><span class="v"><code>/usage</code> shows a session's tokens and its cost at API prices</span></div></div><p class="note">A long redesign is the expensive kind of job. Try the same prompt on Opus first (<code>/model opus</code>), and switch to Fable if you want more. Prices checked 10 Nov 2026.</p></div>
+<div class="card sources"><span class="label">Sources</span><ol><li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-2">Fable 5.2 launch post</a><span class="host">anthropic.com</span></li><li><a href="https://platform.claude.com/docs/en/about-claude/pricing">API prices</a><span class="host">platform.claude.com</span></li><li><a href="https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan">Fable on your plan</a><span class="host">support.claude.com</span></li><li><a href="https://support.claude.com/en/articles/17506494">Launch-week usage</a><span class="host">support.claude.com</span></li><li><a href="https://code.claude.com/docs/en/model-config">Models in Claude Code</a><span class="host">code.claude.com</span></li></ol></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now redesign <em>yours</em></h2><p class="lead">Your old site, one prompt, and a copy of the folder.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 1.3 MB · works offline.</p><a class="btn main" href="fable-redesign-2020-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-11-10.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
