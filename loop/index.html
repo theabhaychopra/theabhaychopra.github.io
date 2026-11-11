@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>How I let Claude post my trial reels — @theabhaychopra</title>
+<meta name="description" content="It writes them, posts them after I approve, scores every one against my own numbers, and tells me which to show my followers.">
+<meta property="og:title" content="How I let Claude post my trial reels"><meta property="og:description" content="It writes them, posts them after I approve, scores every one against my own numbers, and tells me which to show my followers.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/loop/">
+<meta property="og:image" content="https://theabhaychopra.github.io/loop/img/leaderboard-1792617552014-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-11-11T20:39:20Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>The exact loop, step by step</span></div>
+<h1>How I let Claude <em>post my trial reels</em></h1>
+<p class="sub">It writes them, posts them after I approve, scores every one against my own numbers, and tells me which to show my followers.</p>
+<div class="facts"><span>6 steps</span><span>one Approve button</span><span>46,016 views on my best trial</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="claude-trial-reels-loop.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/leaderboard-1792617552014-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#connect-instagram"><span class="n">02</span><span>Connect Instagram<span class="k">Step 1 of 6</span></span><span class="arr">↓</span></a></li><li><a href="#post-a-trial"><span class="n">03</span><span>Post a trial<span class="k">Step 2 of 6</span></span><span class="arr">↓</span></a></li><li><a href="#approve-every-post"><span class="n">04</span><span>Approve every post<span class="k">Step 3 of 6</span></span><span class="arr">↓</span></a></li><li><a href="#read-the-numbers"><span class="n">05</span><span>Read the numbers<span class="k">Step 4 of 6</span></span><span class="arr">↓</span></a></li><li><a href="#score-against-your-median"><span class="n">06</span><span>Score against your median<span class="k">Step 5 of 6</span></span><span class="arr">↓</span></a></li><li><a href="#pick-the-winner"><span class="n">07</span><span>Pick the winner<span class="k">Step 6 of 6</span></span><span class="arr">↓</span></a></li><li><a href="#the-honest-limits"><span class="n">08</span><span>The honest limits<span class="k">Know this first</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Claude Code</b>, the desktop app or the terminal (<a href="https://claude.com/claude-code">claude.com/claude-code</a>)</li><li><b>An Instagram professional account</b> linked to a <b>Facebook Page</b></li><li><b>A Meta developer app</b> (free) — step 1 sets it up</li><li><b>Finished reels</b> to test, a few a day</li></ul></div>
+<div class="tip"><span class="label deep">How the loop works</span><p>Trial reels are shown to people who <b>don't follow you yet</b>. So you can test many ideas without spamming your followers. Claude posts the trials you approve, reads how each one did, and points at the winner. <b>You</b> share the winner with your followers.</p></div>
+<div class="card rowsbox"><span class="label">The 6 steps</span><div class="rows narrow"><div class="row"><span class="k">1</span><span class="v"><b>Connect Instagram</b></span></div><div class="row"><span class="k">2</span><span class="v"><b>Post a trial</b></span></div><div class="row"><span class="k">3</span><span class="v"><b>Approve every post</b></span></div><div class="row"><span class="k">4</span><span class="v"><b>Read the numbers</b></span></div><div class="row"><span class="k">5</span><span class="v"><b>Score against your median</b></span></div><div class="row"><span class="k">6</span><span class="v"><b>Pick the winner</b></span></div></div></div></div></section>
+<section id="connect-instagram"><header class="sechead"><span class="label">Step 1 of 6</span><h2><em>Connect</em> Instagram<img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>The prompt</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Help me connect my Instagram account to the Instagram Graph API so you can post reels and read their insights.
+1. Walk me through creating a Meta developer app and linking it to my Facebook Page and my Instagram professional account.
+2. Tell me exactly which permissions to add: instagram_basic, instagram_content_publish, instagram_manage_insights, pages_show_list, pages_read_engagement.
+3. I will sign in and generate the token myself. Give me a command that saves it to a local file outside this project, and never print it back.
+4. Run a 'whoami' check that shows my handle, my Page and my publishing quota.</pre></div><p class="after">You sign in to Meta and press every button yourself. Claude only reads the saved token from your Mac.</p></div></div></section>
+<section id="post-a-trial"><header class="sechead"><span class="label">Step 2 of 6</span><h2><em>Post</em> a trial</h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">2</span><h3>The prompt</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Write a small poster script that publishes one finished reel as a TRIAL reel.
+1. Use the standard upload with a video_url and trial_params = {"graduation_strategy": "MANUAL"}.
+2. Serve the file from a temporary public link (a Cloudflare quick tunnel is fine) and close it as soon as Meta has fetched the video.
+3. Wait until the container is FINISHED, then publish.
+4. First do an upload-only test that never publishes.</pre></div><p class="after">My first try used the resumable upload. It went out as a normal reel, visible on my profile. The video_url upload is the one that stays a trial. Check your first one from another account.</p></div></div></section>
+<section id="approve-every-post"><header class="sechead"><span class="label">Step 3 of 6</span><h2><em>Approve</em> every post</h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">3</span><h3>The prompt</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Add an approval step: nothing posts until I press Approve.
+1. Keep a queue of finished reels, each with its caption, slot time and 'trial' or 'regular'.
+2. Only a reel I approved goes into the outbox. Freeze the exact file when I approve, and refuse to post anything that changed after that.
+3. Post approved reels at their time slots, at most 5 trials a day, and log every post.</pre></div><p class="after">This is the one step I never hand over. Claude drafts and posts; I decide.</p></div></div></section>
+<section id="read-the-numbers"><header class="sechead"><span class="label">Step 4 of 6</span><h2><em>Read</em> the numbers</h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">4</span><h3>The prompt</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Every few hours, pull insights for every trial reel and keep the history: views, reach, skip rate, average watch time, shares, saves, comments and likes. Save each reading with its time so we can compare reels at the same age.</pre></div></div></div></section>
+<section id="score-against-your-median"><header class="sechead"><span class="label">Step 5 of 6</span><h2><em>Score</em> against your median</h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">5</span><h3>The prompt</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Build my baseline from my own past trial reels: the median of each metric. Score each new trial against it: lower skip rate and higher watched %, shares, comments and saves count, each as a multiple of my median. Wait about 24 hours before calling a winner, and tell me when it's too early.</pre></div><p class="after">Your median, not someone else's numbers. One of my trials hit 46,016 views; my usual trial is far lower. The median is what tells you a reel is really an outlier.</p></div></div></section>
+<section id="pick-the-winner"><header class="sechead"><span class="label">Step 6 of 6</span><h2><em>Pick</em> the winner</h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">6</span><h3>The prompt</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Each day, show me a short report: every trial, its score, and the one worth showing my followers. Then tell me what the winner did differently (the hook, the first 2 seconds, the length) so the next scripts can try more of it.</pre></div><p class="after">Instagram has no API to move a trial to your followers. You share the winner yourself, in the app.</p></div></div></section>
+<section id="the-honest-limits"><header class="sechead"><span class="label">Know this first</span><h2>The honest <em>limits</em></h2></header><div class="blocks"><div class="card list"><ul><li>Meta caps how many posts an account can publish in 24 hours. Ask Claude to read your own limit from the API.</li><li>The API can't tell you whether a reel is still a trial, and it can't move a trial to your followers.</li><li>Reels insights don't include follows or profile visits per reel.</li><li>Your Mac has to be awake at the posting times if the poster runs on it.</li><li>Keep sponsored posts and reels with film or TV clips out of the loop. Post those by hand.</li></ul></div>
+<div class="tip"><span class="label deep">Keep your account safe</span><p>Never paste your password or token into a chat. Generate the token yourself, keep it in a file outside your project, and keep the Approve button for yourself.</p></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now test your <em>first 5</em></h2><p class="lead">Five trials a day is 150 a month. Let the numbers pick your next hook.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 2.4 MB · works offline.</p><a class="btn main" href="claude-trial-reels-loop.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-11-11.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
