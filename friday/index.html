@@ -1,0 +1,263 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>How I made an AI anime short film — @theabhaychopra</title>
+<meta name="description" content="Five scenes in one painted look, two voices that stay the same, mouths that move with the words — all in Higgsfield.">
+<meta property="og:title" content="How I made an AI anime short film"><meta property="og:description" content="Five scenes in one painted look, two voices that stay the same, mouths that move with the words — all in Higgsfield.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/friday/">
+<meta property="og:image" content="https://theabhaychopra.github.io/friday/img/cover_mascot-1794457060611-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-11-12T04:20:11Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>Every prompt, in order</span></div>
+<h1>How I made an AI <em>anime short film</em></h1>
+<p class="sub">Five scenes in one painted look, two voices that stay the same, mouths that move with the words — all in Higgsfield.</p>
+<div class="facts"><span>35 s film</span><span>~90 credits</span><span>2 tools</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="client-said-friday-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/cover_mascot-1794457060611-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#make-a-style-sheet"><span class="n">02</span><span>Make a style sheet<span class="k">Step 1</span></span><span class="arr">↓</span></a></li><li><a href="#paint-the-first-frame"><span class="n">03</span><span>Paint the first frame<span class="k">Step 2</span></span><span class="arr">↓</span></a></li><li><a href="#shot-1-the-call"><span class="n">04</span><span>Shot 1, the call<span class="k">Step 2 — the result</span></span><span class="arr">↓</span></a></li><li><a href="#the-phone-rings"><span class="n">05</span><span>The phone rings<span class="k">Step 2 — the opening shot</span></span><span class="arr">↓</span></a></li><li><a href="#lock-the-set"><span class="n">06</span><span>Lock the set<span class="k">Step 3</span></span><span class="arr">↓</span></a></li><li><a href="#frames-3-4-and-5"><span class="n">07</span><span>Frames 3, 4 and 5<span class="k">Step 3 — the other scenes</span></span><span class="arr">↓</span></a></li><li><a href="#one-room-one-look"><span class="n">08</span><span>One room, one look<span class="k">Step 3 — the results</span></span><span class="arr">↓</span></a></li><li><a href="#the-reveal-the-punchline"><span class="n">09</span><span>The reveal, the punchline<span class="k">Step 3 — the results</span></span><span class="arr">↓</span></a></li><li><a href="#shot-one-two-three"><span class="n">10</span><span>Shot one, two, three<span class="k">Step 3 — the montage</span></span><span class="arr">↓</span></a></li><li><a href="#animate-with-sound-on"><span class="n">11</span><span>Animate with sound on<span class="k">Step 4</span></span><span class="arr">↓</span></a></li><li><a href="#her-line-and-the-ending"><span class="n">12</span><span>Her line and the ending<span class="k">Step 4 — the other clips</span></span><span class="arr">↓</span></a></li><li><a href="#listening-not-talking"><span class="n">13</span><span>Listening, not talking<span class="k">Step 4 — the quiet shots</span></span><span class="arr">↓</span></a></li><li><a href="#lock-each-voice"><span class="n">14</span><span>Lock each voice<span class="k">Step 5</span></span><span class="arr">↓</span></a></li><li><a href="#cut-it-together"><span class="n">15</span><span>Cut it together<span class="k">Step 6</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Higgsfield</b> (<a href="https://higgsfield.ai">higgsfield.ai</a>) — everything below runs inside it</li><li><b>Nano Banana Pro</b> in Higgsfield for the stills — free on my plan's Unlimited mode, 2 credits a still without it</li><li><b>Kling 3.0</b> in Higgsfield for the motion <i>and</i> the voices — about 10 credits for 5 s with sound on</li><li><b>Voice change</b> in Higgsfield — 1 credit a clip, keeps each voice the same in every scene</li><li><b>An editor</b> for the cut — CapCut, Premiere, or ffmpeg (free, <a href="https://ffmpeg.org">ffmpeg.org</a>)</li></ul></div>
+<div class="card rowsbox"><span class="label">The 6 steps</span><div class="rows narrow"><div class="row"><span class="k">1</span><span class="v"><b>Make a style sheet</b> — 5 frames of a look you love</span></div><div class="row"><span class="k">2</span><span class="v"><b>Paint the first frame</b> — the 3-part prompt</span></div><div class="row"><span class="k">3</span><span class="v"><b>Lock the set</b> — the same man and room in every shot</span></div><div class="row"><span class="k">4</span><span class="v"><b>Animate with sound on</b> — Kling makes the voice and the mouth</span></div><div class="row"><span class="k">5</span><span class="v"><b>Lock each voice</b> — one preset voice per character</span></div><div class="row"><span class="k">6</span><span class="v"><b>Cut it together</b> — and add the text</span></div></div></div>
+<div class="tip"><span class="label deep">What it cost</span><p>The whole 35 s film came to <b>about 90 credits</b> (prices checked 12 Nov 2026): 7 Kling clips at 7.5–14 each, 5 voice changes at 1, a few stills at 2, three short voice lines at 0.3. Every character, voice and frame is AI.</p></div></div></section>
+<section id="make-a-style-sheet"><header class="sechead"><span class="label">Step 1</span><h2>Make a <em>style sheet</em></h2></header><div class="blocks"><p class="text">Pick a film whose look you love. Grab <b>5 frames</b> from it — a wide shot, a close-up, day and night — and put them in one image. That one image goes into every still as <b>image 1, for style only</b>.</p>
+<figure class="fig"><img src="img/style_sheet.jpg" alt="My style sheet: 5 frames from @dyyhoang_aiker's film. The look is his — the story and characters are new." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>My style sheet: 5 frames from @dyyhoang_aiker's film. The look is his — the story and characters are new.</figcaption></figure>
+<div class="tip"><span class="label deep">The mistake I made first</span><p>I attached a photo of myself to keep my face. It pulled the drawing back to a generic cartoon every time. Describe your lead <b>in words</b> instead (hair, beard, skin, clothes) and let the style sheet do the look.</p></div></div></section>
+<section id="paint-the-first-frame"><header class="sechead"><span class="label">Step 2</span><h2>Paint the <em>first frame</em><img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><p class="text">Every still uses the same 3 parts: the <b>style-only opener</b>, the <b>scene</b>, and the <b>style paragraph</b>. Nano Banana Pro, 16:9, 2K. Paste the style paragraph at the end of every prompt in this guide.</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Use the attached image 1 as a style reference only. Match its rendering, color palette, lighting and brushwork exactly. Do not copy its character, pose or composition. Create new characters.
+
+Scene: Golden hour in a high-rise apartment studio above a coastal city, 16:9 medium-wide shot. A tall floor-to-ceiling window fills the background: the low sun sits on the horizon and lays a glittering orange path across a deep cobalt sea, soft pink and peach clouds drift through the sky, and the first city lights glow along the shore. A man in his late twenties leans back against the edge of a wooden desk, phone pressed to his ear, the other hand resting on a closed laptop beside him. He has full dark curly hair in chunky clumped shapes, a short full beard and warm brown skin. He wears a loose navy overshirt over a black t-shirt, with black headphones resting round his neck. His mouth shows a confident, amused grin, as if he just heard something he finds easy. A warm brass desk lamp glows beside him. Warm rim light on him, cool blue shadows in the room.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Style: Painterly 2D animation still with a gouache and acrylic texture and visible dry-brush strokes on every surface, skin included. No black outlines: forms are defined by flat shapes of color meeting. Faces are built from angular, sculpted planes, with faceted nose, cheekbones and jaw. Warm terracotta skin tones with deep red-brown shadow planes. Thick dark eyebrows, almond eyes with heavy upper lids, realistic adult proportions, not big-eyed anime. Hair in chunky clumped shapes with cool blue-black highlights. Limited palette of burnt orange, peach, cream, cobalt blue and charcoal navy. 1980s Riviera luxury mood. Cinematic storyboard composition, subtle paper grain.
+
+No text, no logos, no watermark.</pre></div></div></section>
+<section id="shot-1-the-call"><header class="sechead"><span class="label">Step 2 — the result</span><h2>Shot 1, <em>the call</em></h2></header><div class="blocks"><figure class="fig"><img src="img/01_the-call.jpg" alt="Frame 1. This still is now the reference for the man and the room." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>Frame 1. This still is now the reference for the man and the room.</figcaption></figure>
+<p class="text">Keep every still you like — each one becomes the start image for a moving shot in Step 4.</p></div></section>
+<section id="the-phone-rings"><header class="sechead"><span class="label">Step 2 — the opening shot</span><h2>The phone <em>rings</em></h2></header><div class="blocks"><p class="text">The opening phone shot uses the same recipe with <b>frame 1 as image 2</b>, so the desk, laptop and light match:</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Use the attached image 1 as a style reference only. Match its rendering, color palette, lighting and brushwork exactly. Image 2 shows the room: keep the same wooden desk, the same closed silver laptop with a plain lid, the same brass desk lamp and the same golden-hour light from the tall window over the sea. Scene: a 16:9 close-up on the wooden desk. A black smartphone lies face up next to the closed laptop, its screen lit with an incoming call: a plain glowing screen with a round green answer button and a round red button, no words, no names, no numbers. Small painted motion lines around the phone show it buzzing. Warm orange sunset light across the desk, cool blue shadows, the sea glittering softly out of focus through the window. Nobody in the shot.
+
++ the style paragraph</pre></div>
+<figure class="fig"><img src="img/00_phone-ringing.jpg" alt="The phone ringing on his desk." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>The phone ringing on his desk.</figcaption></figure></div></section>
+<section id="lock-the-set"><header class="sechead"><span class="label">Step 3</span><h2><em>Lock</em> the set</h2></header><div class="blocks"><p class="text">My first tries had a second laptop, three monitors and a different desk. The fix: attach <b>frame 1 as image 2</b> and paste <b>the set</b> into every prompt, word for word.</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Use the attached image 1 as a style reference only. Match its rendering, color palette, lighting and brushwork exactly. Do not copy its characters, poses or compositions. Image 2 is our film's previous shot: keep the SAME man (same face, full dark curly hair, short beard, warm brown skin, navy overshirt over a black t-shirt) and the SAME room and desk from image 2.
+
+The set, identical in every shot: one wooden desk in front of a tall floor-to-ceiling window over the sea and a coastal city; on the desk exactly ONE silver laptop with a plain lid (no logo, no apple), a brass desk lamp on the right, a dark office chair; a round wall clock on the wall to the left of the window. There are NO other screens, monitors or computers anywhere.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: Blue-hour evening, 16:9 medium close-up. The man now sits in the chair at that same desk and lifts the lid of that one laptop open with both hands; its cool white-blue glow lights his face from below, eager focused grin. The wall clock clearly shows 9:00. Through the window the sky is deep cobalt with a last band of orange at the horizon and city lights along the shore. The brass lamp glows warm. Warm rim light, cool blue shadows.
+
++ the style paragraph</pre></div></div></section>
+<section id="frames-3-4-and-5"><header class="sechead"><span class="label">Step 3 — the other scenes</span><h2>Frames <em>3, 4 and 5</em></h2></header><div class="blocks"><p class="text">Frames 3 and 5: the opener with image 2 + <b>the set</b> + the scene + the style paragraph. Frame 4 is a new character, so it uses the plain opener (image 1 only).</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: Night, 16:9 dynamic low-angle shot full of speed. The man sits at that same desk leaning into that one open laptop, typing fast, intense focus. The laptop screen blazes red-orange like a sports car dashboard and lights his face. Painted frames of a white sneaker advert (an original made-up sneaker with no swoosh or brand mark) stream out of the laptop screen and arc around him like a flying film strip, with red light trails and speed streaks. The wall clock shows 9:06. Through the window the night city glitters in cobalt and orange dabs; the brass lamp glows warm.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: Night in a high-rise apartment with a glass wall, 16:9 medium shot with comedic timing. A woman in her late twenties, the founder of a small sneaker brand, sits curled on a big cream sofa in white silk pyjamas. She has a sleek short black bob and gold hoop earrings; a pale green clay face mask covers her face and her hair is wound in big rollers. She holds a bowl of noodles, chopsticks frozen halfway to her mouth, and stares wide-eyed in shock at her phone glowing on her knee. Her laptop sits closed beside her. A warm lamp glows on the side table; through the glass wall a glittering night city spreads out in cobalt and orange dabs. Warm rim light on her, cool blue shadows.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: Deep blue night, 16:9 medium-wide shot. The man leans back in the dark office chair with both feet up on the same wooden desk, next to that one open laptop, whose screen shows the finished white sneaker advert (an original made-up sneaker, no swoosh, no brand mark). He holds a small glass of milky chai and gives the viewer a relaxed, smug half-smile. The wall clock shows 9:10. Warm brass lamp light on him, cool blue shadows, the night city sparkling through the tall window.</pre></div></div></section>
+<section id="one-room-one-look"><header class="sechead"><span class="label">Step 3 — the results</span><h2>One room, <em>one look</em></h2></header><div class="blocks"><figure class="fig"><img src="img/02_the-switch.jpg" alt="Frame 2: same man, same desk, one laptop." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>Frame 2: same man, same desk, one laptop.</figcaption></figure>
+<figure class="fig"><img src="img/03_the-run.jpg" alt="Frame 3: the run." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>Frame 3: the run.</figcaption></figure></div></section>
+<section id="the-reveal-the-punchline"><header class="sechead"><span class="label">Step 3 — the results</span><h2>The reveal, <em>the punchline</em></h2></header><div class="blocks"><figure class="fig"><img src="img/04_the-reveal.jpg" alt="Frame 4: the client — a new character, so no image 2." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>Frame 4: the client — a new character, so no image 2.</figcaption></figure>
+<figure class="fig"><img src="img/05_the-punchline.jpg" alt="Frame 5. The clock hands didn't follow the prompt — nobody reads the clock." loading="lazy" decoding="async" style="aspect-ratio:16/9;object-fit:cover;object-position:50% 50%"/><figcaption>Frame 5. The clock hands didn't follow the prompt — nobody reads the clock.</figcaption></figure></div></section>
+<section id="shot-one-two-three"><header class="sechead"><span class="label">Step 3 — the montage</span><h2>Shot <em>one, two, three</em></h2></header><div class="blocks"><p class="text">The three ad shots he names in the run. Style sheet as image 1, no image 2, a made-up sneaker with no logo.</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: a cinematic sneaker ad shot, 16:9 low-angle close-up. One plain white low-top sneaker with no logo stands on the edge of a city rooftop at golden hour, the sun flaring behind it, a coastal city and the sea far below in soft painterly blocks, warm orange rim light on the shoe, cool blue shadows.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: a cinematic sneaker ad shot, 16:9 ground-level close-up at night in the rain. One plain white low-top sneaker with no logo splashes down into a puddle on a wet city street, a crown of water droplets bursting around it, neon city lights reflected as orange dabs in the puddle, slanting rain streaks, cool cobalt blue night with warm orange highlights on the shoe.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Scene: a cinematic sneaker ad shot, 16:9 extreme close-up in slow motion. Two warm brown hands pull the white laces of one plain white low-top sneaker with no logo tight, the lace ends lifting through the air, soft drifting dust motes in a warm orange sunset beam, deep navy background.</pre></div>
+<p class="text">+ the style paragraph on each. I didn't animate these — a slow push-in in the edit is enough for a 1-second cut.</p>
+<figure class="fig"><img src="img/sneakers-1794457061382-w1300.jpg" alt="Rooftop, rain, slow motion." loading="lazy" decoding="async" style="aspect-ratio:900/1526;object-fit:cover;object-position:50% 50%"/><figcaption>Rooftop, rain, slow motion.</figcaption></figure></div></section>
+<section id="animate-with-sound-on"><header class="sechead"><span class="label">Step 4</span><h2>Animate with <em>sound on</em></h2></header><div class="blocks"><p class="text">Kling 3.0 in Higgsfield, the still as the <b>start image</b>, Pro, 16:9, 5–7 s, <b>sound on</b>. Write the line in quotes inside the prompt — Kling makes the voice and moves the mouth to it, so they match.</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Painterly 2D animation shot, keep the exact hand-painted gouache look of the start image: flat colour shapes, dry-brush texture, no outlines, same palette and light. Locked-off camera with a very slow gentle push-in. The man holds the phone to his ear, listens for a beat, then grins and says into the phone, clearly and confidently, in a warm young male voice with a light amused laugh: "Friday? Give me ten minutes." His lips move clearly with each word. His other hand stays resting on the closed laptop. Subtle natural motion only. The sun glitter on the sea shimmers, the clouds drift slowly. Sound: only his voice and a soft evening city ambience, no music, no other voices. No new objects, no camera cuts, no morphing, the face stays the same.</pre></div>
+<div class="card rowsbox"><span class="label">What made it work</span><div class="rows narrow"><div class="row"><span class="k">1</span><span class="v">The line in quotes, word for word</span></div><div class="row"><span class="k">2</span><span class="v">"His lips move clearly with each word"</span></div><div class="row"><span class="k">3</span><span class="v">"Sound: only his voice … no music" — add music later</span></div><div class="row"><span class="k">4</span><span class="v">"No new objects, no morphing, the face stays the same"</span></div></div></div></div></section>
+<section id="her-line-and-the-ending"><header class="sechead"><span class="label">Step 4 — the other clips</span><h2>Her line and <em>the ending</em></h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Painterly 2D animation shot, keep the exact hand-painted gouache look of the start image: flat colour shapes, dry-brush texture, no outlines, same palette and light. Locked-off camera, slight push-in. The woman in the green face mask and hair rollers stares at her glowing phone, noodles hanging from her chopsticks. She reads aloud, flat and slow, in a bright young female voice: "Your video is ready." She freezes, eyes wide: "Wait, what?" Then she leans toward the phone and shouts in disbelief: "I said Friday!" Her lips move clearly with each word. Sound: only her voice and a quiet night apartment tone, no music, no other voices. No new objects, no camera cuts, no morphing, her face and the mask stay the same.</pre></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Painterly 2D animation shot, keep the exact hand-painted gouache look of the start image: flat colour shapes, dry-brush texture, no outlines, same palette and light. Locked-off camera, slow push-in. The man leans back in his chair, feet up on the desk, sipping his chai. Relaxed and smug, in the same warm young male voice, he says: "Want three more versions?" Then he turns his head and looks straight into the camera with a sly smile and says: "Comment AI. I'll send you every prompt. Before Friday." His lips move clearly with each word. Sound: only his voice and a quiet night room tone, no music, no other voices. No new objects, no extra screens, no camera cuts, no morphing, the face stays the same.</pre></div></div></section>
+<section id="listening-not-talking"><header class="sechead"><span class="label">Step 4 — the quiet shots</span><h2><em>Listening</em>, not talking</h2></header><div class="blocks"><p class="text">Shots without a line: <b>sound off</b> (7.5 credits). Say what the mouth does, or it starts talking.</p>
+<div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Painterly 2D animation shot, keep the exact hand-painted gouache look of the start image: flat colour shapes, dry-brush texture, no outlines, same palette and light. Locked-off camera, no zoom. The man stands still with the phone to his ear, just listening to the call: his mouth stays closed, he gives two small slow nods and blinks, his eyes drift down for a moment as he listens. Only tiny natural movement, nothing else changes. His other hand stays resting on the closed laptop. No talking, no smiling wide, no new objects, no camera moves, no morphing, the face stays the same.</pre></div>
+<div class="tip"><span class="label deep">What didn't work</span><p>Making a silent clip and syncing a voice onto it later (lip-sync tools): the mouth never really matched a painted face. Sound on in Kling did it in one go.</p></div></div></section>
+<section id="lock-each-voice"><header class="sechead"><span class="label">Step 5</span><h2>Lock <em>each voice</em></h2></header><div class="blocks"><p class="text">Kling gives every clip a slightly different voice. Run each clip through <b>Voice change</b> in Higgsfield with <b>one preset voice per character</b> — the picture and the timing stay exactly the same.</p>
+<div class="card rowsbox"><span class="label">My cast</span><div class="rows"><div class="row"><span class="k">Josh</span><span class="v">preset voice <b>Reid</b> on all 4 of his clips</span></div><div class="row"><span class="k">Her</span><span class="v">preset voice <b>Talia</b> on her clip</span></div><div class="row"><span class="k">Calls</span><span class="v">her off-screen lines as text-to-speech, in <b>Talia</b></span></div></div></div>
+<div class="tip"><span class="label deep">One thing to check</span><p>A shouted word can blur in the swap — her "Friday!" did. I re-made just that line as text-to-speech in the same voice and laid it on her mouth.</p></div></div></section>
+<section id="cut-it-together"><header class="sechead"><span class="label">Step 6</span><h2>Cut it <em>together</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Open on a beat before the line</b> — the phone rings, he picks it up, he listens</li><li><b>Cut on the words</b> — in the run, each shot lands on the word that names it</li><li><b>Her side of the call</b> sounds like a phone: cut the lows and highs off her voice</li><li><b>Text in one clean font</b> (I used Helvetica) — each word appears as it's said</li><li><b>A low music bed</b> under the voices, the mix at −14 LUFS</li></ul></div>
+<div class="tip"><span class="label deep">The story shape</span><p>Call → switch → run → the not-ready reveal → the punchline. It's the shape of @dyyhoang_aiker's "fifteen minutes" film — new story, new lines.</p></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now make <em>your short film</em></h2><p class="lead">One style sheet, one locked set, two locked voices.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 2.4 MB · works offline.</p><a class="btn main" href="client-said-friday-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-11-12.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
