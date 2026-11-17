@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Healthy Cart Canada: AI Search Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#0c1611;overflow:hidden;}
+*{box-sizing:border-box;}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;}
+#stage>section{position:absolute;inset:0;width:1920px;height:1080px;opacity:0;visibility:hidden;transition:opacity .35s ease;overflow:hidden;}
+#stage>section.on{opacity:1;visibility:visible;}
+:root{--dark:#13241B;--light:#F4F1EA;--green:#3DBE55;--orange:#E8822A;--muted:#5B6B62;--line:#D9D3C6;}
+section{padding:128px;background:var(--light);color:var(--dark);font-family:'Inter',sans-serif;display:flex;flex-direction:column;gap:56px;}
+section.dark{background:var(--dark);color:var(--light);}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;}
+h1{font-size:120px;line-height:1.02;font-weight:700;letter-spacing:-2px;}
+h2{font-size:72px;line-height:1.08;font-weight:700;letter-spacing:-1px;}
+h3{font-size:40px;line-height:1.15;font-weight:700;}
+p{margin:0;font-size:32px;line-height:1.4;}
+.kicker{font-size:28px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);}
+.lead{font-size:40px;line-height:1.35;color:var(--muted);}
+.dark .lead{color:#C9D3CC;}
+.cover-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px;}
+.meta{font-size:28px;color:#C9D3CC;}
+.hl{color:var(--green);}
+.split{display:flex;gap:80px;flex:1;}
+.scores{flex:1;display:flex;flex-direction:column;}
+.row{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:2px solid var(--line);}
+.row .eng{font-size:36px;font-weight:600;}
+.row .yes{font-size:32px;font-weight:700;color:#1E7A33;}
+.row .no{font-size:32px;font-weight:700;color:#B4541A;}
+.shot{flex:1;display:flex;flex-direction:column;gap:24px;}
+.shot img{width:760px;height:239px;object-fit:contain;border-radius:16px;background:#fff;border:2px solid var(--line);}
+.shot .cap{font-size:30px;line-height:1.35;}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;flex:1;}
+.card{background:#fff;border-radius:20px;padding:44px 40px;display:flex;flex-direction:column;gap:24px;border-top:8px solid var(--green);}
+.card .n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--green);}
+.card .txt{font-size:28px;line-height:1.4;color:var(--muted);}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:64px;flex:1;align-items:start;}
+.stat{display:flex;flex-direction:column;gap:20px;border-top:3px solid #3A5446;padding-top:40px;}
+.stat .big{font-family:'Space Grotesk',sans-serif;font-size:120px;font-weight:700;line-height:1;color:var(--green);}
+.stat .what{font-size:32px;line-height:1.35;}
+.stat .from{font-size:26px;color:#A9B8AE;}
+.invest{display:flex;gap:96px;flex:1;}
+.price{display:flex;flex-direction:column;gap:16px;width:620px;}
+.price .big{font-family:'Space Grotesk',sans-serif;font-size:150px;font-weight:700;line-height:1;}
+.price .unit{font-size:36px;color:var(--muted);}
+.price .term{font-size:30px;line-height:1.4;}
+.incl{flex:1;display:flex;flex-direction:column;gap:20px;}
+.incl ul{margin:0;padding-left:36px;}
+.incl li{font-size:30px;line-height:1.5;}
+.next{font-size:30px;font-weight:600;background:var(--green);color:var(--dark);padding:24px 36px;border-radius:14px;align-self:flex-start;}
+.tbl{width:100%;border-collapse:collapse;}
+.tbl th{font-size:24px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);text-align:left;padding:0 20px 18px 0;border-bottom:3px solid var(--dark);}
+.tbl td{font-size:24px;line-height:1.3;padding:16px 20px 16px 0;border-bottom:2px solid var(--line);vertical-align:top;}
+.tbl .st{font-weight:700;}
+.tbl .good{color:#1E7A33;font-weight:700;}
+.tbl .bad{color:#B4541A;font-weight:700;}
+.tbl .mid{color:#8A6A10;font-weight:700;}
+.pair{display:flex;gap:64px;flex:1;}
+.pcol{width:800px;display:flex;flex-direction:column;gap:24px;}
+.pcol img.wide{width:800px;height:402px;object-fit:contain;border-radius:16px;background:#fff;border:2px solid var(--line);}
+.pcol img.strip{width:800px;height:251px;object-fit:contain;border-radius:16px;background:#fff;border:2px solid var(--line);}
+.pcol .tag{font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);}
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 48px;flex:1;align-content:start;}
+.chk{display:flex;gap:20px;align-items:flex-start;padding:16px 0;border-top:2px solid var(--line);}
+.chk .box{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--green);width:44px;flex-shrink:0;}
+.chk p{font-size:26px;line-height:1.35;}
+.shotrow{display:flex;gap:64px;flex:1;align-items:flex-start;}
+.side{width:560px;display:flex;flex-direction:column;gap:28px;}
+.side p{font-size:30px;line-height:1.45;}
+.side .say{font-size:34px;line-height:1.35;font-weight:600;}
+.big-shot{width:1040px;height:523px;object-fit:contain;border-radius:16px;background:#fff;border:2px solid var(--line);}
+.strip-shot{width:1040px;height:326px;object-fit:contain;border-radius:16px;background:#fff;border:2px solid var(--line);}
+.duo{display:flex;gap:64px;flex:1;}
+.duo .pcol p{font-size:28px;line-height:1.4;}
+.intro{font-size:32px;line-height:1.45;max-width:1500px;}
+.reasons{display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;}
+.reason{background:#fff;border-radius:20px;padding:40px 44px;display:flex;flex-direction:column;gap:16px;border-left:8px solid var(--orange);}
+.reason p{font-size:28px;line-height:1.45;color:var(--muted);}
+.todo{display:grid;grid-template-columns:1fr 1fr;gap:20px 64px;flex:1;align-content:start;}
+.item{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:3px solid var(--green);}
+.item p{font-size:27px;line-height:1.4;color:var(--muted);}
+.note{font-size:26px;color:var(--muted);}
+.item h3{font-size:34px;}
+
+.nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;font:500 15px Inter,sans-serif;color:#e8e4da;background:rgba(19,36,27,.85);padding:8px 14px;border-radius:999px;z-index:9;user-select:none;}
+.nav button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#3DBE55;color:#13241B;font-size:18px;font-weight:700;}
+.nav button:disabled{opacity:.35;cursor:default;}
+</style></head><body>
+<div id="stage">
+<section id="cover" class="dark">
+<p class="kicker">Proposal for Healthy Cart Canada</p>
+<div class="cover-body">
+<h1>What AI apps tell shoppers<br><span class="hl">about Healthy Cart.</span></h1>
+<p class="lead">More people now ask ChatGPT, Claude and Google's AI where to buy protein. We checked what they say about your five stores, and what it would take to make Healthy Cart their first answer.</p>
+</div>
+<p class="meta">November 2026</p>
+
+</section>
+<section id="ask">
+<h2>This is what a shopper sees today</h2>
+<div class="shotrow">
+<div class="side">
+<p class="say">We typed "best protein store in Brampton" into ChatGPT.</p>
+<p>It answered with five stores, with photos, ratings and a map. A shopper reading this would visit one of those five.</p>
+<p>Healthy Cart is not on the list, even though your Brampton stores have more than 600 Google reviews between them.</p>
+</div>
+<img class="big-shot" src="img/chatgpt-protein-brampton.jpg" alt="ChatGPT answer to best protein store in Brampton, without Healthy Cart">
+</div>
+
+</section>
+<section id="stores">
+<h2>Where each of your stores shows up</h2>
+<table class="tbl">
+<tr><th>Store</th><th>Google Maps</th><th>ChatGPT</th><th>Claude</th><th>What's holding it back</th></tr>
+<tr><td class="st">Vaughan<br>5.0 · 481 reviews</td><td class="good">#1</td><td class="bad">Not listed</td><td class="good">#1</td><td>ChatGPT shows your store photo under Bulldog Nutrition's name. It lists Muscle Fuel, next door, instead of you.</td></tr>
+<tr><td class="st">Bramalea City Centre<br>4.9 · 442 reviews</td><td class="mid">#3</td><td class="bad">Not listed</td><td class="mid">#2</td><td>My Supplements has twice as many reviews (975). This store has no page of its own on your website.</td></tr>
+<tr><td class="st">Mayfield<br>5.0 · 187 reviews</td><td class="good">#1</td><td class="mid">#2</td><td class="good">#1</td><td>Kahma ranks ahead on ChatGPT. Your phone number and postal code are different on different sites.</td></tr>
+<tr><td class="st">Woodstock<br>5.0 · 64 reviews</td><td class="good">#1</td><td class="bad">Not listed</td><td class="mid">#2</td><td>Popeye's has 179 reviews to your 64. Woodstock is missing from the store list on your website.</td></tr>
+<tr><td class="st">Caledon<br>opened Sept 2026</td><td class="bad">Not showing</td><td class="bad">Not listed</td><td class="bad">Not listed</td><td>We could not find a Google listing for it yet, and it isn't on your website. Amped Nutrition in Bolton gets the recommendation.</td></tr>
+</table>
+
+</section>
+<section id="google">
+<h2>On Google, you're already near the top</h2>
+<div class="duo">
+<div class="pcol">
+<p class="tag">Google Maps · "best supplement store brampton"</p>
+<img class="wide" src="img/google-localpack.jpg" alt="Google local results with Healthy Cart Brampton">
+<p>Healthy Cart Brampton shows in the top results, with 4.9 stars and the review "Best supplement store and most knowledgeable staff."</p>
+</div>
+<div class="pcol">
+<p class="tag">Gemini (Google's AI) · Vaughan</p>
+<img class="wide" src="img/gemini-vaughan.jpg" alt="Gemini lists Healthy Cart Vaughan first">
+<p>Gemini lists Healthy Cart Vaughan first. Google's tools read your Google reviews, and those reviews are excellent.</p>
+</div>
+</div>
+
+</section>
+<section id="claude">
+<h2>Claude mostly recommends you</h2>
+<div class="duo">
+<div class="pcol">
+<p class="tag">Claude · Brampton and Vaughan</p>
+<img class="wide" src="img/claude-brampton-vaughan.jpg" alt="Claude recommends Healthy Cart Vaughan">
+<p>Claude tells people to go to Healthy Cart in Vaughan, and lists your Brampton store second.</p>
+</div>
+<div class="pcol">
+<p class="tag">Claude · Caledon, Woodstock, Mayfield</p>
+<img class="wide" src="img/claude-towns.jpg" alt="Claude answer for Caledon, Woodstock and Mayfield">
+<p>Mayfield comes first. Woodstock comes second to Popeye's, which has more reviews. Caledon doesn't come up at all.</p>
+</div>
+</div>
+
+</section>
+<section id="chatgpt">
+<h2>ChatGPT doesn't mention you</h2>
+<div class="shotrow">
+<div class="side">
+<p class="say">ChatGPT is the AI app most people use, and it's where you're missing.</p>
+<p>In Vaughan it recommends Bulldog Nutrition, Herc's, Popeye's and Muscle Fuel. Your Vaughan store has more reviews than all four.</p>
+<p>We saw the same thing in Brampton, Woodstock and Caledon.</p>
+</div>
+<img class="big-shot" src="img/chatgpt-vaughan.jpg" alt="ChatGPT answer to best supplement store in Vaughan">
+</div>
+
+</section>
+<section id="mixup" class="dark">
+<h2>ChatGPT shows your store under another name</h2>
+<div class="shotrow">
+<div class="side">
+<p class="say" style="color:#F4F1EA">ChatGPT's top pick in Vaughan is Bulldog Nutrition. The photo it uses is your store.</p>
+<p style="color:#C9D3CC">You can see the green Healthy Cart sign. Anyone who clicks thinks they're looking at Bulldog. This happens when your details are missing or don't match across the internet, so the AI fills the gap with the wrong business.</p>
+</div>
+<img class="strip-shot" src="img/chatgpt-photo-mixup.png" alt="Healthy Cart storefront photo shown on the Bulldog Nutrition listing in ChatGPT">
+</div>
+
+</section>
+<section id="byname">
+<h2>Even by name, ChatGPT isn't sure about you</h2>
+<div class="shotrow">
+<div class="side">
+<p class="say">We asked: "Tell me about Healthy Cart Canada. Is it a good place to buy supplements?"</p>
+<p>ChatGPT said it was only "cautiously" positive. It found just one review outside Google, a 3.2 on Trustpilot about a late online order.</p>
+<p>It then suggested shoppers look at Healthy Planet and Popeye's instead.</p>
+</div>
+<img class="big-shot" src="img/chatgpt-branded.jpg" alt="ChatGPT answer about Healthy Cart Canada by name">
+</div>
+
+</section>
+<section id="why">
+<h2>Why this is happening</h2>
+<div class="reasons">
+<div class="reason"><h3>Your reviews live on one site</h3><p>Almost all of your reviews are on Google. ChatGPT mostly looks elsewhere, so it can't see how good you are.</p></div>
+<div class="reason"><h3>Your details don't match</h3><p>Phone numbers and addresses differ from site to site, and two stores are missing from your own website. That confuses AI.</p></div>
+<div class="reason"><h3>Your website says very little</h3><p>There's no page for each store and no answers to common questions. AI quotes websites that explain things clearly.</p></div>
+<div class="reason"><h3>Nobody is writing about you</h3><p>Local "best of" lists and forums mention your competitors. AI repeats what other people say about a store.</p></div>
+</div>
+</section>
+<section id="plan">
+<h2>What we'll do</h2>
+<div class="todo">
+<div class="item"><h3>Put all 5 stores on the right sites</h3><p>Bing, Apple Maps, Yelp and the other sites ChatGPT reads, with your own photos.</p></div>
+<div class="item"><h3>Make your details match everywhere</h3><p>Same name, address, phone and hours on every site. This fixes the photo mix-up.</p></div>
+<div class="item"><h3>Get Caledon on the map</h3><p>Set up and verify its Google listing so it starts showing up.</p></div>
+<div class="item"><h3>Give each store its own web page</h3><p>Address, hours, brands, smoothie bar and reviews for every location.</p></div>
+<div class="item"><h3>A plan for getting more reviews</h3><p>Simple ideas your staff can use, like counter QR cards and asking at checkout, focused on Woodstock and Bramalea.</p></div>
+<div class="item"><h3>Monthly AI research and analysis</h3><p>We study what ChatGPT, Claude and Google's AI say about you and your competitors, and send you a one-page report on what changed.</p></div>
+</div>
+<p class="note">Plus smaller fixes to your website, like typos, broken links and a page of common questions.</p>
+</section>
+<section id="invest" class="dark">
+<h2>Investment</h2>
+<div class="invest">
+<div class="price">
+<p class="big">$550</p>
+<p class="unit" style="color:#C9D3CC">CAD per month · 6 months</p>
+<p class="term">Everything in this proposal, for all 5 stores. After 6 months, it continues month to month.</p>
+</div>
+<div class="incl">
+<h3>Where we want you in 6 months</h3>
+<ul>
+<li>ChatGPT recommends Healthy Cart in all 5 towns</li>
+<li>No more photo mix-up with other stores</li>
+<li>Caledon shows up on Google and in AI answers</li>
+<li>More reviews at Woodstock and Bramalea</li>
+</ul>
+</div>
+</div>
+
+</section>
+</div>
+<div class="nav"><button id="prev" aria-label="Previous slide">&#8249;</button><span id="count"></span><button id="next" aria-label="Next slide">&#8250;</button></div>
+<script>
+const S=[...document.querySelectorAll('#stage>section')];let i=0;
+const st=document.getElementById('stage');
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(-50%,-50%) scale(${k})`;}
+function go(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));document.getElementById('count').textContent=(i+1)+' / '+S.length;prev.disabled=i===0;next.disabled=i===S.length-1;history.replaceState(null,'','#'+(i+1));}
+prev.onclick=()=>go(i-1);next.onclick=()=>go(i+1);
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}});
+let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null;});
+addEventListener('resize',fit);fit();go((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>
