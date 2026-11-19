@@ -1,0 +1,229 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Make a short film of your own years — @theabhaychopra</title>
+<meta name="description" content="How I made my 4,811-day film: the younger me from one photo in Google Flow, my real photos, and a day counter.">
+<meta property="og:title" content="Make a short film of your own years"><meta property="og:description" content="How I made my 4,811-day film: the younger me from one photo in Google Flow, my real photos, and a day counter.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/4811/">
+<meta property="og:image" content="https://theabhaychopra.github.io/4811/img/cover-1795061383769-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-11-19T04:13:45Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>The de-ageing prompts + my shot list</span></div>
+<h1>Make a short film of <em>your own years</em></h1>
+<p class="sub">How I made my 4,811-day film: the younger me from one photo in Google Flow, my real photos, and a day counter.</p>
+<div class="facts"><span>Google Flow</span><span>checked 18 Nov 2026</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="4811-days-guide.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/cover-1795061383769-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#write-your-timeline"><span class="n">02</span><span>Write your timeline<span class="k">Step 0</span></span><span class="arr">↓</span></a></li><li><a href="#the-de-ageing-prompt"><span class="n">03</span><span>The de-ageing prompt<span class="k">Day 1</span></span><span class="arr">↓</span></a></li><li><a href="#every-age-same-face"><span class="n">04</span><span>Every age, same face<span class="k">The years in between</span></span><span class="arr">↓</span></a></li><li><a href="#the-match-cut"><span class="n">05</span><span>The match cut<span class="k">The trick</span></span><span class="arr">↓</span></a></li><li><a href="#one-shot-in-flow-video"><span class="n">06</span><span>One shot in Flow video<span class="k">Make it move</span></span><span class="arr">↓</span></a></li><li><a href="#the-shot-list"><span class="n">07</span><span>The shot list<span class="k">My edit</span></span><span class="arr">↓</span></a></li><li><a href="#before-you-post"><span class="n">08</span><span>Before you post<span class="k">Good to know</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>One clear photo of you today</b>: front-facing, sharp, no filter, just you.</li><li><b>Google Flow</b>: a website, nothing to install: <a href="https://labs.google/flow">labs.google/flow</a>. A laptop is easiest.</li><li><b>Your real dates</b>: the day it started, and 3 or 4 moments since.</li><li><b>A few real photos</b> from those moments, if you have them. Real ones hit harder than any AI shot.</li></ul></div>
+<div class="tip"><span class="label deep">How it works</span><p>Pick a start day. Make <b>younger you</b> from today's photo, one age at a time. Mix in your <b>real photos</b>. A day counter ties it together, and the last shot is <b>you today, in the same spot as day 1</b>.</p></div></div></section>
+<section id="write-your-timeline"><header class="sechead"><span class="label">Step 0</span><h2>Write your <em>timeline</em><img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2><p class="lead">The film is only as good as the dates are true. Mine, from the day GTA 5 came out:</p></header><div class="blocks"><div class="card rowsbox"><span class="label">My 4,811 days</span><div class="rows"><div class="row"><span class="k">Day 1 · 17 Sep 2013</span><span class="v">I'm 13, in middle school, and GTA 5 just came out</span></div><div class="row"><span class="k">2018</span><span class="v">I start college</span></div><div class="row"><span class="k">Day 2,097 · Jun 2019</span><span class="v">my first paying client</span></div><div class="row"><span class="k">2020</span><span class="v">I give a TEDx talk</span></div><div class="row"><span class="k">Day 4,654 · Jun 2026</span><span class="v">my name on a billboard in Times Square</span></div><div class="row"><span class="k">Day 4,811 · 19 Nov 2026</span><span class="v">GTA 6 comes out</span></div></div></div>
+<div class="tip"><span class="label deep">Counting the days</span><p>Day number = the date minus your start date. In Google Sheets, <b>=DAYS("2026-11-19", "2013-09-17")</b> gives <b>4811</b>. If you only know the year of a moment, show the year, not a made-up day.</p></div>
+<div class="card step"><div class="top"><span class="num">1</span><h3>Upload your photo</h3></div><p>Open <a href="https://labs.google/flow">labs.google/flow</a> → <b>New project</b> → drop in your photo of today.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Attach it to every prompt</h3></div><p>Before each prompt: <b>+</b> → pick your photo → <b>Add to prompt</b>. Without it, the face drifts.</p></div>
+<div class="card step"><div class="top"><span class="num">3</span><h3>One age at a time</h3></div><p>Ask for <b>2 images, 9:16</b> of one age per message. Keep the best, then move on to the next age.</p></div></div></section>
+<section id="the-de-ageing-prompt"><header class="sechead"><span class="label">Day 1</span><h2>The <em>de-ageing</em> prompt</h2><p class="lead">This made the 13-year-old me. Change the parts in the table below.</p></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Younger you · attach your photo first</span><button class="copy" type="button">Copy</button></div><pre>Make 2 images, 9:16 portrait, photoreal cinematic film still. The person in the attached photo as a 13-year-old in September 2013: keep their exact face shape, eyes, eyebrows, nose, skin tone and hair, but a young teenager's face. They sit cross-legged on the carpet of a small dark bedroom late at night, holding a plain black game controller with no logos, eyes wide and happy, lit only by the cool blue glow of a TV just outside the frame (the screen itself is not visible). Soft film grain, shallow depth of field, 35mm look. No text, no logos.</pre></div>
+<div class="card rowsbox"><span class="label">Make it yours</span><div class="rows"><div class="row"><span class="k">Age + year</span><span class="v">your age on day 1, and the month and year</span></div><div class="row"><span class="k">The place</span><span class="v">where you were that night: a bedroom, a hostel, a shop</span></div><div class="row"><span class="k">The thing</span><span class="v">what you were doing: a controller, a phone, a sketchbook</span></div><div class="row"><span class="k">Keep</span><span class="v">the light from something just off-screen: it makes the memory feel real</span></div></div></div></div></section>
+<section id="every-age-same-face"><header class="sechead"><span class="label">The years in between</span><h2>Every age, <em>same face</em></h2></header><div class="blocks"><figure class="fig"><img src="img/ages-1795061382344-w1300.jpg" alt="Made in Flow from one photo of me: 13, 18, 19 and 20. All AI." loading="lazy" decoding="async" style="aspect-ratio:2050/900;object-fit:cover;object-position:50% 50%"/><figcaption>Made in Flow from one photo of me: 13, 18, 19 and 20. All AI.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">Any age · attach your photo first</span><button class="copy" type="button">Copy</button></div><pre>Make 2 images, 9:16 portrait, same photoreal film-still look, from the attached photo of the same person (keep their exact face shape, eyes, eyebrows, nose, skin tone and hair, natural face width). Them at [AGE] in [YEAR], [WHERE THEY ARE AND WHAT THEY'RE DOING]. No text, no logos.</pre></div>
+<div class="card rowsbox"><div class="rows"><div class="row"><span class="k">18 · 2018</span><span class="v">first week of college, on a narrow bed in a hostel room at night with a laptop and books</span></div><div class="row"><span class="k">19 · Jun 2019</span><span class="v">at a desk late at night, smiling at their phone because their first client just paid</span></div><div class="row"><span class="k">20 · 2020</span><span class="v">on a dark stage under one warm spotlight, holding a microphone</span></div></div></div></div></section>
+<section id="the-match-cut"><header class="sechead"><span class="label">The trick</span><h2>The <em>match cut</em></h2><p class="lead">The last shot is you today, in the <b>exact</b> room and pose of day 1. Attach two things: the day-1 image first, then your photo.</p></header><div class="blocks"><figure class="fig"><img src="img/matchcut.jpg" alt="Day 1 and day 4,811: same room, same pose, 13 years apart." loading="lazy" decoding="async" style="aspect-ratio:1240/1100;object-fit:cover;object-position:50% 50%"/><figcaption>Day 1 and day 4,811: same room, same pose, 13 years apart.</figcaption></figure>
+<div class="cmd"><div class="cmdhead"><span class="label">You today · attach the day-1 image, then your photo</span><button class="copy" type="button">Copy</button></div><pre>Make 2 images, 9:16 portrait. Recreate the first attached image with the exact same room, camera angle, framing, pose, light and film grain, but the person is now the grown-up in the second attached photo, as they are today: their exact face, hair and facial hair, a calm, quiet smile. No text, no logos.</pre></div></div></section>
+<section id="one-shot-in-flow-video"><header class="sechead"><span class="label">Make it move</span><h2>One shot in <em>Flow video</em></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>Animate the last shot</h3></div><p>On the image: <b>⋮</b> → <b>Animate</b>. It becomes the first frame of a video.</p></div>
+<div class="card step"><div class="top"><span class="num">2</span><h3>Check the cost first</h3></div><p>Open the settings chip and set <b>x1</b>. Flow shows what it will cost before you generate: one 8-second clip was <b>24 credits</b> on my plan.</p></div>
+<div class="cmd"><div class="cmdhead"><span class="label">Motion prompt</span><button class="copy" type="button">Copy</button></div><pre>Slow, gentle push-in toward them. They stay seated on the floor, thumbs moving softly on the controller, they blink and a small quiet smile grows, the cool blue TV glow flickers softly across their face. The TV screen is never shown. Same face and hair throughout. No text, no logos, no other people, no speech.</pre></div></div></section>
+<section id="the-shot-list"><header class="sechead"><span class="label">My edit</span><h2>The <em>shot list</em></h2><p class="lead">About 40 seconds. One line of voice-over per shot, each cut on its words. In order:</p></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Hook</span><span class="v">"I waited 4,811 days for…" over day-1 you · counter DAY 1</span></div><div class="row"><span class="k">Day 1</span><span class="v">the date, how old you were, what happened</span></div><div class="row"><span class="k">The proof</span><span class="v">the AI you next to your real photo of today</span></div><div class="row"><span class="k">3 milestones</span><span class="v">one AI age each, the counter rolls on</span></div><div class="row"><span class="k">The real one</span><span class="v">your real photo or video of the big moment · the counter stops</span></div><div class="row"><span class="k">"Day…"</span><span class="v">day-1 you for one beat</span></div><div class="row"><span class="k">The number</span><span class="v">match cut to you today · the counter lands</span></div><div class="row"><span class="k">Tonight</span><span class="v">the moving shot, one quiet line</span></div><div class="row"><span class="k">The end</span><span class="v">back to day 1, so it loops</span></div></div></div>
+<div class="tip"><span class="label deep">The music</span><p>Use music you made or have rights to. Keep it under the voice: quiet at the start, a swell into the big number.</p></div></div></section>
+<section id="before-you-post"><header class="sechead"><span class="label">Good to know</span><h2>Before you <em>post</em></h2></header><div class="blocks"><div class="card rowsbox"><div class="rows"><div class="row"><span class="k">Only your face</span><span class="v">use photos of yourself only, never someone else's</span></div><div class="row"><span class="k">Say it's AI</span><span class="v">tell people which shots are AI and which are real; it's part of the story</span></div><div class="row"><span class="k">Real dates</span><span class="v">every number on screen should be true</span></div><div class="row"><span class="k">No game footage</span><span class="v">a TV glow tells the story. Don't put game footage, logos or soundtracks in your film</span></div><div class="row"><span class="k">"Failed"</span><span class="v">Flow sometimes fails a generation; send the same prompt again</span></div></div></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>Now make <em>your own years</em></h2><p class="lead">One photo and a few true dates is all it takes.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 1.3 MB · works offline.</p><a class="btn main" href="4811-days-guide.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-11-19.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
