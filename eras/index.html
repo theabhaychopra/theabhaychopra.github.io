@@ -1,0 +1,229 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Put yourself in every era of open-world games — @theabhaychopra</title>
+<meta name="description" content="How I turned one real 4-second clip of me into 8-bit, early-2000s 3D, 2008, 2013 and next-gen: two looks in code, three with one Google Flow prompt each.">
+<meta property="og:title" content="Put yourself in every era of open-world games"><meta property="og:description" content="How I turned one real 4-second clip of me into 8-bit, early-2000s 3D, 2008, 2013 and next-gen: two looks in code, three with one Google Flow prompt each.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://theabhaychopra.github.io/eras/">
+<meta property="og:image" content="https://theabhaychopra.github.io/eras/img/cover_2026-1795061751067-w1000.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F0EBDF"><meta name="guide-build" content="2026-11-19T04:17:36Z">
+<link rel="icon" href="img/illustrated_face-1792343890582-w160.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: light; --paper: #F0EBDF; --card: #FCF9F5; --card2: #f6f2ea; --line: #dfd4c4; --ink: #15100C; --ink2: #342d26; --mute: #7D7064; --dot: rgba(125,112,100,0.18); --accent: #B4421E; --accent-hi: #bf5c3e; --accent-deep: #813218; --on-dark-accent: #d4917d; --tint: #f3e1db; --tint2: #f9f0ed; --tint-line: #e6bfb2; --tint-line2: #efd5ce; --halo: rgba(180,66,30,0.18); --glow1: rgba(191,92,62,0.3); --glow2: rgba(243,225,219,0.95); --glow-dark: rgba(191,92,62,0.45); --dark: #15100C; --dark-text: #e7e2d7; --deep: #4E2213; --deep-text: #f6f3ec; --btn-shadow: rgba(129,50,24,0.55); --shadow: 0 24px 60px -42px rgba(21,16,12,0.55); --shadow-soft: 0 14px 34px -30px rgba(21,16,12,0.5); --ok: #2E8A57; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 Inter, system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(var(--dot) 1.2px, transparent 1.4px) 0 0 / 26px 26px; }
+.hero, main, footer { position: relative; z-index: 1; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent-deep); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+b, strong { font-weight: 700; }
+p { margin: 0; }
+img { max-width: 100%; }
+code { font: 500 0.88em "IBM Plex Mono", monospace; background: var(--card2); border: 1.5px solid var(--line); border-radius: 7px; padding: 1px 6px; word-break: break-word; }
+.label { display: block; font: 700 12px/1.3 "Inter Tight", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label.deep { color: var(--accent-deep); }
+h3 { font: 800 21px/1.15 "Inter Tight", sans-serif; letter-spacing: -0.02em; margin: 0; }
+/* hero */
+/* the bottom padding leaves room for the cards' long shadows (the hero clips its glows) */
+.hero { padding: 20px 0 46px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.hero::before { width: 560px; height: 560px; right: -230px; top: -260px; background: radial-gradient(closest-side, var(--glow1), transparent); }
+.hero::after { width: 680px; height: 680px; right: -360px; top: 140px; background: radial-gradient(closest-side, var(--glow2), transparent); }
+.hero .wrap { position: relative; z-index: 1; }
+.author { display: inline-flex; align-items: center; gap: 10px; padding: 5px 15px 5px 5px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); color: var(--ink); text-decoration: none; font: 700 14px/1.2 Inter, sans-serif; }
+.author img { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); }
+.author span { color: var(--mute); font-weight: 500; }
+.eyebrow { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; font: 700 13px/1.4 "Inter Tight", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow i { flex: none; width: 9px; height: 9px; margin: 4px 0 0 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--halo); }
+h1 { font: 800 clamp(40px, 10vw, 68px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin: 16px 0 0; text-wrap: balance; }
+h1 em, h2 em, .bignum em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+h1 em { font-size: 1.1em; line-height: 0.9; }
+.sub { font-size: 19px; line-height: 1.55; color: var(--ink2); max-width: 600px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.facts span { font: 700 14px/1.2 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 10px 14px; border-radius: 999px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 22px; border-radius: 14px; font: 700 17px/1 Inter, sans-serif; text-decoration: none; transition: transform 0.15s; }
+.btn:active { transform: translateY(1px); }
+.btn.main { background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); box-shadow: 0 14px 30px -10px var(--btn-shadow); }
+.btn.ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+/* the cover mascot on its own paper (cover.bg), framed; beside "In this guide" from 700 px */
+.intro { display: grid; gap: 14px; margin-top: 26px; }
+.tile { margin: 0; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); box-shadow: var(--shadow); }
+.tile img { display: block; width: 100%; height: auto; }
+/* 4:5, standing on the tile's bottom edge: trims the empty paper above the character */
+.intro .tile { max-width: 300px; }
+.intro .tile img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 100%; }
+@media (min-width: 700px) { .intro.withtoc { grid-template-columns: 250px 1fr; align-items: start; } .intro .tile { max-width: none; } }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: var(--shadow-soft); }
+.toc { border-radius: 24px; padding: 18px 18px 8px; box-shadow: var(--shadow); }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 16px/1.35 Inter, sans-serif; }
+.toc li:first-child a { border-top: 0; }
+.toc .n { font: 500 13px "IBM Plex Mono", monospace; color: var(--accent); }
+.toc .k { display: block; font: 500 13px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 2px; }
+.toc .arr { color: var(--mute); }
+/* sections */
+main { padding-bottom: 8px; }
+main section { padding: 30px 0; scroll-margin-top: 12px; }
+main section:first-child { padding-top: 0; }
+.sechead .label { margin-bottom: 8px; }
+h2 { font: 800 clamp(28px, 6.6vw, 42px)/1.06 "Inter Tight", sans-serif; letter-spacing: -0.04em; margin: 0 0 8px; text-wrap: balance; }
+h2 .pointer { height: 64px; width: auto; vertical-align: -12px; margin-left: 10px; }
+.lead { font-size: 17px; line-height: 1.55; color: var(--mute); }
+.blocks { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+section:not(:has(.sechead)) .blocks { margin-top: 0; }
+.text { font-size: 17px; line-height: 1.6; }
+.list h3 { margin-bottom: 8px; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { position: relative; padding: 11px 0 11px 22px; border-top: 1px solid var(--line); }
+.list li:first-child { border-top: 0; padding-top: 2px; }
+.list li::before { content: ""; position: absolute; left: 3px; top: 20px; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.list li:first-child::before { top: 11px; }
+.tip { background: var(--tint2); border: 1.5px solid var(--tint-line2); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; line-height: 1.55; }
+.tip .label { margin-bottom: 6px; }
+.bigstat { border-radius: 24px; padding: 20px 18px; box-shadow: var(--shadow); }
+.bignum { font: 800 clamp(44px, 13vw, 66px)/1 "Inter Tight", sans-serif; letter-spacing: -0.045em; margin-top: 8px; }
+.bignum em { font-size: 1.1em; }
+.bigstat p { color: var(--mute); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stats > div { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font: 800 28px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.stats span { display: block; font-size: 14px; line-height: 1.5; color: var(--mute); margin-top: 6px; }
+/* prompts: dark, the label and Copy on one row so the text gets the full width */
+.cmd { background: var(--dark); color: var(--dark-text); border-radius: 14px; padding: 12px 14px 16px 16px; }
+.cmdhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cmd .label { color: var(--on-dark-accent); font-size: 11px; letter-spacing: 0.12em; }
+.copy { flex: none; background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 13px; font: 700 14px/1 Inter, sans-serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.copy.done { background: var(--ok); }
+.cmd pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.6 "IBM Plex Mono", monospace; color: var(--dark-text); }
+.step { border-radius: 24px; padding: 22px 18px 18px; box-shadow: var(--shadow); }
+.step .top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.num { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; padding-bottom: 3px; font: italic 400 30px/1 "Instrument Serif", serif; }
+.step h3 { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; }
+.step > p { font-size: 17px; line-height: 1.55; }
+.step .cmd { margin-top: 12px; }
+.step .after { margin-top: 12px; color: var(--mute); font-size: 15.5px; }
+.rowsbox .label { margin-bottom: 4px; }
+.row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .k { font: 700 15px/1.45 "Inter Tight", sans-serif; }
+.row .v { font-size: 15.5px; line-height: 1.55; }
+.rows.narrow .row { grid-template-columns: 30px 1fr; align-items: center; }
+.rows.narrow .k { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font-size: 14px; }
+.rows.stat .row { grid-template-columns: 64px 1fr; align-items: baseline; }
+.rows.stat .k { font: 800 30px/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; color: var(--accent); }
+.note { margin-top: 10px; font-size: 14.5px; color: var(--mute); }
+.fig { margin: 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1.5px solid var(--line); box-shadow: var(--shadow); background: var(--card2); }
+.fig figcaption { font: 500 13px/1.45 "IBM Plex Mono", monospace; color: var(--mute); margin: 8px 2px 0; }
+.tool { border-radius: 24px; padding: 20px 18px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 12px; }
+.toolhead { display: flex; gap: 14px; align-items: center; }
+.toolhead .logo { flex: none; width: 58px; height: 58px; border-radius: 14px; object-fit: contain; background: var(--paper); border: 1.5px solid var(--line); padding: 6px; }
+.toolhead h3 { font-size: 25px; letter-spacing: -0.03em; margin-top: 4px; }
+.instead { font-size: 15.5px; color: var(--mute); margin-top: -4px; }
+.instead s { color: var(--ink2); white-space: nowrap; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.free { display: inline-block; font: 800 14px/1 "Inter Tight", sans-serif; background: var(--tint); color: var(--accent-deep); padding: 5px 9px; border-radius: 999px; }
+.what { font-size: 17px; line-height: 1.55; }
+.tool .rows { background: var(--card2); border: 1.5px solid var(--line); border-radius: 14px; padding: 2px 14px; }
+/* on a phone the tool's facts stack (label over value) so the value gets the card's full width */
+@media (max-width: 639px) {
+  .tool .row { grid-template-columns: 1fr; gap: 3px; }
+  .tool .row .k { font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
+}
+.start ol { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+.start li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+.start li::before { content: counter(s); position: absolute; left: 0; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--card); display: grid; place-items: center; font: italic 400 18px/1 "Instrument Serif", serif; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkbtn { display: inline-flex; flex-direction: column; gap: 2px; text-decoration: none; background: linear-gradient(var(--accent-hi), var(--accent)); color: var(--card); border-radius: 12px; padding: 10px 14px; font: 700 15px/1.2 Inter, sans-serif; box-shadow: 0 10px 24px -12px var(--btn-shadow); }
+.linkbtn span { font: 500 11.5px/1.2 "IBM Plex Mono", monospace; opacity: 0.85; }
+.sources ol { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; }
+.sources li { counter-increment: s; position: relative; padding: 11px 0 11px 36px; border-top: 1px solid var(--line); }
+.sources li:first-child { border-top: 0; }
+.sources li::before { content: counter(s); position: absolute; left: 0; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--tint); color: var(--accent-deep); display: grid; place-items: center; font: 700 12px/1 "Inter Tight", sans-serif; }
+.sources a { font-weight: 700; }
+.sources .host { display: block; font: 500 12.5px/1.4 "IBM Plex Mono", monospace; color: var(--mute); margin-top: 2px; }
+.sources p { font-size: 15px; margin-top: 4px; }
+/* the end: his waving character, the title, — Abhay */
+.endcard { border-radius: 24px; padding: 18px 18px 20px; box-shadow: var(--shadow); }
+.endcard .tile { max-width: 280px; margin: 0 0 18px; box-shadow: none; }
+.endcard h2 { margin-bottom: 8px; }
+.sign { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 16px; font: italic 400 32px/1 "Instrument Serif", serif; }
+.sign span { font: 700 12px "Inter Tight", sans-serif; font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+/* the PDF + his Instagram */
+.pdfcard { position: relative; overflow: hidden; background: var(--deep); color: var(--deep-text); border-radius: 26px; padding: 24px 20px 22px; margin: 8px 0 26px; }
+.pdfcard::before { content: ""; position: absolute; width: 420px; height: 420px; right: -170px; top: -210px; border-radius: 50%; background: radial-gradient(closest-side, var(--glow-dark), transparent); pointer-events: none; }
+.pdfcard > * { position: relative; }
+.pdfcard h2 { color: var(--deep-text); font-size: clamp(26px, 6.6vw, 38px); }
+.pdfcard h2 em { color: var(--on-dark-accent); }
+.pdfcard p { opacity: 0.78; }
+.pdfcard .btn { margin-top: 18px; }
+.foot { text-align: center; padding-bottom: 44px; }
+.me { display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); text-decoration: none; color: var(--ink); text-align: left; }
+.me img { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+.me b { display: block; font-size: 16px; }
+.me span span { display: block; font-size: 13px; color: var(--mute); }
+.small { font-size: 12.5px; line-height: 1.55; color: var(--mute); margin-top: 18px; }
+</style></head><body>
+<header class="hero"><div class="wrap">
+<a class="author" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/>@theabhaychopra<span>· Free guide</span></a>
+<div class="eyebrow"><i></i><span>Every prompt, word for word</span></div>
+<h1>Put yourself in <em>every era</em> of open-world games</h1>
+<p class="sub">How I turned one real 4-second clip of me into 8-bit, early-2000s 3D, 2008, 2013 and next-gen: two looks in code, three with one Google Flow prompt each.</p>
+<div class="facts"><span>1 real clip</span><span>5 eras</span><span>0 image credits</span></div>
+<div class="ctas"><a class="btn main" href="#guide">Start reading ↓</a><a class="btn ghost" href="AI-every-game-era.pdf" download>Download the PDF</a></div>
+<div class="intro withtoc"><figure class="tile" style="background:#F0EBDF"><img src="img/cover_2026-1795061751067-w1000.jpg" alt=""/></figure><nav class="card toc"><span class="label">In this guide</span><ol><li><a href="#what-you-need"><span class="n">01</span><span>What you need<span class="k">Before you start</span></span><span class="arr">↓</span></a></li><li><a href="#film-your-4-seconds"><span class="n">02</span><span>Film your 4 seconds<span class="k">Step 1</span></span><span class="arr">↓</span></a></li><li><a href="#s-8-bit-top-down"><span class="n">03</span><span>8-bit top-down<span class="k">Era 1 · made in code</span></span><span class="arr">↓</span></a></li><li><a href="#early-2000s-low-poly"><span class="n">04</span><span>Early-2000s low-poly<span class="k">Era 2 · made in code</span></span><span class="arr">↓</span></a></li><li><a href="#s-2008-gritty"><span class="n">05</span><span>2008 gritty<span class="k">Era 3 · one prompt</span></span><span class="arr">↓</span></a></li><li><a href="#s-2013-hd"><span class="n">06</span><span>2013 HD<span class="k">Era 4 · one prompt</span></span><span class="arr">↓</span></a></li><li><a href="#s-2026-next-gen"><span class="n">07</span><span>2026 next-gen<span class="k">Era 5 · one prompt</span></span><span class="arr">↓</span></a></li><li><a href="#put-the-reel-together"><span class="n">08</span><span>Put the reel together<span class="k">Step 2</span></span><span class="arr">↓</span></a></li><li><a href="#what-it-cost-me"><span class="n">09</span><span>What it cost me<span class="k">Honest numbers</span></span><span class="arr">↓</span></a></li></ol></nav></div>
+</div></header>
+<main class="wrap" id="guide">
+<section id="what-you-need"><header class="sechead"><span class="label">Before you start</span><h2>What you <em>need</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>A 4-second clip of you</b> walking across a street, on a tripod, filmed wide (I shot mine in 4K)</li><li><b>One clear photo of your face</b>: it's what keeps the AI eras looking like you</li><li><b><a href="https://labs.google/fx/tools/flow">Google Flow</a></b> for the three AI eras (Nano Banana 2.1 images). On my plan these cost <b>0 credits</b></li><li><b><a href="https://claude.ai">Claude</a></b> to write the code for the two code eras (any plan that runs code)</li></ul></div>
+<figure class="fig"><img src="img/six_strip-1795061751341-w1300.jpg" alt="My real clip, then the five eras: 8-bit and 2001 are code, 2008, 2013 and 2026 are Google Flow images of me (AI-made)." loading="lazy" decoding="async" style="aspect-ratio:2050/592;object-fit:cover;object-position:50% 50%"/><figcaption>My real clip, then the five eras: 8-bit and 2001 are code, 2008, 2013 and 2026 are Google Flow images of me (AI-made).</figcaption></figure></div></section>
+<section id="film-your-4-seconds"><header class="sechead"><span class="label">Step 1</span><h2>Film your <em>4 seconds</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Camera still, on a tripod</b>, side-on to a street or a crosswalk</li><li><b>Walk across, stop, turn and wave at the camera, walk on.</b> The wave is the moment every era copies</li><li><b>Film wide and in 4K</b> so you can crop a square-ish window that follows you</li><li><b>Grab a frame of the empty street</b> before you walk in: the low-poly look rebuilds it</li><li><b>Keep it generic.</b> No game logos, characters or places: you're the main character</li></ul></div>
+<div class="tip"><span class="label deep">The layout</span><p>Your <b>real clip on top</b>, one era below, and the era changes on the word that names it. The real clip loops the whole time, so people can compare.</p></div>
+<div class="tip"><span class="label deep">In Google Flow</span><p>Attach your face photo with <b>+</b>, pick <b>Image · 4:3 · Nano Banana 2.1</b>, paste the prompt, swap in your outfit.</p></div></div></section>
+<section id="s-8-bit-top-down"><header class="sechead"><span class="label">Era 1 · made in code</span><h2><em>8-bit</em> top-down<img class="pointer" src="img/pencil_point_cutout-1792696428359-w360.png" alt=""/></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">1</span><h3>Ask Claude for the 8-bit version</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>I have a 4-second video of me walking left across a street, filmed from the side on a tripod. I stop and wave at the camera between &lt;start&gt; and &lt;end&gt; seconds. Write a Python script (numpy, Pillow, ffmpeg) that draws an 8-bit top-down version of the same 4 seconds: a 72 × 64 pixel world shown at 15× (1080 × 960), an intersection with a crosswalk, trees, roofs and parked cars in a 16-colour palette, and a 10 × 16 pixel sprite of me (&lt;hair&gt;, &lt;top&gt;, &lt;trousers&gt;, &lt;bag&gt;) that walks left with a 2-frame walk cycle, turns to face the camera and waves while I'm stopped, then walks on. The camera pans with the sprite. Move the sprite with my real x position over time: &lt;x positions every 0.5 s&gt;. Draw your own 3 × 5 pixel font for a small score in the top-right corner. Don't copy any real game's sprites, map or HUD. Write a 30 fps MP4.</pre></div><p class="after">Fill in the brackets from your own clip. My sprite stops and waves exactly when I do, because it uses my real position.</p></div>
+<figure class="fig"><img src="img/era1_8bit_vs_real.jpg" alt="Real clip (left) and the 8-bit version (right), same frame." loading="lazy" decoding="async" style="aspect-ratio:1200/529;object-fit:cover;object-position:50% 50%"/><figcaption>Real clip (left) and the 8-bit version (right), same frame.</figcaption></figure></div></section>
+<section id="early-2000s-low-poly"><header class="sechead"><span class="label">Era 2 · made in code</span><h2>Early-2000s <em>low-poly</em></h2></header><div class="blocks"><div class="card step"><div class="top"><span class="num">2</span><h3>Ask Claude for the low-poly version</h3></div><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>Write a Python script (OpenCV, numpy, ffmpeg) that gives my 4-second street clip an early-2000s 3D game look. 1) Take one frame of the empty street (before I walk in) and rebuild it as flat-shaded triangles: Delaunay over strong corners, points on the edges and a jittered grid; fill each triangle with its average colour; 15-bit colour; light distance fog toward the horizon. 2) Cut me out of every frame with a person mask (&lt;mask file&gt;). Drop my texture to half resolution, smooth it with a bilateral filter and snap it to a 12-colour palette taken from my own pixels, so I look like a low-poly character. 3) Add a round blob shadow under my feet. 4) Render everything at 360 × 320 with no anti-aliasing and scale it up 3× with nearest-neighbour. Write a 30 fps MP4.</pre></div><p class="after">For the person mask, any background remover works. Mine uses Apple Vision on a Mac.</p></div>
+<figure class="fig"><img src="img/era2_lowpoly_vs_real.jpg" alt="Real clip (left) and the low-poly version (right)." loading="lazy" decoding="async" style="aspect-ratio:1200/529;object-fit:cover;object-position:50% 50%"/><figcaption>Real clip (left) and the low-poly version (right).</figcaption></figure></div></section>
+<section id="s-2008-gritty"><header class="sechead"><span class="label">Era 3 · one prompt</span><h2>2008 <em>gritty</em></h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>A screenshot-style frame from a generic late-2000s (2008) open-world video game, third-person camera at street level: the person in the attached photo (keep their exact face, hair, beard, natural face width and skin) wearing &lt;your outfit, e.g. dark sunglasses, a beige zip-up hoodie, grey joggers and a blue backpack&gt;, standing on a white-lined crosswalk in the middle of a quiet suburban street lined with big green trees and parked cars, turned toward the camera and waving with their right hand, full body in frame. Late-2000s console graphics: heavy brown-grey colour filter, washed-out desaturated colours, strong bloom on the sky, low-resolution muddy textures, slightly blurry, chunky low-detail trees, aliased edges, flat lighting, a hazy grey-brown sky. Original art, not any real game: no HUD, no text, no logos, no characters or places from any existing game.</pre></div>
+<figure class="fig"><img src="img/era3_2008.jpg" alt="My 2008 era (AI-made in Google Flow)." loading="lazy" decoding="async" style="aspect-ratio:1200/896;object-fit:cover;object-position:50% 50%"/><figcaption>My 2008 era (AI-made in Google Flow).</figcaption></figure></div></section>
+<section id="s-2013-hd"><header class="sechead"><span class="label">Era 4 · one prompt</span><h2>2013 <em>HD</em></h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>A screenshot-style frame from a generic early-2010s (2013) HD open-world video game, third-person camera at street level: the person in the attached photo (keep their exact face, hair, beard, natural face width and skin) wearing &lt;your outfit, e.g. dark sunglasses, a beige zip-up hoodie, grey joggers and a blue backpack&gt;, standing on a white-lined crosswalk in the middle of a quiet suburban street lined with big green trees and parked cars, turned toward the camera and waving with their right hand, full body in frame. Early-2010s HD console graphics: crisp sharp textures, bright saturated warm afternoon sun, deep blue sky, glossy reflective asphalt with strong specular highlights, high contrast, punchy colours, slightly plastic smooth skin shading, clean shadows, sharp but game-like character model. Original art, not any real game: no HUD, no text, no logos, no characters or places from any existing game.</pre></div>
+<figure class="fig"><img src="img/era4_2013.jpg" alt="My 2013 era (AI-made in Google Flow)." loading="lazy" decoding="async" style="aspect-ratio:1200/896;object-fit:cover;object-position:50% 50%"/><figcaption>My 2013 era (AI-made in Google Flow).</figcaption></figure></div></section>
+<section id="s-2026-next-gen"><header class="sechead"><span class="label">Era 5 · one prompt</span><h2>2026 <em>next-gen</em></h2></header><div class="blocks"><div class="cmd"><div class="cmdhead"><span class="label">Copy this prompt</span><button class="copy" type="button">Copy</button></div><pre>A frame from a generic 2026 next-generation open-world video game, third-person camera at street level, medium shot from the knees up: the person in the attached photo (keep their exact face, hair, beard, natural face width and skin) wearing &lt;your outfit, e.g. dark sunglasses, a beige zip-up hoodie, grey joggers and a blue backpack&gt;, standing on a white-lined crosswalk in the middle of a quiet suburban street lined with big green trees and parked cars, turned toward the camera and waving with their right hand. Photoreal next-gen game render: path-traced global illumination, soft golden-hour sunlight through the leaves, volumetric light, ultra-detailed skin with visible pores and individual hairs, realistic fabric weave, reflections in the sunglasses, subtle cinematic depth of field, film-like colour. It should look almost real but still like a game engine render. Original art, not any real game: no HUD, no text, no logos, no characters or places from any existing game.</pre></div>
+<figure class="fig"><img src="img/era5_2026.jpg" alt="My 2026 era: the one where you can see the pores (AI-made in Google Flow)." loading="lazy" decoding="async" style="aspect-ratio:1200/896;object-fit:cover;object-position:50% 50%"/><figcaption>My 2026 era: the one where you can see the pores (AI-made in Google Flow).</figcaption></figure></div></section>
+<section id="put-the-reel-together"><header class="sechead"><span class="label">Step 2</span><h2>Put the reel <em>together</em></h2></header><div class="blocks"><div class="card list"><ul><li><b>Split the frame:</b> real clip in the top half, the era in the bottom half, a thin line between</li><li><b>Loop the real 4 seconds</b> under everything. Keep the two code eras in step with it, frame for frame</li><li><b>Move the stills:</b> a slow pan on 2008, a slow push on 2013, and a push-in to your face on 2026 that's tightest on the word "pores"</li><li><b>Change the era on the word</b> that names it, and flash all five on "five times"</li><li><b>End on all five in a row</b> and ask which era is theirs: that's the comment</li></ul></div>
+<div class="tip"><span class="label deep">Stills or moving?</span><p>I kept the three AI eras as stills with camera moves: 0 credits. To make them move, animate each still in Flow video or Kling, which costs credits per shot.</p></div></div></section>
+<section id="what-it-cost-me"><header class="sechead"><span class="label">Honest numbers</span><h2>What it <em>cost</em> me</h2></header><div class="blocks"><div class="card statcard"><div class="stats"><div><b>0</b><span>image credits for the three Flow eras (my Flow plan)</span></div><div><b>0</b><span>credits for the two code eras</span></div><div><b>6</b><span>Flow images made, 3 used</span></div><div><b>4 s</b><span>of real footage in the whole reel</span></div></div></div>
+<p class="text">The voice in the reel is my own AI voice clone (ElevenLabs). The three AI eras are Google Flow images made from my photo. This is original art inspired by the GTA 6 launch, not affiliated with Rockstar Games.</p>
+<div class="card sources"><span class="label">Links (checked 18 Nov 2026)</span><ol><li><a href="https://labs.google/fx/tools/flow">Google Flow</a><span class="host">labs.google</span></li><li><a href="https://claude.ai">Claude</a><span class="host">claude.ai</span></li></ol></div></div></section>
+<section class="end"><div class="blocks"><div class="card endcard"><figure class="tile"><img src="img/wave_end-1792384110069-w900.jpg" alt="" loading="lazy" decoding="async"/></figure><h2>One clip, <em>every era</em></h2><p class="lead">Every prompt here is the one I ran for the reel, word for word. Tell me which era you made.</p><div class="sign">— Abhay<span>@theabhaychopra</span></div></div></div></section>
+</main>
+<footer class="wrap">
+<div class="pdfcard"><h2>Keep it <em>with you</em></h2><p>The same guide as a PDF · 2.4 MB · works offline.</p><a class="btn main" href="AI-every-game-era.pdf" download>Download the PDF ↓</a></div>
+<div class="foot"><a class="me" href="https://www.instagram.com/theabhaychopra/"><img src="img/illustrated_face-1792343890582-w160.png" alt=""/><span><b>@theabhaychopra</b><span>on Instagram</span></span></a>
+<p class="small">Free guide by @theabhaychopra. Updated 2026-11-19.</p></div>
+</footer>
+<script>
+document.querySelectorAll(".copy").forEach((b) => {
+  b.addEventListener("click", async () => {
+    const t = b.closest(".cmd").querySelector("pre").innerText;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {}
+    if (!ok) {
+      const a = document.createElement("textarea");
+      a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length);
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      a.remove();
+    }
+    b.textContent = ok ? "Copied ✓" : "Select + copy"; b.classList.toggle("done", ok);
+    setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 2200);
+  });
+});
+</script>
+</body></html>
